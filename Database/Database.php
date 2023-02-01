@@ -1,23 +1,18 @@
 <?php
 
 namespace App\Database;
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use PDO;
 use PDOException;
-
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-print_r($_ENV);
 
 class Database
 {
     private static $instance;
     private $conn;
 
-    private function __construct()
+    public function __construct()
     {
         try {
             $dotenv = Dotenv::createImmutable(__DIR__);

@@ -3,9 +3,6 @@ CREATE DATABASE IF NOT EXISTS cogip;
 USE cogip;
 
 CREATE TABLE IF NOT EXISTS types (
-
-CREATE TABLE types (
-
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50),
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -81,8 +78,8 @@ CREATE TABLE IF NOT EXISTS users(
 INSERT INTO types (name)
 VALUES ("supplier"), ("client");
 
-INSERT INTO companies (name, type_id, country, tva) 
-VALUES 
+INSERT INTO companies (name, type_id, country, tva)
+VALUES
       ("Raviga", 1, "United States", "US456654321"),
       ("Dunder Miffilin", 2, "United States", "US676787767"),
       ("Pierre Cailloux", 1, "France", "FR 676 676 676"),
@@ -90,7 +87,7 @@ VALUES
       ("Jouet Jean-Michel", 2, "France", "FR787 776 999");
 
 INSERT INTO invoices (ref, id_company)
-VALUES 
+VALUES
       ("F20220915-001", 5),
       ("F20220915-002", 2),
       ("F20220915-003", 3),
@@ -115,6 +112,6 @@ INSERT INTO roles_permission (permission_id, role_id)
 VALUES (1, 1), (2, 1), (3, 1), (4, 1), (2,2), (1,2);
 
 INSERT INTO users (first_name, last_name, email, password, role_id)
-VALUES 
+VALUES
       ("Jean-Christian", "Ranu", "jc.ranu@cogip.com", "ranu", 1),
       ("Murriel", "Perrache", "murriel-perrache@cogip.com", "perrache", 2);

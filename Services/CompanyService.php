@@ -34,15 +34,17 @@ class CompanyService
     public function getData()
     {
 
-        $data = [];
-        $companies = $this->company_repository->getLastFiveCompanies();
+/*        $data = [];
+
         $invoices = $this->company_repository->getLastFiveInvoices();
         $contacts = $this->company_repository->getLastFiveContacts();
         $data['companies'] = $companies;
         $data['invoices'] = $invoices;
-        $data['contacts'] = $contacts;
-        echo "ok";
-        //return json_encode($data, true);
+        $data['contacts'] = $contacts;*/
+
+        $companies = $this->company_repository->getAllCompanies();
+
+        print_r($companies);
 
     }
 }
