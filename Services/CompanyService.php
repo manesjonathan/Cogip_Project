@@ -33,18 +33,19 @@ class CompanyService
     //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
     public function getData()
     {
+        /*
 
-/*        $data = [];
-
-        $invoices = $this->company_repository->getLastFiveInvoices();
-        $contacts = $this->company_repository->getLastFiveContacts();
-        $data['companies'] = $companies;
-        $data['invoices'] = $invoices;
-        $data['contacts'] = $contacts;*/
-
+                $contacts = $this->company_repository->getLastFiveContacts();
+                $data['invoices'] = $invoices;
+                $data['contacts'] = $contacts;*/
+        $data = [];
         $companies = $this->company_repository->getAllCompanies();
+        $data['companies'] = $companies;
+        $json_encode = json_encode($data, true);
 
-        print_r($companies);
+        echo $json_encode;//todo remove
+
+        return $json_encode;
 
     }
 }

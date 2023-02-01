@@ -23,7 +23,7 @@ $router->get('/', function () {
 // API / FRONT-END ROUTES // Call directly appropriate service class
 //route to return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
 
-$router->get('get-data', function () {
+$router->get('/get-data', function () {
     return (new CompanyService())->getData();
 });
 
