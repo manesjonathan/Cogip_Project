@@ -1,5 +1,19 @@
 <?php
 
+namespace App\Services;
+
+use App\Database\Repositories\CompanyRepository;
+
+class CompanyService
+{
+    private $company_repository;
+
+    public function __construct()
+    {
+        $this->company_repository = new CompanyRepository();
+    }
+
+
 //function createCompany($array)
 //function getLastFiveCompanies() return array
 //function getCompanyById($id) return Company
@@ -18,3 +32,4 @@
 //function getData() -> return to frontend if user is valid
 //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
 
+}

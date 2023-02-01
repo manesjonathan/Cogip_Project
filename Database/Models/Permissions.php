@@ -2,13 +2,14 @@
 
 namespace App\Database\Models;
 
-class Type
+class Permissions
 {
 
     private $id;
     private $name;
     private $created_at;
     private $updated_at;
+
 
     public function __construct($name)
     {
@@ -19,6 +20,7 @@ class Type
     {
         return $this->id;
     }
+
 
     public function getName()
     {
@@ -39,5 +41,4 @@ class Type
     {
         return $this->updated_at;
     }
-
 }

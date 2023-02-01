@@ -2,7 +2,7 @@
 
 namespace App\Database\Models;
 
-class Type
+class Role
 {
 
     private $id;
@@ -39,5 +39,4 @@ class Type
     {
         return $this->updated_at;
     }
-
 }

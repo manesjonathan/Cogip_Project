@@ -1,5 +1,19 @@
 <?php
 
+namespace App\Database\Repositories;
+
+use App\Database\Database;
+
+class CompanyRepository
+{
+
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = Database::getInstance()->getConnection();
+    }
+}
 //function createCompany($array)
 //function getLastFiveCompanies()
 //function getCompanyById($id)
