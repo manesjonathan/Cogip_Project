@@ -5,9 +5,8 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Services\CompanyService;
 
-class HomeController extends Controller
+class CompaniesController extends Controller
 {
-
     private $service;
 
     public function __construct()
@@ -16,8 +15,8 @@ class HomeController extends Controller
     }
 
 
-    public function index()
-    {
-        return $this->view('welcome', ["name" => "Cogip"]);
-    }
+//function to return HTML view
+//function createCompany get $_POST of form inputs and call the service to create object
+
 }
+

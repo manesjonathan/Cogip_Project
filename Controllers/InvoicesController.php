@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Services\CompanyService;
 
-class HomeController extends Controller
+class InvoicesController extends Controller
 {
 
     private $service;
@@ -15,9 +15,7 @@ class HomeController extends Controller
         $this->service = new CompanyService();
     }
 
+//function to return HTML view
+//function createInvoice get $_POST of form inputs and call the service to create object
 
-    public function index()
-    {
-        return $this->view('welcome', ["name" => "Cogip"]);
-    }
 }

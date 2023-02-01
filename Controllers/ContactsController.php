@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Services\CompanyService;
 
-class HomeController extends Controller
+class ContactsController extends Controller
 {
 
     private $service;
@@ -16,8 +16,7 @@ class HomeController extends Controller
     }
 
 
-    public function index()
-    {
-        return $this->view('welcome', ["name" => "Cogip"]);
-    }
+
+//function to return HTML view
+//function createContact get $_POST of form inputs and call the service to create object
 }
