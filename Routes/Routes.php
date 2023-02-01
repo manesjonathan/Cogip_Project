@@ -2,13 +2,14 @@
 
 namespace App\Routes;
 
+use App\Services\CompanyService;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 
 $router = new Router();
 
 //Login page
-$router->get('/', function() {
+$router->get('/', function () {
     (new HomeController)->index();
 });
 
@@ -19,10 +20,14 @@ $router->get('/', function() {
 //route to logout?
 
 
-
-
 // API / FRONT-END ROUTES // Call directly appropriate service class
 //route to return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
+
+$router->get('get-data', function () {
+    return (new CompanyService())->getData();
+});
+
+
 //route get all companies
 //route get company by id
 //route get all invoices
