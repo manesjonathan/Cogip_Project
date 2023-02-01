@@ -7,6 +7,8 @@
     },
     "require": {
         "bramus/router": "^1.6",
-        "filp/whoops": "^2.14"
+        "filp/whoops": "^2.14",
+        "vlucas/phpdotenv": "^5.5",
+        "ext-pdo": "*"
     }
 }
