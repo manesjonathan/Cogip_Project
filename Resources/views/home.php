@@ -6,14 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <title>Document</title>
 </head>
 <body>
 
-<?php include 'shared/header.php'?>
+<?php include 'shared/header.php' ?>
 
 <main>
-    <h2>Welcome <?php echo $name ?></h2>
+    <h2>Welcome <?php echo $name ?? null ?></h2>
 </main>
 
 <?php include 'shared/navigation.php' ?>

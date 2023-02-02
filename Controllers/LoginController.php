@@ -27,7 +27,6 @@ class LoginController extends Controller
 
     public function login()
     {
-
         $is_valid = $this->service->verifyUser($_POST['email'], $_POST['password']);
 
         if (!$is_valid) {
@@ -35,7 +34,6 @@ class LoginController extends Controller
         }
 
         return $this->view('home', ["name" => $_SESSION['user']]);
-
     }
 }
 
