@@ -22,11 +22,19 @@ class CompanyService
     
     public function getLastFiveCompanies()
     {
-        return; // Todo: return array
+        $data["companies"] = $this->company_repository->getLastFiveCompanies();
+        $json_encode = json_encode($data, true);
+
+        header('Content-type: application/json');
+        echo $json_encode;
     } 
     
     public function getCompanyById($id){
-        return; // Todo: return company array
+        $data["company"] = $this->company_repository->getCompanyById($id);
+        $json_encode = json_encode($data, true);
+
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 
     public function createContact($array)
@@ -36,22 +44,38 @@ class CompanyService
 
     public function getAllContacts()
     {
-        return; // Todo: return Array of company
+        $data["contacts"] = $this->company_repository->getAllContacts();
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     } 
 
     public function getContactById($id)
     {
-        return; // Todo: return array contact
+        $data["contact"] = $this->company_repository->getCompanyById($id);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 
     public function getAllContactsByCompany($company)
     {
-        return; // Todo: return array of all contacts
+        $data["contacts"] = $this->company_repository->getAllContactsByCompany($company);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 
     public function getLastFiveContactsByCompany($company)
     {
-        return; // Todo: return array of contact
+        $data["contacts"] = $this->company_repository->getLastFiveContactsByCompany($company);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     }
         
     public function createInvoice($array)
@@ -61,36 +85,41 @@ class CompanyService
 
     public function getInvoiceById($id) 
     {
-        return; // Todo: retrun Invoice array
+        $data["invoice"] = $this->company_repository->getInvoiceById($id);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 
     public function getLastFiveInvoicesByCompany($company)
     {
-        return; // Todo: return array of invoices
+        $data["invoices"] = $this->company_repository->getLastFiveInvoicesByCompany($company);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     } 
 
     public function getInvoicesByCompany($company)
     {
-        return; // Todo: return array of invoices
+        $data["invoices"] = $this->company_repository->getInvoicesByCompany($company);
+        $json_encode = json_encode($data, true);
+        
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 
     // function getData() -> return to frontend if user is valid
     //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
     public function getData()
     {
-        /*
-
-                $contacts = $this->company_repository->getLastFiveContacts();
-                $data['invoices'] = $invoices;
-                $data['contacts'] = $contacts;*/
         $data = [];
         $companies = $this->company_repository->getAllCompanies();
         $data['companies'] = $companies;
         $json_encode = json_encode($data, true);
 
-        echo $json_encode;//todo remove
-
-        return $json_encode;
-
+        header('Content-type: application/json');
+        echo $json_encode;
     }
 }
