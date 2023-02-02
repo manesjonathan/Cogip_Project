@@ -2,6 +2,7 @@
 
 namespace App\Routes;
 
+use App\Controllers\LoginController;
 use App\Services\CompanyService;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
@@ -10,8 +11,13 @@ $router = new Router();
 
 //Login page
 $router->get('/', function () {
-    (new HomeController)->index();
+    (new LoginController())->index();
 });
+
+$router->post('/login', function () {
+    (new LoginController())->login();
+});
+
 
 //route to return dashboard (Home) view
 //route to return create invoice view

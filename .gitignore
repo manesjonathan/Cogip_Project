@@ -1,3 +1,4 @@
 /vendor/
 /Database/.env
 /.idea/
+/node_modules/
