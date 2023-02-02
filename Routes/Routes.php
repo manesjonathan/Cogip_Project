@@ -32,21 +32,21 @@ $router->get("/get-company/{id}", function ($id) {
     return (new CompanyService())->getCompanyById($id);
 });
 
-$router->get("/last-five-companies", function () {
+$router->get("/get-latest-companies", function () {
     return (new CompanyService())->getLastFiveCompanies();
 });
 // End of company related routes
 
 // || Start of contact routes
-$router->get("/get-all-contacts", function () {
+$router->get("/get-contacts", function () {
     return (new CompanyService())->getAllContacts();
 });
 
-$router->get("/get-all-contacts/company/{company_id}", function ($company_id) {
+$router->get("/get-contacts/company/{company_id}", function ($company_id) {
     return (new CompanyService())->getAllContactsByCompany($company_id);
 });
 
-$router->get("/last-five-contacts/company/{company_id}", function ($company_id) {
+$router->get("/get-latest-contacts/company/{company_id}", function ($company_id) {
     return (new CompanyService())->getLastFiveContactsByCompany($company_id);
 });
 
@@ -56,11 +56,11 @@ $router->get("/get-contact/{id}", function ($id) {
 // End of contact routes
 
 // || Start of invoice routes
-$router->get("/get-invoices/{company_id}", function ($company_id) {
-    return (new CompanyService())->getLastFiveInvoicesByCompany($company_id);
+$router->get("/get-invoices/company/{company_id}", function ($company_id) {
+    return (new CompanyService())->getInvoicesByCompany($company_id);
 });
 
-$router->get("/get-last-five-invoices/{company_id}", function ($company_id) {
+$router->get("/get-latest-invoices/company/{company_id}", function ($company_id) {
     return (new CompanyService())->getLastFiveInvoicesByCompany($company_id);
 });
 
