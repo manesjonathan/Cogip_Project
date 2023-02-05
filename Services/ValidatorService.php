@@ -2,20 +2,50 @@
 namespace App\Services;
 
 class ValidatorService{
-
-    public static function sanitizeInput($input)
+    
+    public static function isInputEmpty($input)
     {
-        return trim(htmlspecialchars($input));
-    }
-
-    public static function validateInput($input)
-    {
-        return !empty($input);
+        return empty($input);
     }
 
     public static function validateEmail($email)
     {
-        $regex = '/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/';
-        return preg_match($regex, $email);
+        return filter_var($email, FILTER_SANITIZE_EMAIL);
+    }
+
+    public static function sanitize_text($input)
+    { 
+        // Strip whitespace from the beginning and end of a string
+        $input = trim($input);
+        
+        // Remove backslashes
+        $input = stripslashes($input);
+
+        // Strip HTML and PHP tags 
+        $input = strip_tags($input);
+
+        return $input;
+    }
+
+    public static function isValidPhonenumebr($input)
+    {
+        return; // To do
+    }
+
+    public static function isAplhaNumeric($input)
+    {
+        return; // To do
+    }
+
+    public static function verifyDate($date, $strict = true)
+    {
+        $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+        if ($strict) {
+            $errors = DateTime::getLastErrors();
+            if (!empty($errors['warning_count'])) {
+                return false;
+            }
+        }
+        return $dateTime !== false;
     }
 }
