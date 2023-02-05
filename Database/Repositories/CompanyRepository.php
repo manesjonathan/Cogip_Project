@@ -38,7 +38,7 @@ class CompanyRepository
                  ORDER BY created_at
                  LIMIT 5';
         $stmt = $this->db->prepare($query);
-        $stmt->execute(PDO::FETCH_ASSOC);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -47,7 +47,7 @@ class CompanyRepository
     {
         $query = 'SELECT * FROM companies WHERE id=:id';
         $stmt = $this->db->prepare($query);
-        $stmt->execute(PDO::FETCH_ASSOC);
+        $stmt->execute(["id" => $id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -80,7 +80,7 @@ class CompanyRepository
     public function getAllContactsByCompany($id)
     {
       $query = 'SELECT * FROM contacts
-                WHERE company_id=:id
+                WHERE company_id=:company_id
                ';
       $stmt = $this->db->prepare($query);
       $stmt->execute(['company_id' => $id]);
@@ -115,7 +115,7 @@ class CompanyRepository
       $query = 'SELECT * FROM invoices
                 WHERE id=:id';
       $stmt = $this->db->prepare($query);
-      $stmt->execute();
+      $stmt->execute(["id" => $id]);
 
       return $stmt->fetch(PDO::FETCH_ASSOC);
     }
