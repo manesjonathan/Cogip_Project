@@ -1,0 +1,49 @@
+body {
+  background-color: #9698D6;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+main form {
+  width: 40%;
+  box-shadow: 1px 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  background-color: #fff;
+}
+main form label {
+  margin-top: 5%;
+}
+main form input {
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  background-color: #ecf0f1;
+  padding: 10px;
+  line-height: 2;
+  font-size: 16px;
+  margin-bottom: 15%;
+  margin-top: 5%;
+}
+main form button {
+  background-color: #9698D6;
+  color: #fff;
+  font-size: 18px;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+main form button :hover {
+  background-color: #686de0;
+}
+
+/*# sourceMappingURL=login.css.map */

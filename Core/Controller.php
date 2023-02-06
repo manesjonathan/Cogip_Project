@@ -13,4 +13,11 @@ class Controller
         extract($data);
         require_once(__ROOT__.'/Resources/views/'.$view.'.php');
     }
+
+    public function viewFull($view, $data = [])
+    {
+        extract($data);
+        include(__ROOT__.'/Resources/views/shared/navigation.php');
+        include(__ROOT__.'/Resources/views/'.$view.'.php');
+    }
 }
