@@ -35,5 +35,12 @@ class LoginController extends Controller
 
         return $this->viewFull('home', ["name" => $_SESSION['user']]);
     }
+
+    public function logout()
+    {
+        session_start();
+        unset($_SESSION["user"]);
+        header("Location:/");
+    }
 }
 

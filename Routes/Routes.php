@@ -21,6 +21,11 @@ $router->post('/login', function () {
 });
 
 
+$router->get('/logout', function () {
+    (new LoginController())->logout();
+});
+
+
 //route to return dashboard (Home) view
 //route to return create invoice view
 //route to return create company view

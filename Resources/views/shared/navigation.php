@@ -41,7 +41,7 @@
                 <img src="/assets/img/jeff.jpg" class="h-12 mr-3 rounded-full" alt="profile"/>
 
             </div>
-            <a href="#" class="font-normal text-base hover:underline mr-3">Logout</a>
+            <a href="/logout" class="font-normal text-base hover:underline mr-3">Logout</a>
         </div>
     </div>
 </aside>
