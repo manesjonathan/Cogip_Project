@@ -19,17 +19,18 @@ class CompanyService
 
         return;
     }
-    
+
     public function getLastFiveCompanies()
     {
         $data["companies"] = $this->company_repository->getLastFiveCompanies();
         $json_encode = json_encode($data, true);
 
-        header('Content-type: application/json');
-        echo $json_encode;
-    } 
-    
-    public function getCompanyById($id){
+        //header('Content-type: application/json');
+        return $data["companies"];
+    }
+
+    public function getCompanyById($id)
+    {
         if (!is_numeric($id)) {
             header('Content-type: application/json');
             http_response_code(400);
@@ -38,7 +39,7 @@ class CompanyService
             exit();
         }
         $id = intval($id);
-        
+
         $data["status"] = "ok";
         $data["company"] = $this->company_repository->getCompanyById($id);
         $json_encode = json_encode($data, true);
@@ -56,10 +57,10 @@ class CompanyService
     {
         $data["contacts"] = $this->company_repository->getAllContacts();
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
-    } 
+    }
 
     public function getContactById($id)
     {
@@ -74,7 +75,7 @@ class CompanyService
 
         $data["contact"] = $this->company_repository->getCompanyById($id);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
     }
@@ -92,7 +93,7 @@ class CompanyService
 
         $data["contacts"] = $this->company_repository->getAllContactsByCompany($company);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
     }
@@ -110,17 +111,17 @@ class CompanyService
 
         $data["contacts"] = $this->company_repository->getLastFiveContactsByCompany($company);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
     }
-        
+
     public function createInvoice($array)
     {
         return; // Todo: return boolean true on succes, false on failure
     }
 
-    public function getInvoiceById($id) 
+    public function getInvoiceById($id)
     {
         if (!is_numeric($id)) {
             header('Content-type: application/json');
@@ -132,7 +133,7 @@ class CompanyService
         $id = intval($id);
         $data["invoice"] = $this->company_repository->getInvoiceById($id);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
     }
@@ -150,10 +151,10 @@ class CompanyService
 
         $data["invoices"] = $this->company_repository->getLastFiveInvoicesByCompany($company);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
-    } 
+    }
 
     public function getInvoicesByCompany($company)
     {
@@ -165,10 +166,10 @@ class CompanyService
             exit();
         }
         $company = intval($company);
-        
+
         $data["invoices"] = $this->company_repository->getInvoicesByCompany($company);
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
     }

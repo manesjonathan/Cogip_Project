@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+
     .custom-bg {
         background-color: #9698d6;
+    }
+
+    .custom-h {
+        height : 50%;
     }
 }

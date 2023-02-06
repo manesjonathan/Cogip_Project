@@ -1,3 +1,12 @@
+<?php
+
+use App\Services\CompanyService;
+
+$company_service = new CompanyService();
+$companies = $company_service->getLastFiveCompanies();
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,36 +14,66 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="public/assets/css/output.css">
+    <link rel="stylesheet" href="/assets/css/output.css">
+    <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body class="flex w-full">
+<body class="">
+<?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
+<?php include(__ROOT__ . '/Resources/views/shared/header.php'); ?>
 
-<main class="flex flex-col p-4 w-full">
-    <section class="flex flex-col w-full">
-        <article class="flex w-full">
-            <h2>Dashboard</h2>
-            <img class="w-2/4 h-14 absolute top-0 right-0 z-10" src="public/assets/img/hero.webp" alt="dashboard">
-        </article>
+<main class="p-10 sm:ml-56 bg-gray-50 grid grid-col-2">
 
-
-        <article class="flex flex-col custom-bg rounded p-10 text-white relative">
-            <h2 class="text-3xl">Welcome back <?php echo $name ?? null ?>!</h2>
-            <p>You can here add an invoice, a company and some contacts</p>
-        </article>
+    <section class="m-4 col-start-1 col-end-1 bg-white p-4 rounded-lg">
+        <div class="flex flex-col ">
+            <h3 class="text-lg font-bold mb-2">Last Companies</h3>
+            <hr>
+            <table class="table-auto w-full text-left">
+                <thead class="">
+                <tr>
+                    <th class="px-4 py-4">Name</th>
+                    <th class="px-4 py-4">TVA</th>
+                    <th class="px-4 py-4">Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($companies as $company): ?>
+                    <tr class="">
+                        <td class="px-4 py-4"><?php echo $company['name']; ?></td>
+                        <td class="px-4 py-4"><?php echo $company['tva']; ?></td>
+                        <td class="px-4 py-4"><?php echo $company['country']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <section>
-        <?php
 
-        use App\Services\CompanyService;
-
-        $company_service = new CompanyService();
-        $data = $company_service->getData();
-        ?>
+    <section class="m-4 col-start-2 col-end-2 bg-white p-4 rounded-lg">
+        <div class="flex flex-col ">
+            <h3 class="text-lg font-bold mb-2">Last Companies</h3>
+            <hr>
+            <table class="table-auto w-full text-left">
+                <thead class="">
+                <tr>
+                    <th class="px-4 py-4">Name</th>
+                    <th class="px-4 py-4">TVA</th>
+                    <th class="px-4 py-4">Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($companies as $company): ?>
+                    <tr class="">
+                        <td class="px-4 py-4"><?php echo $company['name']; ?></td>
+                        <td class="px-4 py-4"><?php echo $company['tva']; ?></td>
+                        <td class="px-4 py-4"><?php echo $company['country']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </section>
-
 </main>
-
 </body>
 </html>

@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace App\Core;
 
-class Controller 
+class Controller
 {
     /*
     * @var $view, $data
@@ -11,13 +11,13 @@ class Controller
     public function view($view, $data = [])
     {
         extract($data);
-        require_once(__ROOT__.'/Resources/views/'.$view.'.php');
+        require_once(__ROOT__ . '/Resources/views/' . $view . '.php');
     }
 
     public function viewFull($view, $data = [])
     {
         extract($data);
-        include(__ROOT__.'/Resources/views/shared/navigation.php');
-        include(__ROOT__.'/Resources/views/'.$view.'.php');
+        include(__ROOT__ . '/Resources/views/' . $view . '.php');
+
     }
 }
