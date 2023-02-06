@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="/admin/invoices"
                    class="flex p-2 px-6 text-base font-normal rounded-lg hover:bg-gray-100 hover:font-bold items-center">
                     <i class="fa-regular fa-file-lines w-6 text-gray-500"></i>
                     <p class="ml-3">Invoices</p>

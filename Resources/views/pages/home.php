@@ -9,21 +9,6 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
 
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/assets/css/output.css">
-    <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
-<body class="">
-<?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
-<?php include(__ROOT__ . '/Resources/views/shared/header.php'); ?>
-
 <main class="px-5 sm:ml-56 bg-gray-50 grid grid-col-2">
 
     <div class="m-4  col-start-1 col-end-1 ">
@@ -132,5 +117,3 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
         </section>
     </div>
 </main>
-</body>
-</html>

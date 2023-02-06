@@ -8,7 +8,6 @@ use Bramus\Router\Router;
 use App\Controllers\HomeController;
 
 header("Access-Control-Allow-Origin: *");
-
 $router = new Router();
 
 //Login page
@@ -16,6 +15,7 @@ $router->get('/', function () {
     (new LoginController())->index();
 });
 
+//route to return dashboard (Home) view
 $router->post('/login', function () {
     (new LoginController())->login();
 });
@@ -26,8 +26,6 @@ $router->get('/logout', function () {
 });
 
 
-//route to return dashboard (Home) view
-//route to return create invoice view
 //route to return create company view
 //route to return create contact view
 //route to logout?
@@ -39,6 +37,15 @@ $router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
         exit();
     }
 });
+
+
+//route to return create invoice view
+
+$router->get('/admin/invoices', function () {
+    session_start();
+    (new HomeController())->index('invoices');
+});
+
 
 // || Start of admin related get requests
 $router->get("/admin/get-latest-contacts/company/{company_id}", function ($company_id) {

@@ -33,7 +33,7 @@ class LoginController extends Controller
             return $this->view('login', ["message" => "You are not connected"]);
         }
 
-        return $this->viewFull('home', ["name" => $_SESSION['user']]);
+        return $this->viewFull('dashboard', ["name" => $_SESSION['user']]);
     }
 
     public function logout()
