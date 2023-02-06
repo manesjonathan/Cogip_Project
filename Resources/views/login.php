@@ -23,7 +23,7 @@
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
             <input type="email" name="email"
                    class="border text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
-                   placeholder="name@flowbite.com" required>
+                   placeholder="name@domain.com" required>
         </div>
         <div class="mb-6">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Your
