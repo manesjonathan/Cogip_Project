@@ -46,18 +46,6 @@ class UserRepository
         return $user;
     }
 
-//function createUser($user)
-    public function getUser($email, $password)
-    {
-        $query = 'SELECT * FROM users WHERE email = :email AND password = :password';
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $user = $stmt->fetch();
-        return $user;
-    }
     public function createUser($user)
     {
         $query = 'INSERT INTO users (first_name, last_name, email, password, role_id)
