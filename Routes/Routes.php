@@ -25,20 +25,88 @@ $router->post('/login', function () {
 //route to return create contact view
 //route to logout?
 
+// || Start of ADMIN routes
+$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function() {
+    if (!isset($_SESSION['user'])) {
+        header('location: /auth/login');
+        exit();
+    }
+});
 
-// API / FRONT-END ROUTES // Call directly appropriate service class
-//route to return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
+// || Start of admin related get requests
+$router->get("/admin/get-latest-contacts/company/{company_id}", function ($company_id) {
+    return (new CompanyService())->getLastFiveContactsByCompany($company_id);
+});
 
+$router->get("/admin/get-latest-invoices/company/{company_id}", function ($company_id) {
+    return (new CompanyService())->getLastFiveInvoicesByCompany($company_id);
+});
+
+$router->get("/admin/get-latest-companies", function () {
+    return (new CompanyService())->getLastFiveCompanies();
+});
+// || End of admin related get requests
+
+// || Start of admin related post requests
+$router->post("/admin/add-company/{type_id}/{name}/{country}/{tva}", function ($type_id, $name, $country, $tva) {
+    return (new CompanyService())->createCompany([
+                                                  "type_id" => $type_id,
+                                                  "name" => $name,
+                                                  "country" => $country, 
+                                                  "tva" => $tva
+                                                ]);
+});
+
+$router->post("/admin/add-contact/{company_id}/{name}/{email}/{phone}", function ($company_id, $name, $email, $phone) {
+    return (new CompanyService())->createContact([
+                                                  "company_id" => $company_id, 
+                                                  "name" => $name,
+                                                  "email" => $email,
+                                                  "phone" => $phone
+                                                ]);
+});
+
+$router->post("/admin/add-invoice/{company_id}/{ref}", function ($company_id, $ref) {
+    return (new CompanyService())->createInvoice(["company_id" => $company_id, "ref" => $ref]);
+});
+// || End of admin related post requests
+// || End of admin routes
+
+// || Start of frontend related routes
 $router->get('/get-data', function () {
     return (new CompanyService())->getData();
 });
 
+// || Start Company related routes
+$router->get("/get-company/{id}", function ($id) {
+    return (new CompanyService())->getCompanyById($id);
+});
+// End of company related routes
 
-//route get all companies
-//route get company by id
-//route get all invoices
-//route get invoice by id
-//route get all contacts
-//route get contact by id
+// || Start of contact routes
+$router->get("/get-contacts", function () {
+    return (new CompanyService())->getAllContacts();
+});
+
+$router->get("/get-contacts/company/{company_id}", function ($company_id) {
+    return (new CompanyService())->getAllContactsByCompany($company_id);
+});
+
+$router->get("/get-contact/{id}", function ($id) {
+    return (new CompanyService())->getContactById($id);
+});
+// End of contact routes
+
+// || Start of invoice routes
+$router->get("/get-invoices/company/{company_id}", function ($company_id) {
+    return (new CompanyService())->getInvoicesByCompany($company_id);
+});
+
+
+$router->get("/get-invoice/{id}", function ($id) {
+    return (new CompanyService())->getInvoiceById($id);
+});
+// || End of invoice routes
+// || End of frontend related routes
 
 $router->run();
