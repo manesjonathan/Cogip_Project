@@ -6,6 +6,8 @@ use App\Services\CompanyService;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 
+header("Access-Control-Allow-Origin: *");
+
 $router = new Router();
 
 //Login page
