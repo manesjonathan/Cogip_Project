@@ -2,15 +2,20 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header>
-      <nav>
-        <h1>Mon site</h1>
-        <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">À propos</a></li>
-          <li><a href="#">Contact</a></li>
+    <header className='header'>
+     <nav className="menu-container">
+        {/* <img src="" alt="" class="menu-logo"> */}
+        <ul className="menu-list">
+            <li>Home</li>
+            <li>Invoices</li>
+            <li>Compagnies</li>
+            <li>Contacts</li>
+            <li>Compagnies</li>
+            <li>Contacts</li>
         </ul>
-      </nav>
+            <button className="button-sign-up">Login</button>
+            <button className="button-login">Sign up</button>
+    </nav>
     </header>
   );
 };
