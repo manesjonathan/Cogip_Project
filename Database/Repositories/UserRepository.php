@@ -3,6 +3,8 @@
 namespace App\Database\Repositories;
 
 use App\Database\Database;
+use App\Database\Models\User;
+use PDO;
 
 class UserRepository
 {
@@ -18,7 +20,7 @@ class UserRepository
     {
         $query = 'SELECT first_name, last_name, email FROM users';
         $stmt = $this->db->prepare($query);
-        
+
         $stmt->excute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

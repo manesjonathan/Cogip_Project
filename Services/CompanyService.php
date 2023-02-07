@@ -19,17 +19,22 @@ class CompanyService
 
         return;
     }
-    
+
     public function getLastFiveCompanies()
     {
-        $data["companies"] = $this->company_repository->getLastFiveCompanies();
-        $json_encode = json_encode($data, true);
+        $data['companies'] = $this->company_repository->getLastFiveCompanies();
+        if (isset($_SESSION['user'])) {
+            return $data['companies'];
+        }
 
+        $json_encode = json_encode($data, true);
         header('Content-type: application/json');
         echo $json_encode;
-    } 
-    
-    public function getCompanyById($id){
+        return true;
+    }
+
+    public function getCompanyById($id)
+    {
         if (!is_numeric($id)) {
             header('Content-type: application/json');
             http_response_code(400);
@@ -38,13 +43,19 @@ class CompanyService
             exit();
         }
         $id = intval($id);
-        
+
         $data["status"] = "ok";
         $data["company"] = $this->company_repository->getCompanyById($id);
+        if (isset($_SESSION['user'])) {
+            return $data['company'];
+        }
+
         $json_encode = json_encode($data, true);
 
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
+
     }
 
     public function createContact($array)
@@ -55,11 +66,17 @@ class CompanyService
     public function getAllContacts()
     {
         $data["contacts"] = $this->company_repository->getAllContacts();
+        if (isset($_SESSION['user'])) {
+            return $data['contacts'];
+        }
+
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
-    } 
+        return true;
+
+    }
 
     public function getContactById($id)
     {
@@ -73,10 +90,15 @@ class CompanyService
         $id = intval($id);
 
         $data["contact"] = $this->company_repository->getCompanyById($id);
+        if (isset($_SESSION['user'])) {
+            return $data['contact'];
+        }
+
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
 
     public function getAllContactsByCompany($company)
@@ -91,10 +113,15 @@ class CompanyService
         $company = intval($company);
 
         $data["contacts"] = $this->company_repository->getAllContactsByCompany($company);
+        if (isset($_SESSION['user'])) {
+            return $data['contacts'];
+        }
+
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
 
     public function getLastFiveContactsByCompany($company)
@@ -109,18 +136,23 @@ class CompanyService
         $company = intval($company);
 
         $data["contacts"] = $this->company_repository->getLastFiveContactsByCompany($company);
+        if (isset($_SESSION['user'])) {
+            return $data['contacts'];
+        }
+
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
-        
+
     public function createInvoice($array)
     {
         return; // Todo: return boolean true on succes, false on failure
     }
 
-    public function getInvoiceById($id) 
+    public function getInvoiceById($id)
     {
         if (!is_numeric($id)) {
             header('Content-type: application/json');
@@ -131,10 +163,14 @@ class CompanyService
         }
         $id = intval($id);
         $data["invoice"] = $this->company_repository->getInvoiceById($id);
+        if (isset($_SESSION['user'])) {
+            return $data['invoice'];
+        }
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
 
     public function getLastFiveInvoicesByCompany($company)
@@ -149,11 +185,16 @@ class CompanyService
         $company = intval($company);
 
         $data["invoices"] = $this->company_repository->getLastFiveInvoicesByCompany($company);
+        if (isset($_SESSION['user'])) {
+            return $data['invoices'];
+        }
+
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
-    } 
+        return true;
+    }
 
     public function getInvoicesByCompany($company)
     {
@@ -165,12 +206,16 @@ class CompanyService
             exit();
         }
         $company = intval($company);
-        
+
         $data["invoices"] = $this->company_repository->getInvoicesByCompany($company);
+        if (isset($_SESSION['user'])) {
+            return $data['invoices'];
+        }
         $json_encode = json_encode($data, true);
-        
+
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
 
     // function getData() -> return to frontend if user is valid
@@ -180,9 +225,13 @@ class CompanyService
         $data = [];
         $companies = $this->company_repository->getAllCompanies();
         $data['companies'] = $companies;
+        if (isset($_SESSION['user'])) {
+            return $data['companies'];
+        }
         $json_encode = json_encode($data, true);
 
         header('Content-type: application/json');
         echo $json_encode;
+        return true;
     }
 }

@@ -2,32 +2,50 @@
 
 namespace App\Routes;
 
+use App\Controllers\LoginController;
 use App\Services\CompanyService;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 
 header("Access-Control-Allow-Origin: *");
-
 $router = new Router();
 
 //Login page
 $router->get('/', function () {
-    (new HomeController)->index();
+    (new LoginController())->index();
 });
 
 //route to return dashboard (Home) view
-//route to return create invoice view
+$router->post('/login', function () {
+    (new LoginController())->login();
+});
+
+
+$router->get('/logout', function () {
+    (new LoginController())->logout();
+});
+
+
 //route to return create company view
 //route to return create contact view
 //route to logout?
 
 // || Start of ADMIN routes
-$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function() {
+$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
     if (!isset($_SESSION['user'])) {
         header('location: /auth/login');
         exit();
     }
 });
+
+
+//route to return create invoice view
+
+$router->get('/admin/invoices', function () {
+    session_start();
+    (new HomeController())->index('invoices');
+});
+
 
 // || Start of admin related get requests
 $router->get("/admin/get-latest-contacts/company/{company_id}", function ($company_id) {
@@ -46,20 +64,20 @@ $router->get("/admin/get-latest-companies", function () {
 // || Start of admin related post requests
 $router->post("/admin/add-company/{type_id}/{name}/{country}/{tva}", function ($type_id, $name, $country, $tva) {
     return (new CompanyService())->createCompany([
-                                                  "type_id" => $type_id,
-                                                  "name" => $name,
-                                                  "country" => $country, 
-                                                  "tva" => $tva
-                                                ]);
+        "type_id" => $type_id,
+        "name" => $name,
+        "country" => $country,
+        "tva" => $tva
+    ]);
 });
 
 $router->post("/admin/add-contact/{company_id}/{name}/{email}/{phone}", function ($company_id, $name, $email, $phone) {
     return (new CompanyService())->createContact([
-                                                  "company_id" => $company_id, 
-                                                  "name" => $name,
-                                                  "email" => $email,
-                                                  "phone" => $phone
-                                                ]);
+        "company_id" => $company_id,
+        "name" => $name,
+        "email" => $email,
+        "phone" => $phone
+    ]);
 });
 
 $router->post("/admin/add-invoice/{company_id}/{ref}", function ($company_id, $ref) {

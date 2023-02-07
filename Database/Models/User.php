@@ -8,16 +8,18 @@ class User
     private $first_name;
     private $last_name;
     private $email;
+    private $role_id;
     private $password;
     private $created_at;
     private $updated_at;
 
-    public function __construct($first_name, $last_name, $email, $password)
+    public function __construct($first_name, $last_name, $email, $password, $role_id)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->email = $email;
         $this->password = $password;
+        $this->role_id = $role_id;
     }
 
     public function getId()
@@ -33,6 +35,16 @@ class User
     public function setFirstName($first_name)
     {
         $this->first_name = $first_name;
+    }
+
+    public function getRoleId()
+    {
+        return $this->role_id;
+    }
+
+    public function setRoleId($roleId)
+    {
+        $this->role_id = $roleId;
     }
 
     public function getLastName()

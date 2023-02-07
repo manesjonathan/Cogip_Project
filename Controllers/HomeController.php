@@ -16,8 +16,9 @@ class HomeController extends Controller
     }
 
 
-    public function index()
+    public function index($view)
     {
-        return $this->view('welcome', ["name" => "Cogip"]);
+        return $this->view($view);
     }
+
 }
