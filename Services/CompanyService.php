@@ -289,4 +289,21 @@ class CompanyService
         echo $json_encode;
         return true;
     }
+
+    public function deleteCompany($company_id)
+    {
+        
+    }
+
+    public function deleteContact($contact_id)
+    {
+
+    }
+
+    public function deleteInvoice($invoice_id)
+    {
+
+    }
+
+
 }
