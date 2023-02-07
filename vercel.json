@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/.*",
-      "dest": "/index.php"
+      "dest": "/public/index.php"
     }
   ],
   "builds": [
