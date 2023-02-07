@@ -1,0 +1,40 @@
+@import './_variables';
+// pour importer un élément: $exemplecouleur
+
+.header{
+    background-color: $jaune;
+}
+.test{
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-title{
+    font-family: 'Roboto', sans-serif;
+    width:2em;
+    padding: 1em;
+}
+
+.menu-list{
+    list-style-type:none;
+}
+
+
+//----------------------------Media queries-------------------------------//
+
+@media screen and (min-width: 1023px) {
+
+.header{
+    padding:3%;
+}
+
+.menu-container{
+    display: flex;
+}
+
+.menu-list{
+    display:flex;
+    flex-direction: row;
+}
+
+}

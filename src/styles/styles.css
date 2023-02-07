@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .ham-menu {
   display: flex;
   justify-content: flex-end;
@@ -41,4 +48,41 @@
 
 .hm-button[aria-expended=true] .bottom {
   rotate: -45deg;
+}
+
+@media screen and (min-width: 1023px) {
+  .ham-menu {
+    display: none;
+  }
+}
+.header {
+  background-color: #F9DE49;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-title {
+  font-family: "Roboto", sans-serif;
+  width: 2em;
+  padding: 1em;
+}
+
+.menu-list {
+  list-style-type: none;
+}
+
+@media screen and (min-width: 1023px) {
+  .header {
+    padding: 3%;
+  }
+  .menu-container {
+    display: flex;
+  }
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=styles.css.map */
