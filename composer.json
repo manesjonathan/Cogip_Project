@@ -13,6 +13,7 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "fakerphp/faker": "^1.21"
+    "fakerphp/faker": "^1.21",
+    "phpunit/phpunit": "^10.0"
   }
 }
