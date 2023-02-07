@@ -1,21 +1,17 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require_once 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__."/Database");
 $faker = Faker\Factory::create('fr_BE');
+$faker->seed(1234);
 
 $db_conn;
 try{
     $dotenv->load();
 
-    // echo "mysql:host=".$_ENV["TEST_DB_HOST"].";dbnam=".$_ENV["TEST_DB_NAME"];
     $db_conn = new PDO("mysql:host=".$_ENV["TEST_DB_HOST"].";dbname=".$_ENV["TEST_DB_NAME"]
                 ,$_ENV["TEST_DB_USER"], $_ENV["TEST_DB_PASSWORD"]);
     $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -59,7 +55,6 @@ function main($faker, $db_conn){
 }
 
 function create_company($faker, $conn){
-    // Randomly selected in the database
     $stmt = $conn->prepare("SELECT id from types");
     $stmt->execute();
     $ids = $stmt->fetchAll();
@@ -76,7 +71,6 @@ function create_company($faker, $conn){
 }
 
 function create_invoice($faker, $conn) {
-    // randomly selected in the database
     $stmt = $conn->prepare("SELECT id from companies");
     $stmt->execute();
     $ids = $stmt->fetchAll();
