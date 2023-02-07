@@ -18,9 +18,21 @@ class CompanyService
 
     public function createCompany($array)
     {
-        
+        foreach($array as $data) {
+            if (ValidatorService::isInputEmpty($data)) {
+                return FALSE;
+            }
 
-        return;
+            $data = ValidatorService::sanitize_text($data);
+        }
+        
+        if (!(ValidatorService::isNumber($array["type_id"]) && ValidatorService::isAlphanumeric($array["tva"]))){
+            return FALSE;
+        };
+
+        $array["type_id"] = intval($array["type_id"]);
+
+        return $this->createCompany($array);
     }
 
     public function getLastFiveCompanies()
@@ -63,7 +75,30 @@ class CompanyService
 
     public function createContact($array)
     {
-        return; // Todo: return boolean true on succes, false on failure
+        foreach($array as $data) {
+            if (ValidatorService::isInputEmpty($data)) {
+                return FALSE;
+            }
+
+            $data = ValidatorService::sanitize_text($data);
+        }
+
+        if (!ValidatorService::isNumber($array["company_id"])){
+            return FALSE;
+        }
+        $array["company_id"] = intval($array["company_id"]);
+
+        $array["email"] = ValidatorService::validateEmail($array["email"]);
+        if (!$array["email"]){
+            return FALSE;
+        }
+
+        $array["phone"] = ValidatorServie::isValidPhonenumber($array["phone"]);
+        if (!$array["phone"]){
+            return FALSE;
+        }
+
+        return $this->createContact($array);
     }
 
     public function getAllContacts()
@@ -152,7 +187,24 @@ class CompanyService
 
     public function createInvoice($array)
     {
-        return; // Todo: return boolean true on succes, false on failure
+        foreach($array as $data) {
+            if (ValidatorService::isInputEmpty($data)) {
+                return FALSE;
+            }
+
+            $data = ValidatorService::sanitize_text($data);
+        }
+
+        if (!ValidatorService::isNumber($array["company_id"])) {
+            return FALSE;
+        }
+        $array["company_id"] = intval($array["company_id"]);
+
+        if (!ValidatorService::isAlphaNumeric($array["ref"])){
+            return FALSE;
+        }
+
+        return $this->createInvoice($array);
     }
 
     public function getInvoiceById($id)
