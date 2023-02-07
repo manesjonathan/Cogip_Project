@@ -1,13 +1,10 @@
-
 import '../styles/styles.css';
+import Burger from './Burger';
 
 function App() {
   return (
     <div>
-      {/* EXEMPLE
-      <Banner />
-      <Cart />
-      <ShoppingList /> */}
+      <Burger />
     </div>
   );
 }
