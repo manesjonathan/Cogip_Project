@@ -302,7 +302,6 @@ class CompanyService
         $status = $this->company_repository->deleteCompany($company_id);
 
         echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-        exit();
     }
 
     public function deleteContact($contact_id)
@@ -316,7 +315,6 @@ class CompanyService
         $status = $this->company_repository->deleteContact($contact_id);
 
         echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-        exit();
     }
 
     public function deleteInvoice($invoice_id)
@@ -330,7 +328,6 @@ class CompanyService
         $status = $this->company_repository->deleteInvoice($invoice_id);
 
         echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-        exit();
     }
 
 
