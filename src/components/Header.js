@@ -6,10 +6,10 @@ const Header = () => {
     <header className='header'>
 
     <nav className="menu-container">
-
-        <h1 className="menu-title">COGIP</h1>
-        <Burger />
-        
+        <nav className="test">
+          <h1 className="menu-title">COGIP</h1>
+          <Burger />
+        </nav>
         <ul className="menu-list">
             <li>Home</li>
             <li>Invoices</li>

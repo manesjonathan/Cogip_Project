@@ -59,6 +59,11 @@
   background-color: #F9DE49;
 }
 
+.test {
+  display: flex;
+  flex-direction: row;
+}
+
 .menu-title {
   font-family: "Roboto", sans-serif;
   width: 2em;
