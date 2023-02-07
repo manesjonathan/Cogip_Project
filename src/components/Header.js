@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <header className='header'>
      <nav className="menu-container">
-        <img src="../Images/" alt="" class="menu-logo"></img>
+      
+        <h1 className="menu-title">COGIP</h1>
+
         <ul className="menu-list">
             <li>Home</li>
             <li>Invoices</li>
