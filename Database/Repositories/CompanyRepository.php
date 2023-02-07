@@ -143,4 +143,30 @@ class CompanyRepository
 
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function deleteCompany($company_id)
+    {
+      $query = "DELETE FROM companies where id=:company_id";
+      $stmt = $this->db->prepare($query);
+
+      return $stmt->execute(["company_id" => $company_id]);
+    }
+
+    public function deleteContact($contact_id)
+    {
+      $query = "DELETE FROM contacts where id=:contact_id";
+      $stmt = $this->db->prepare($query);
+
+      return $stmt->execute(["contact_id" => $contact_id]);
+    }
+
+    public function deleteInvoice($invoice_id)
+    {
+      $query = "DELETE FROM invoices where id=:invoice_id";
+      $stmt = $this->db->prepare($query);
+
+      return $stmt->execute(["invoice_id" => $invoice_id]);
+    }
+
+
 }

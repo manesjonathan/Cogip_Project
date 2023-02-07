@@ -53,4 +53,12 @@ class UserRepository
         $stmt = $this->db->prepare($query);
         return $stmt->execute($user);
     }
+
+    public function deleteUser($user_id)
+    {
+        $query = "DELETE FROM users where id=:user_id";
+        $stmt = $this->db->prepare($query);
+        
+        return $stmt->execute(["user_id" => $user_id]);
+    }
 }
