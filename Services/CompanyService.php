@@ -292,16 +292,29 @@ class CompanyService
 
     public function deleteCompany($company_id)
     {
-        
+        if (!ValidatorService::isNumber($company_id)){
+            return FALSE;
+        }
+        $company_id = intval($company_id);
+        return $this->company_repository->deleteCompany($company_id);
     }
 
     public function deleteContact($contact_id)
     {
-
+        if (!ValidatorService::isNumber($contact_id)){
+            return FALSE;
+        }
+        $contact_id = intval($contact_id);
+        return $this->company_repository->deleteContact($contact_id);
     }
 
     public function deleteInvoice($invoice_id)
     {
+        if (!ValidatorService::isNumber($invoice_id)){
+            return FALSE;
+        }
+        $invoice_id = intval($invoice_id);
+        return $this->company_repository->deleteInvoice($invoice_id);
 
     }
 
