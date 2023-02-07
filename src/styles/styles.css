@@ -1,1 +1,44 @@
-/*# sourceMappingURL=styles.css.map */
+.ham-menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hm-button {
+  background: transparent;
+  border: none;
+}
+.hm-button:hover {
+  cursor: pointer;
+}
+
+.hm-button .line {
+  transition: y 200ms ease-in 200ms, rotate 200ms ease-in, opacity 0ms 200ms;
+  transform-origin: center;
+}
+
+.hm-button[aria-expended=true] .line {
+  transition: y 200ms ease-in 200ms, rotate 200ms ease-in 200ms, opacity 0ms 200ms;
+}
+
+.hm-button[aria-expended=true] :is(.top, .bottom) {
+  y: 45;
+}
+
+/* 
+.hm-button[aria-expended="true"] .top{
+    transform: translateY(20px);
+}
+.hm-button[aria-expended="true"] .bottom{
+    transform: translateY(-20px);
+}*/
+.hm-button[aria-expended=true] .top {
+  rotate: 45deg;
+}
+
+.hm-button[aria-expended=true] .middle {
+  opacity: 0;
+}
+
+.hm-button[aria-expended=true] .bottom {
+  rotate: -45deg;
+}/*# sourceMappingURL=styles.css.map */
