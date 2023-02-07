@@ -50,12 +50,19 @@
   rotate: -45deg;
 }
 
+@media screen and (min-width: 1023px) {
+  .ham-menu {
+    display: none;
+  }
+}
 .header {
   background-color: #F9DE49;
 }
 
 .menu-title {
   font-family: "Roboto", sans-serif;
+  width: 2em;
+  padding: 1em;
 }
 
 .menu-list {

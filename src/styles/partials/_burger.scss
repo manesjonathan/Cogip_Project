@@ -56,3 +56,10 @@
 .hm-button[aria-expended="true"] .bottom{
     rotate:-45deg;
 }
+
+
+@media screen and (min-width: 1023px) {
+.ham-menu{
+    display: none;
+}
+}
