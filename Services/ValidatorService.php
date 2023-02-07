@@ -8,9 +8,14 @@ class ValidatorService{
         return empty($input);
     }
 
-    public static function validateEmail($email)
+    public static function sanitizeEmail($email)
     {
         return filter_var($email, FILTER_SANITIZE_EMAIL);
+    }
+
+    public static function validateEmail($email)
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     public static function sanitize_text($input)
