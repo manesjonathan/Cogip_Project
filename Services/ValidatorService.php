@@ -27,25 +27,19 @@ class ValidatorService{
         return $input;
     }
 
-    public static function isValidPhonenumebr($input)
+    public static function isValidPhonenumber($phoneNumber)
     {
-        return; // To do
+        return filter_var($phoneNumber, FILTER_SANITIZE_NUMBER_INT);
     }
 
     public static function isAplhaNumeric($input)
     {
-        return; // To do
+        return ctype_alnum($input); 
     }
 
-    public static function verifyDate($date, $strict = true)
+    public static function isNumber($number)
     {
-        $dateTime = DateTime::createFromFormat('m/d/Y', $date);
-        if ($strict) {
-            $errors = DateTime::getLastErrors();
-            if (!empty($errors['warning_count'])) {
-                return false;
-            }
-        }
-        return $dateTime !== false;
+        return is_numeric($number);
     }
+
 }
