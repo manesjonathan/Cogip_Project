@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function DisplayArray (){
+export default function DisplayArray ({url}){
     //State
     const [companies, setCompanies] = useState([]);
 
     //Comportements
     useEffect(() => {
-        fetch("https://catfact.ninja/facts")
+        fetch(url)
         .then((res) => res.json())
         .then((data) => {
             setCompanies(data.data);
@@ -14,27 +14,24 @@ export default function DisplayArray (){
     },[]);
    
     //Affichage (render)
-    return  <div>
-                {companies.map((companie) => (
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>TVA</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+    return  <div>                
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>TVA</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {companies.map((companie) => (
                         <tr>
                             <td>{companie.fact}</td>
                             <td>{companie.length}</td>
                         </tr>
-                        {/* <tr>
-                            <td>{companie.name}</td>
-                            <td>{companie.tva}</td>
-                        </tr> */}
-                        </tbody>
-                    </table>
-                ))}
+                    ))}
+                    </tbody>
+                </table>
+               
             </div>;      
 
 }

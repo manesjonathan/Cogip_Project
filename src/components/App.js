@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Burger />
-      <DisplayArray />
+      <DisplayArray url={"https://catfact.ninja/facts"}/>
     </div>
   );
 }
