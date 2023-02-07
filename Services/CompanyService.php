@@ -292,30 +292,45 @@ class CompanyService
 
     public function deleteCompany($company_id)
     {
+        header('Content-type: application/json');
+
         if (!ValidatorService::isNumber($company_id)){
-            return FALSE;
+            echo $json_encode(["id" => "not valid"]) ;
+            exit();
         }
         $company_id = intval($company_id);
-        return $this->company_repository->deleteCompany($company_id);
+        $status = $this->company_repository->deleteCompany($company_id);
+
+        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
+        exit();
     }
 
     public function deleteContact($contact_id)
     {
+        header('Content-type: application/json');
+
         if (!ValidatorService::isNumber($contact_id)){
-            return FALSE;
+            echo json_encode(["id" => "not valid"]);
         }
         $contact_id = intval($contact_id);
-        return $this->company_repository->deleteContact($contact_id);
+        $status = $this->company_repository->deleteContact($contact_id);
+
+        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
+        exit();
     }
 
     public function deleteInvoice($invoice_id)
     {
+        header('Content-type: application/json');
+
         if (!ValidatorService::isNumber($invoice_id)){
-            return FALSE;
+             echo json_encode(["id" => "not valid"]);
         }
         $invoice_id = intval($invoice_id);
-        return $this->company_repository->deleteInvoice($invoice_id);
+        $status = $this->company_repository->deleteInvoice($invoice_id);
 
+        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
+        exit();
     }
 
 
