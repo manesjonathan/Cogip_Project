@@ -9,10 +9,8 @@
     <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body class="">
+<body class="overflow-y-scroll m-auto">
 <?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
 <?php include(__ROOT__ . '/Resources/views/shared/header.php'); ?>
-<?php include(__ROOT__ . '/Resources/views/pages/home.php'); ?>
-
 </body>
 </html>

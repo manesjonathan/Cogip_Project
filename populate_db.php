@@ -12,8 +12,8 @@ $db_conn;
 try{
     $dotenv->load();
 
-    $db_conn = new PDO("mysql:host=".$_ENV["TEST_DB_HOST"].";dbname=".$_ENV["TEST_DB_NAME"]
-                ,$_ENV["TEST_DB_USER"], $_ENV["TEST_DB_PASSWORD"]);
+    $db_conn = new PDO("mysql:host=".$_ENV["DB_HOST"].";dbname=".$_ENV["DB_NAME"]
+                ,$_ENV["DB_USER"], $_ENV["DB_PASS"]);
     $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     

@@ -9,38 +9,35 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
 
 ?>
 
-<main class="px-5 sm:ml-56 bg-gray-50 grid grid-col-2">
+<main class="px-5 md:ml-56 bg-gray-50 md:grid md:grid-cols-2 flex flex-col">
 
-    <div class="m-4  col-start-1 col-end-1 ">
-        <section class="bg-white p-4 rounded-lg my-4">
-            <div class="flex flex-col ">
+    <div class="m-4 flex flex-col col-start-1 col-end-1">
+        <section class="bg-white p-4 rounded-lg my-4 items-center">
                 <h3 class="text-lg font-bold mb-2">Statistics</h3>
-                <ul class="flex justify-center m-auto text-sm text-white">
-                    <li class="items-center justify-center m-auto">
-                        <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center mx-8 my-4">
+            <ul class="flex text-sm text-white w-3/4 justify-center">
+                    <li class="items-center justify-center p-2 m-2">
+                        <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center">
                             <p class="m-0"><?php echo count($invoices) ?></p>
                             <p class="m-0">Invoices</p>
                         </div>
                     </li>
-                    <li class="items-center justify-center m-auto">
-                        <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center mx-8 my-4">
+                    <li class="items-center justify-center p-2 m-2">
+                        <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center">
                             <p class="m-0"><?php echo count($contacts) ?></p>
                             <p class="m-0">Contacts</p>
                         </div>
                     </li>
-                    <li class="items-center justify-center m-auto">
-                        <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center mx-8 my-4">
+                    <li class="items-center justify-center p-2 m-2">
+                        <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
                             <p class="m-0"><?php echo count($companies) ?></p>
                             <p class="m-0">Companies</p>
                         </div>
                     </li>
                 </ul>
-            </div>
         </section>
 
-
         <section class="bg-white p-4 rounded-lg my-4">
-            <div class="flex flex-col ">
+            <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Contacts</h3>
                 <hr>
                 <table class="table-auto w-full text-left">
@@ -67,7 +64,7 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
 
     <div class="m-4 flex flex-col col-start-2 col-end-2">
         <section class="bg-white p-4 rounded-lg my-4 ">
-            <div class="flex flex-col ">
+            <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Invoices</h3>
                 <hr>
                 <table class="table-auto w-full text-left">
@@ -92,7 +89,7 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
         </section>
 
         <section class="bg-white p-4 rounded-lg my-4">
-            <div class="flex flex-col ">
+            <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Companies</h3>
                 <hr>
                 <table class="table-auto w-full text-left">

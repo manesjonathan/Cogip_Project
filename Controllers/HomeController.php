@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function index($view)
     {
-        return $this->view($view);
+        return $this->viewAdmin($view, ["name" => $_SESSION['user'], "view" => $view]);
     }
 
 }

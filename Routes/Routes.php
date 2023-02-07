@@ -31,7 +31,7 @@ $router->get('/logout', function () {
 //route to logout?
 
 // || Start of ADMIN routes
-$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
+$router->before('GET|POST|DELETE|UPDATE', '/admin/', function () {
     if (!isset($_SESSION['user'])) {
         header('location: /auth/login');
         exit();
@@ -41,9 +41,24 @@ $router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
 
 //route to return create invoice view
 
+$router->get('/admin/dashboard', function () {
+    session_start();
+    (new HomeController())->index('dashboard');
+});
+
 $router->get('/admin/invoices', function () {
     session_start();
     (new HomeController())->index('invoices');
+});
+
+$router->get('/admin/companies', function () {
+    session_start();
+    (new HomeController())->index('companies');
+});
+
+$router->get('/admin/contacts', function () {
+    session_start();
+    (new HomeController())->index('contacts');
 });
 
 

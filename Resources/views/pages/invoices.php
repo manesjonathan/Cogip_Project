@@ -11,6 +11,5 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
 
 <main class="">
 
-    <h2>Invoices</h2>
 
 </main>
