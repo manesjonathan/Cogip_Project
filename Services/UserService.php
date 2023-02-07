@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Database\Repositories\UserRepository;
 
+require_once "ValidatorService.php";
+
 class UserService
 {
     private $user_repository;
@@ -19,46 +21,82 @@ class UserService
             return false;
         }
 
-        $email = $this->sanitizeInput($email);
-        $password = $this->sanitizeInput($password);
-
-        if (!$this->validateInput($password) || !$this->validateEmail($email)) {
+        $email = ValidatorService::sanitizeEmail($email);
+        $email = ValidatorService::validateEmail($email);
+        if (!$email) {
             return false;
         }
+        
+        if (!password_verify($password, $user['password'])) {
+            return false;
+        }
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-        $user = $this->user_repository->getUser($email, $password);
+
+        $user = $this->user_repository->getUser($email, $hashed_password);
 
         if ($user == null) {
             return false;
         }
 
-        //todo we need to hash the password in db to use this
-
-        //$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-
-        /*if (!password_verify($password, $user['password'])) {
-            return false;
-        }*/
 
         session_start();
         $_SESSION['user'] = $user['first_name'];
         return true;
     }
 
-    private function sanitizeInput($input)
+    public function createUser($user)
     {
-        return trim(htmlspecialchars($input));
+        $errors = [];
+        foreach ($user as $key => $data)
+        {
+            if (ValidatorService::isInputEmpty($data))
+            {
+                $errors[$key] = "is empty";
+                continue;
+            }
+
+            if ($key == "email")
+            {
+               $data = ValidatorService::sanitizeEmail($data);
+               $data = ValidatorService::validateEmail($data);
+               if(!$data){
+                $errors["email"] = "invalid email";
+               }
+            } else if ($key == "password"){
+                $data = password_hash($data, PASSWORD_BCRYPT);
+            } else{
+                $data = ValidatorService::sanitize_text($data);
+            }
+        }
+
+        if (count($errors) == 0){
+            return $errors;
+        }
+
+        return $this->user_repository->createUser($data);
     }
 
-    private function validateInput($input)
+    public function deleteUser($user_id)
     {
-        return !empty($input);
+        $query = "DELETE FROM users WHERE id=:user_id";
+        $stmt = $this->user_repository->prepare($query);
+
+        return $stmt->execute(["user_id" => $user_id]);
     }
 
-    private function validateEmail($email)
+    public function getAllUsers()
     {
-        $regex = '/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/';
-        return preg_match($regex, $email);
+        $users = $this->user_repository->getAllUsers();
+        return $users;
+    }
+
+    public function getUserById($id)
+    {
+        if(!ValidatorService::is_numeric($id)) {
+            return false;
+        }
+
+        return $this->user_repository->getUserById($id);
     }
 }
