@@ -12,5 +12,6 @@
 <body class="overflow-y-scroll m-auto">
 <?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
 <?php include(__ROOT__ . '/Resources/views/shared/header.php'); ?>
+
 </body>
 </html>
