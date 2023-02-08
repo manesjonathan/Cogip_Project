@@ -1,0 +1,25 @@
+
+
+.panneau-container{
+    background-color: #F9DE49;
+}
+
+.img-panneau{
+    width:500px;
+}
+
+
+@media screen and (min-width: 1023px) {
+
+.panneau-container{
+    display: grid;
+}    
+.img-panneau{
+
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.title-panneau{
+    grid-area: 1 / 1 / 2 / 2;
+}
+}
