@@ -80,7 +80,6 @@ $router->get('/admin/contacts', function () {
     (new HomeController())->index('contacts');
 });
 
-
 // || Start of admin related get requests
 $router->get("/admin/get-latest-contacts/company/{company_id}", function ($company_id) {
     return (new CompanyService())->getLastFiveContactsByCompany($company_id);

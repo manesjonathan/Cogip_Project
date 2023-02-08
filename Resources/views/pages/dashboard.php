@@ -5,11 +5,10 @@ use App\Services\CompanyService;
 $company_service = new CompanyService();
 $companies = $company_service->getLastFiveCompanies();
 $contacts = array_slice($company_service->getAllContacts(), 0, 5); //todo
-$array = $company_service->getLastFiveInvoices();
-usort($array, function ($a, $b) {
+$invoices = $company_service->getLastFiveInvoices();
+usort($invoices, function ($a, $b) {
     return $b['created_at'] <=> $a['created_at'];
 });
-$invoices = $array;
 
 ?>
 

@@ -149,7 +149,14 @@ class CompanyService
 
     public function createInvoice($array)
     {
-        return; // Todo: return boolean true on succes, false on failure
+        if (isset($_SESSION['user'])) {
+            $ref = $array['ref'];
+            $id_company = -$array['company_id'];
+            $result = $this->company_repository->createInvoice($ref, $id_company);
+            echo ($result) ? "Success" : "Failed to create invoice";
+            return $result;
+        }
+        return false;
     }
 
     public function getInvoiceById($id)
@@ -235,9 +242,8 @@ class CompanyService
     //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
     public function getData()
     {
-        $data = [];
-        $companies = $this->company_repository->getAllCompanies();
-        $data['companies'] = $companies;
+        $data['companies'] = $this->company_repository->getAllCompanies();
+
         if (isset($_SESSION['user'])) {
             return $data['companies'];
         }

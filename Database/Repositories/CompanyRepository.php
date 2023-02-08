@@ -100,14 +100,14 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createInvoice($array)
+    public function createInvoice($ref, $id_company)
     {
         $query = 'INSERT INTO invoices (ref, id_company)  
                 VALUES (:ref, :id_company)
                ';
         $stmt = $this->db->prepare($query);
 
-        return $stmt->execute($array);
+        return $stmt->execute(['ref' => $ref, 'id_company' => $id_company]);
     }
 
     public function getInvoiceById($id)

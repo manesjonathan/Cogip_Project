@@ -3,34 +3,37 @@
 use App\Services\CompanyService;
 
 $company_service = new CompanyService();
-$companies = $company_service->getLastFiveCompanies();
-$contacts = $company_service->getAllContacts(); //todo
-$invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
+$companies = $company_service->getData();
+usort($companies, function ($a, $b) {
+    return $a['name'] <=> $b['name'];
+});
 
 ?>
 
 <main class="md:ml-56 bg-gray-50 flex flex-col p-10">
-    <form action="" class="w-full bg-white m-auto p-5">
+    <form action="/admin/create-invoice" method="post" class="w-full bg-white m-auto p-5">
         <h3 class="text-lg font-bold my-6">New Invoice</h3>
         <hr>
         <div class="mt-12">
             <label for="reference" class="block text-sm font-medium gray-900"></label>
-            <input type="text" name="reference" id="reference"
+            <input type="text" name="reference" id="reference" required
                    placeholder="Reference"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
         <div class="mt-12">
             <label for="price" class="block text-sm font-medium gray-900"></label>
-            <input type="text" name="price" id="price"
+            <input type="number" name="price" id="price" required min="0" step=".01"
                    placeholder="Price"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
 
         <div class="mt-12">
-            <label for="company" class="block text-sm font-medium text-gray-900"></label>
-            <select name="company" id="company"
+            <label for="company_id" class="block text-sm font-medium text-gray-900"></label>
+            <select name="company_id" id="company_id"
                     class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 ">
-                <option>Cogip</option>
+                <?php foreach ($companies as $company): ?>
+                    <option value="<?php echo $company['id'] ?>"><?php echo $company['name'] ?></option>
+                <?php endforeach; ?>
 
             </select>
         </div>
