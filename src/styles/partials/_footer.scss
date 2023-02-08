@@ -1,9 +1,37 @@
 @import './_variables';
-//Pour importer la couleur
+//Pour importer les couleurs et les polices
 
 .footer{
-    background-color: #FFFF;
-    border-top: $jaune;
+    background-color: $blanc;
+    /*align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    min-height: 481px;
+    width: 1103px;*/
 }
 
-.lolo
+.social-container{
+    border-top: $jaune 2px;
+    border-bottom: $bleu 1px;
+    //padding: 10px;
+
+}
+
+.footer-title{
+    font-family: 'Roboto', sans-serif;
+    width:2em;
+    padding: 1em;
+}
+
+.social-contact{
+    list-style: none;
+}
+
+.title-social{
+    font-family: 'inter', sans-serif;
+    size: 14px;
+}
+
+/*.social-media{
+
+}*/

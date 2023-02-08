@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +8,8 @@
 .ham-menu {
   display: flex;
   justify-content: flex-end;
+  grid-area: 1/2/2/2;
+  padding: 1em;
 }
 
 .hm-button {
@@ -48,8 +52,23 @@
   rotate: -45deg;
 }
 
+@media screen and (min-width: 1023px) {
+  .ham-menu {
+    display: none;
+  }
+}
 .header {
   background-color: #F9DE49;
+}
+
+.menu-container {
+  display: grid;
+}
+
+.menu-title {
+  font-family: "Roboto", sans-serif;
+  width: 2em;
+  padding: 1em;
 }
 
 .menu-list {
@@ -57,11 +76,18 @@
 }
 
 @media screen and (min-width: 1023px) {
+  .header {
+    padding: 3%;
+  }
   .menu-container {
     display: flex;
+    justify-content: space-between;
   }
   .menu-list {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 3em;
+    width: 50em;
+    padding-top: 1.75em;
   }
 }/*# sourceMappingURL=styles.css.map */
