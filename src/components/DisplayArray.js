@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function DisplayArray ({url,titles,keys}){
+export default function DisplayArray ({url,titles,keys,type}){
     //State
     const [companies, setCompanies] = useState([]);
 
@@ -9,8 +9,7 @@ export default function DisplayArray ({url,titles,keys}){
         fetch(url)
         .then((res) => res.json())
         .then((data) => {
-            setCompanies(data.companies);
-            console.log(companies);
+            setCompanies(data[type]);
         })
     },[]);
         
@@ -18,21 +17,21 @@ export default function DisplayArray ({url,titles,keys}){
     return  <div>                
                 <table>
                     <thead>
-                    <tr>
-                        {titles.map((title) => (
-                            <th>{title}</th>    
-                        ))}
-                    </tr>
+                        <tr>
+                            {titles.map((title) => (
+                                <th>{title}</th>    
+                            ))}
+                        </tr>
                     </thead>
                     <tbody>
-                    {companies.map((companie) => (
+                        {companies.map((company) => (
                         <tr>
-                            <td>{companie[keys[0]]}</td>
+                            {keys.map((key) => 
+                            <td>{company[key]}</td>
+                            )}
                         </tr>
-                    ))}
+                        ))}
                     </tbody>
-                </table>
-               
+                </table>               
             </div>;      
-
 }
