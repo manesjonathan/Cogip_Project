@@ -15,7 +15,7 @@ export default function DisplayAllArrays (){
     const companiesUrl = "https://becode-cogip-2023.000webhostapp.com/get-data"
 
 
-    return  <div>
+    return  <body>
                 <section class="tab01-container">
                     <h2 class="tab01-title">Last invoices</h2>
                     {/* <DisplayArray url={invoicesUrl} titles={invoicesTitles} keys={invoicesKeys}/> */}
@@ -32,5 +32,5 @@ export default function DisplayAllArrays (){
                     <h2 class="tab03-title">Last companies</h2>
                     <DisplayArray url={companiesUrl} titles={companiesTitles} keys={companiesKeys} type="companies"/>
                 </section>
-            </div>;
+            </body>;
 }

@@ -1,7 +1,7 @@
 import '../styles/styles.css';
 import Header from './Header.js';
 import DisplayArray from './DisplayArray.js';
-import Footer from './Footer';
+import Footer from './Footer.js';
 import PanneauHeader from './PanneauHeader.js';
 import DisplayAllArrays from './DiplayAllArrays.js';
 
