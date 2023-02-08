@@ -9,10 +9,10 @@ function App() {
   return (
     <div>
       <Header />
-      <DisplayArray url={"https://catfact.ninja/facts"}/>
-      <Footer />
       <PanneauHeader/>
+      <DisplayArray url={"https://catfact.ninja/facts"}/>
       <DisplayArray url={"http://cogip.great-site.net/get-contacts"}/>
+      <Footer />
 
     </div>
   );
