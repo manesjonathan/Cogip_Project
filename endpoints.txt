@@ -1,35 +1,35 @@
 Home / Login for Admin dashboard
-https://66d6-85-201-62-18.eu.ngrok.io/
+http://cogip.great-site.net/
 
 Get all companies
-https://66d6-85-201-62-18.eu.ngrok.io/get-data
+http://cogip.great-site.net/get-data
 
 Get company by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-company/{id}
+http://cogip.great-site.net/get-company/{id}
 
 Get all contacts
-https://66d6-85-201-62-18.eu.ngrok.io/get-contacts
+http://cogip.great-site.net/get-contacts
 
 Get contact by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-contact/{id}
+http://cogip.great-site.net/get-contact/{id}
 
 Get contacts by company id
-https://66d6-85-201-62-18.eu.ngrok.io/get-contacts/company/{company_id}
+http://cogip.great-site.net/get-contacts/company/{company_id}
 
 Get invoice by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-invoice/{id}
+http://cogip.great-site.net/get-invoice/{id}
 
 Get invoices by company id
-https://66d6-85-201-62-18.eu.ngrok.io/get-invoices/company/{company_id}
+http://cogip.great-site.net/get-invoices/company/{company_id}
 
 Get latest contacts by company id
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-contacts/company/{company_id}
+http://cogip.great-site.net/admin/get-latest-contacts/company/{company_id}
 
 Get latest invoices by company id
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-invoices/company/{company_id}
+http://cogip.great-site.net/admin/get-latest-invoices/company/{company_id}
 
 Get latest companies
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-companies
+http://cogip.great-site.net/admin/get-latest-companies
 
 
 

@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-start-3 col-end-4 row-start-1 row-end-3 hidden lg:flex  ">
-                <img src="/assets/img/hero.svg" alt="hero" class="w-72 h-72 ">
+                <img src="/public/assets/img/hero.svg" alt="hero" class="w-72 h-72 ">
         </div>
     </div>
 </header>

@@ -31,9 +31,10 @@ $router->get('/logout', function () {
 //route to logout?
 
 // || Start of ADMIN routes
-$router->before('GET|POST|DELETE|UPDATE', '/admin/', function () {
+$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
+    session_start();
     if (!isset($_SESSION['user'])) {
-        header('location: /auth/login');
+        header('location: /');
         exit();
     }
 });
