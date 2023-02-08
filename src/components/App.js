@@ -1,6 +1,7 @@
 import '../styles/styles.css';
 import Header from './Header.js';
 import DisplayArray from './DisplayArray.js';
+import Footer from './Footer';
 import PanneauHeader from './PanneauHeader.js';
 import DisplayAllArrays from './DiplayAllArrays.js';
 
@@ -10,8 +11,9 @@ function App() {
     <div>
       <Header />
       <PanneauHeader/>
+   
       <DisplayAllArrays />
-      
+      <Footer />
     </div>
   );
 }
