@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
-  return (
-    <header className='header'>
+ const [isOpened, setIsOpened] = useState(false);
 
-    <nav className="menu-container">
+  return (
+
+  <header className='header'>
+
+  <nav className="menu-container">
 
           <h1 className="menu-title">COGIP</h1>
-
           <nav className="ham-menu">
-                  <button className="hm-button" aria-controls="primary-navigation" aria-expanded="false">
+                  <button className="hm-button" aria-controls="primary-navigation" aria-expanded="false" aria-expended={isOpened} onClick={() => setIsOpened(!isOpened)} >
                         <svg className="ham" viewBox="0 0 100 100" width="50">
                         <rect className="line top" width="80" height="10" x="10" y="25" rx="5" />
                         <rect className="line middle" width="80" height="10" x="10" y="45" rx="5" />
@@ -17,24 +19,21 @@ const Header = () => {
                         </svg>
                   </button>
             </nav>
-            
-    <nav className="list">
+
+<nav className='list' style={{ marginLeft: isOpened ? '0%' : '-200%' }}>
         <ul className="menu-list">
             <li>Home</li>
             <li>Invoices</li>
             <li>Compagnies</li>
             <li>Contacts</li>
-            <li>Compagnies</li>
-            <li>Contacts</li>
         </ul>
-
-        <ul className="log">          
-          <li>login</li>
-          <li>signup</li>
+      <ul className="menu-log">
+        <li className="menu-signup">Sign up</li>
+        <li>login</li>
         </ul>
-    </nav>
-    </nav>
-    </header>
+        </nav>
+  </nav>
+</header>
   );
 };
 
