@@ -35,13 +35,15 @@
                 </a>
             </li>
         </ul>
-        <hr>
-        <div id="bottom" class="flex items-center p-4 bottom-0 flex-1 absolute w-full">
-            <div class="w-full">
-                <img src="/public/assets/img/jeff.jpg" class="h-12 mr-3 rounded-full" alt="profile"/>
 
+        <div class="bottom-0 absolute flex flex-col w-full">
+            <hr class="w-5/6">
+            <div id="bottom" class=" items-center p-4 flex flex-1 w-full">
+                <div class="w-full">
+                    <img src="/public/assets/img/jeff.jpg" class="h-12 mr-3 rounded-full" alt="profile"/>
+                </div>
+                <a href="/logout" class="font-normal text-base hover:underline mr-3">Logout</a>
             </div>
-            <a href="/logout" class="font-normal text-base hover:underline mr-3">Logout</a>
         </div>
     </div>
 </aside>

@@ -641,20 +641,8 @@ video {
   isolation: auto;
 }
 
-.z-10 {
-  z-index: 10;
-}
-
 .z-40 {
   z-index: 40;
-}
-
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
-
-.col-span-5 {
-  grid-column: span 5 / span 5;
 }
 
 .col-start-1 {
@@ -725,12 +713,12 @@ video {
   margin: auto;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .m-0 {
   margin: 0px;
+}
+
+.m-4 {
+  margin: 1rem;
 }
 
 .my-4 {
@@ -916,6 +904,14 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .flex-1 {
@@ -2637,10 +2633,6 @@ video {
 
   .md\:block {
     display: block;
-  }
-
-  .md\:flex {
-    display: flex;
   }
 
   .md\:grid {

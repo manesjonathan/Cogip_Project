@@ -196,6 +196,19 @@ class CompanyService
         return true;
     }
 
+    public function getLastFiveInvoices()
+    {
+        $data['invoices'] = $this->company_repository->getLast5Invoices();
+        return $data['invoices'];
+    }
+
+    public function getAllInvoices()
+    {
+        $data['invoices'] = $this->company_repository->getAllInvoices();
+        return $data['invoices'];
+    }
+
+
     public function getInvoicesByCompany($company)
     {
         if (!is_numeric($company)) {
