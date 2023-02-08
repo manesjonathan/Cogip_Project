@@ -1,7 +1,8 @@
 import '../styles/styles.css';
-import Header from './Header';
-import DisplayArray from './DisplayArray';
-import PanneauHeader from './PanneauHeader';
+import Header from './Header.js';
+import DisplayArray from './DisplayArray.js';
+import PanneauHeader from './PanneauHeader.js';
+import DisplayAllArrays from './DiplayAllArrays.js';
 
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
     <div>
       <Header />
       <PanneauHeader/>
-      <DisplayArray url={"http://cogip.great-site.net/get-contacts"}/>
-
+      <DisplayAllArrays />
+      
     </div>
   );
 }
