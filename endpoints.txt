@@ -1,35 +1,35 @@
 Home / Login for Admin dashboard
-http://cogip.great-site.net/
+https://becode-cogip-2023.000webhostapp.com/
 
 Get all companies
-http://cogip.great-site.net/get-data
+https://becode-cogip-2023.000webhostapp.com/get-data
 
 Get company by id
-http://cogip.great-site.net/get-company/{id}
+https://becode-cogip-2023.000webhostapp.com/get-company/{id}
 
 Get all contacts
-http://cogip.great-site.net/get-contacts
+https://becode-cogip-2023.000webhostapp.com/get-contacts
 
 Get contact by id
-http://cogip.great-site.net/get-contact/{id}
+https://becode-cogip-2023.000webhostapp.com/get-contact/{id}
 
 Get contacts by company id
-http://cogip.great-site.net/get-contacts/company/{company_id}
+https://becode-cogip-2023.000webhostapp.com/get-contacts/company/{company_id}
 
 Get invoice by id
-http://cogip.great-site.net/get-invoice/{id}
+https://becode-cogip-2023.000webhostapp.com/get-invoice/{id}
 
 Get invoices by company id
-http://cogip.great-site.net/get-invoices/company/{company_id}
+https://becode-cogip-2023.000webhostapp.com/get-invoices/company/{company_id}
 
 Get latest contacts by company id
-http://cogip.great-site.net/admin/get-latest-contacts/company/{company_id}
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-contacts/company/{company_id}
 
 Get latest invoices by company id
-http://cogip.great-site.net/admin/get-latest-invoices/company/{company_id}
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-invoices/company/{company_id}
 
 Get latest companies
-http://cogip.great-site.net/admin/get-latest-companies
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-companies
 
 
 

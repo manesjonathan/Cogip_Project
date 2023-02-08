@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/public/assets/css/output.css">
     <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Cogip Admin Dashboard</title>
 </head>
 <body class="overflow-y-scroll m-auto">
 <?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
