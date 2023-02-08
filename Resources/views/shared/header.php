@@ -1,4 +1,4 @@
-<header class=" md:ml-56 bg-gray-50 flex flex-col">
+<header class="md:ml-56 bg-gray-50 flex flex-col">
     <div class="container grid grid-row-4 grid-col-4 gap-0 p-10">
         <div class="col-start-1 col-end-4 row-start-1">
             <div class="flex flex-col">

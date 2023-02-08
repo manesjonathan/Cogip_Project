@@ -15,7 +15,7 @@ $invoices = $array;
 
 <main class="px-5 md:ml-56 bg-gray-50 md:grid md:grid-cols-2 flex flex-col">
 
-    <div class="my-4 flex flex-col col-start-1 col-end-1">
+    <div class="my-2 flex flex-col col-start-1 col-end-1 px-5">
         <section class="bg-white rounded-lg my-4 items-center p-4">
             <h3 class="text-lg font-bold mb-2">Statistics</h3>
 
@@ -67,7 +67,7 @@ $invoices = $array;
         </section>
     </div>
 
-    <div class="m-4 flex flex-col col-start-2 col-end-2">
+    <div class="my-2 flex flex-col col-start-2 col-end-2 px-5">
         <section class="bg-white p-4 rounded-lg my-4 ">
             <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Invoices</h3>

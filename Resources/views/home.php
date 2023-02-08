@@ -10,8 +10,8 @@
     <title>Cogip Admin Dashboard</title>
 </head>
 <body class="overflow-y-scroll m-auto">
-<?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
 <?php include(__ROOT__ . '/Resources/views/shared/header.php'); ?>
+<?php include(__ROOT__ . '/Resources/views/shared/navigation.php'); ?>
 
 </body>
 </html>
