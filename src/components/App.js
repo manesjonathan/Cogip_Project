@@ -13,7 +13,6 @@ function App() {
       <DisplayArray url={"https://catfact.ninja/facts"}/>
       <DisplayArray url={"http://cogip.great-site.net/get-contacts"}/>
       <Footer />
-
     </div>
   );
 }
