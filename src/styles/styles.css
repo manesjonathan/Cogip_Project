@@ -8,6 +8,8 @@
 .ham-menu {
   display: flex;
   justify-content: flex-end;
+  grid-area: 1/2/2/2;
+  padding: 1em;
 }
 
 .hm-button {
@@ -59,9 +61,8 @@
   background-color: #F9DE49;
 }
 
-.test {
-  display: flex;
-  flex-direction: row;
+.menu-container {
+  display: grid;
 }
 
 .menu-title {
@@ -80,9 +81,13 @@
   }
   .menu-container {
     display: flex;
+    justify-content: space-between;
   }
   .menu-list {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 3em;
+    width: 50em;
+    padding-top: 1.75em;
   }
 }/*# sourceMappingURL=styles.css.map */

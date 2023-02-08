@@ -4,9 +4,9 @@
 .header{
     background-color: $jaune;
 }
-.test{
-    display: flex;
-    flex-direction: row;
+
+.menu-container{
+    display: grid;
 }
 
 .menu-title{
@@ -30,11 +30,19 @@
 
 .menu-container{
     display: flex;
+    justify-content: space-between;
+
 }
 
 .menu-list{
     display:flex;
-    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 3em;
+    width:50em;
+    padding-top: 1.75em;
+ 
+
+    
 }
 
 }
