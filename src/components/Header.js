@@ -17,7 +17,7 @@ const Header = () => {
                         </svg>
                   </button>
             </nav>
-
+    <nav className="list">
         <ul className="menu-list">
             <li>Home</li>
             <li>Invoices</li>
@@ -31,6 +31,7 @@ const Header = () => {
           <li>login</li>
           <li>signup</li>
         </ul>
+    </nav>
     </nav>
     </header>
   );
