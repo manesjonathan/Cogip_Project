@@ -137,6 +137,8 @@
 }
 .footer {
   background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   /*align-items: flex-start;
   display: flex;
   flex-direction: column;
