@@ -33,6 +33,10 @@ class UserService
         }
 
         //todo we need to hash the password in db to use this
+
+        //$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+
         /*if (!password_verify($password, $user['password'])) {
             return false;
         }*/

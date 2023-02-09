@@ -17,25 +17,25 @@ class CompanyRepository
 
     public function getAllCompanies()
     {
-        $query = 'SELECT * FROM companies';
+        $query = 'SELECT * FROM companies ORDER BY created_at DESC';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createCompany($array)
+    public function createCompany($type_id, $name, $country, $tva)
     {
         $query = 'INSERT INTO companies (name, type_id, country, tva) 
                   VALUES (:name, :type_id, :country, :tva)';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['name' => $name, 'type_id' => $type_id, 'country' => $country, 'tva' => $tva]);
 
-        $stmt = $thid->db->prepare($query);
-        return $stmt->execute($array);
     }
 
     public function getLastFiveCompanies()
     {
-       $query = 'SELECT * FROM companies 
-                 ORDER BY created_at
+        $query = 'SELECT * FROM companies 
+                 ORDER BY created_at DESC
                  LIMIT 5';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -51,18 +51,27 @@ class CompanyRepository
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    
-    public function createContact($array)
+
+    public function createContact($company_id, $name, $email, $phone)
     {
-       $query = 'INSERT INTO contacts (name, company_id, email, phone)
+        $query = 'INSERT INTO contacts (name, company_id, email, phone)
                  VALUES (:name, :company_id, :email, :phone)';
         $stmt = $this->db->prepare($query);
-        return $stmt->execute($array); 
+        return $stmt->execute(['company_id' => $company_id, 'name' => $name, 'email' => $email, 'phone' => $phone]);
+    }
+
+
+    public function getCompaniesTypes()
+    {
+        $query = 'SELECT * FROM types';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAllContacts()
     {
-        $query = "SELECT * FROM contacts";
+        $query = "SELECT * FROM contacts ORDER BY created_at DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -71,76 +80,94 @@ class CompanyRepository
 
     public function getContactById($id)
     {
-      $query = 'SELECT * FROM contacts WHERE id=:id';
-      $stmt = $this->db->prepare($query);
-      
-      return $stmt->execute(["id" => $id]);
+        $query = 'SELECT * FROM contacts WHERE id=:id';
+        $stmt = $this->db->prepare($query);
+
+        return $stmt->execute(["id" => $id]);
     }
 
     public function getAllContactsByCompany($id)
     {
-      $query = 'SELECT * FROM contacts
+        $query = 'SELECT * FROM contacts
                 WHERE company_id=:company_id
                ';
-      $stmt = $this->db->prepare($query);
-      $stmt->execute(['company_id' => $id]);
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['company_id' => $id]);
 
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getLastFiveContactsByCompany($id)
     {
-      $query = 'SELECT * FROM contacts 
+        $query = 'SELECT * FROM contacts 
                 WHERE company_id=:company_id
                 ORDER BY created_at 
                 LIMIT 5';
-      $stmt = $this->db->prepare($query);
-      $stmt->execute(['company_id' => $id]);
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['company_id' => $id]);
 
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    public function createInvoice($array)
+
+    public function createInvoice($ref, $id_company)
     {
-      $query = 'INSERT INTO invoices (ref, id_company)  
+        $query = 'INSERT INTO invoices (ref, id_company)  
                 VALUES (:ref, :id_company)
                ';
-      $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare($query);
 
-      return $stmt->execute($array);
+        return $stmt->execute(['ref' => $ref, 'id_company' => $id_company]);
     }
 
     public function getInvoiceById($id)
     {
-      $query = 'SELECT * FROM invoices
+        $query = 'SELECT * FROM invoices
                 WHERE id=:id';
-      $stmt = $this->db->prepare($query);
-      $stmt->execute(["id" => $id]);
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(["id" => $id]);
 
-      return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getLastFiveInvoicesByCompany($company_id)
     {
-      $query = 'SELECT * FROM invoices
+        $query = 'SELECT * FROM invoices
                 WHERE id_company=:id_company
                 ORDER BY created_at
                 LIMIT 5
                ';
-      $stmt = $this->db->prepare($query);
-      $stmt->execute(['id_company' => $company_id]);
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['id_company' => $company_id]);
 
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getInvoicesByCompany($company_id)
+    public function getLast5Invoices()
     {
-      $query = 'SELECT * FROM invoices
+        $query = 'SELECT *  FROM invoices ORDER BY created_at DESC LIMIT 5';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAllInvoices()
+    {
+        $query = 'SELECT *  FROM invoices ORDER BY created_at DESC';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public
+    function getInvoicesByCompany($company_id)
+    {
+        $query = 'SELECT * FROM invoices
                 WHERE id_company=:id_company
                ';
-      $stmt = $this->db->prepare($query);
-      $stmt->execute(['id_company' => $company_id]);
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['id_company' => $company_id]);
 
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 }
