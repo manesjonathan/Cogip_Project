@@ -76,6 +76,9 @@
         <li><a href="/admin/contacts"
                class="block text-sm px-2 py-4 hover:custom-bg transition duration-300">Contacts</a>
         </li>
+        <li><a href="/logout"
+               class="block text-sm px-2 py-4 hover:custom-bg transition duration-300">Logout</a>
+        </li>
     </ul>
 </nav>
 <script>

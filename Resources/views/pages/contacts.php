@@ -3,14 +3,14 @@
 use App\Services\CompanyService;
 
 $company_service = new CompanyService();
-$companies = $company_service->getData();
+$companies = $company_service->getAllCompanies();
 usort($companies, function ($a, $b) {
     return $a['name'] <=> $b['name'];
 });
 ?>
 <main class="md:ml-56 bg-gray-50 flex flex-col px-10">
-    <form action="/admin/add-contact/" method="post" class="w-full bg-white m-auto p-5">
-        <h3 class="text-lg font-bold my-6">New Company</h3>
+    <form action="/admin/add-contact/" method="post" class="w-full bg-white m-auto p-5 mb-14">
+        <h3 class="text-lg font-bold my-6">New Contact</h3>
         <hr>
         <div class="mt-12">
             <label for="name" class="block text-sm font-medium gray-900"></label>

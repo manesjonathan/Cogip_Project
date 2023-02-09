@@ -8,7 +8,7 @@ $types = $company_service->getCompaniesTypes();
 
 ?>
 <main class="md:ml-56 bg-gray-50 flex flex-col px-10">
-    <form action="/admin/add-company" method="post" class="w-full bg-white m-auto p-5">
+    <form action="/admin/add-company" method="post" class="w-full bg-white m-auto p-5 mb-14">
         <h3 class="text-lg font-bold my-6">New Company</h3>
         <hr>
         <div class="mt-12">

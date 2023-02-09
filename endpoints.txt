@@ -1,14 +1,22 @@
 Home / Login for Admin dashboard
 https://becode-cogip-2023.000webhostapp.com/
 
+//COMPANIES
 Get all companies
-https://becode-cogip-2023.000webhostapp.com/get-data
+https://becode-cogip-2023.000webhostapp.com/get-companies
+
+Get latest companies
+https://becode-cogip-2023.000webhostapp.com/get-latest-companies
 
 Get company by id
 https://becode-cogip-2023.000webhostapp.com/get-company/{id}
 
+//CONTACTS
 Get all contacts
 https://becode-cogip-2023.000webhostapp.com/get-contacts
+
+Get latest contacts
+https://becode-cogip-2023.000webhostapp.com/get-latest-contacts
 
 Get contact by id
 https://becode-cogip-2023.000webhostapp.com/get-contact/{id}
@@ -16,20 +24,21 @@ https://becode-cogip-2023.000webhostapp.com/get-contact/{id}
 Get contacts by company id
 https://becode-cogip-2023.000webhostapp.com/get-contacts/company/{company_id}
 
+Get latest contacts by company id
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-contacts/company/{company_id}
+
+//INVOICES
 Get invoice by id
 https://becode-cogip-2023.000webhostapp.com/get-invoice/{id}
+
+Get latest invoices
+https://becode-cogip-2023.000webhostapp.com/get-latest-invoice
 
 Get invoices by company id
 https://becode-cogip-2023.000webhostapp.com/get-invoices/company/{company_id}
 
-Get latest contacts by company id
-https://becode-cogip-2023.000webhostapp.com/admin/get-latest-contacts/company/{company_id}
-
 Get latest invoices by company id
 https://becode-cogip-2023.000webhostapp.com/admin/get-latest-invoices/company/{company_id}
-
-Get latest companies
-https://becode-cogip-2023.000webhostapp.com/admin/get-latest-companies
 
 
 

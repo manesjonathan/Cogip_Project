@@ -14,7 +14,7 @@ usort($invoices, function ($a, $b) {
 
 <main class="px-5 md:ml-56 bg-gray-50 md:grid md:grid-cols-2 flex flex-col">
 
-    <div class="my-2 flex flex-col col-start-1 col-end-1 px-5">
+    <div class="my-2 flex flex-col col-start-1 col-end-1 px-5  mb-14">
         <section class="bg-white rounded-lg my-4 items-center p-4">
             <h3 class="text-lg font-bold mb-2">Statistics</h3>
 
@@ -33,7 +33,7 @@ usort($invoices, function ($a, $b) {
                 </li>
                 <li class="items-center justify-center p-2 ">
                     <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getData()) ?></p>
+                        <p class="m-0"><?php echo count($company_service->getAllCompanies()) ?></p>
                         <p class="m-0">Companies</p>
                     </div>
                 </li>
@@ -66,7 +66,7 @@ usort($invoices, function ($a, $b) {
         </section>
     </div>
 
-    <div class="my-2 flex flex-col col-start-2 col-end-2 px-5">
+    <div class="my-2 flex flex-col col-start-2 col-end-2 px-5 mb-14">
         <section class="bg-white p-4 rounded-lg my-4 ">
             <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Invoices</h3>

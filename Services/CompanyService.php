@@ -306,7 +306,7 @@ class CompanyService
 
     // function getData() -> return to frontend if user is valid
     //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
-    public function getData()
+    public function getAllCompanies()
     {
         $data['companies'] = $this->company_repository->getAllCompanies();
 
