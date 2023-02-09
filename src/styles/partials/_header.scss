@@ -1,6 +1,3 @@
-@import './_variables';
-// pour importer un élément: $exemplecouleur
-
 .header{
     background-color: $jaune;
     font-family: 'Roboto', sans-serif;
@@ -36,7 +33,6 @@
 .menu-list, .menu-log{
     list-style-type:none;
 }
-
 
 //----------------------------Media queries-------------------------------//
 
