@@ -1,37 +1,41 @@
 @use "helper" as h;
 //EXEMPLE: color: h.$red;
 
-.footer{
-    background-color: h.$blanc;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    /*align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    min-height: 481px;
-    width: 1103px;*/
+footer {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  width: 100%;
+  
 }
 
-.social-container{
-    border-top: h.$jaune 2px;
-    border-bottom: h.$bleu 1px;
-    //padding: 10px;
-
+.social-container {
+  background-color: aqua;  
+  border-top: h.$jaune 2px;
+  border-bottom: h.$bleu 0.0625rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  padding: 10px;
 }
 
-.footer-title{
-    font-family: 'Roboto', sans-serif;
-    width:2em;
-    padding: 1em;
+.footer-title {
+  font-family: "Roboto", sans-serif;
+  width: 2em;
+  padding: 1em;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
-.social-contact{
-    list-style: none;
+.social-contact {
+  list-style: none;
+  grid-area: 1 / 2 / 2 / 3;
+  display: inline;
 }
 
-.title-social{
-    font-family: 'inter', sans-serif;
-    size: 14px;
+.title-social {
+  font-family: "inter", sans-serif;
+  size: 14px;
 }
 
 /*.social-media{

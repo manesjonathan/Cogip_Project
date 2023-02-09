@@ -130,30 +130,35 @@
     display: none;
   }
 }
-.footer {
-  background-color: white;
+footer {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  /*align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  min-height: 481px;
-  width: 1103px;*/
+  width: 100%;
 }
 
 .social-container {
+  background-color: aqua;
   border-top: #F9DE49 2px;
-  border-bottom: #7BB9FC 1px;
+  border-bottom: #7BB9FC 0.0625rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  padding: 10px;
 }
 
 .footer-title {
   font-family: "Roboto", sans-serif;
   width: 2em;
   padding: 1em;
+  grid-area: 1/1/2/2;
 }
 
 .social-contact {
   list-style: none;
+  grid-area: 1/2/2/3;
+  display: inline;
 }
 
 .title-social {
