@@ -59,7 +59,7 @@
 }
 .header {
   background-color: #F9DE49;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-weight: 500;
 }
 
@@ -137,6 +137,8 @@
 }
 .footer {
   background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   /*align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -173,8 +175,9 @@
 
 .title-panneau {
   text-align: center;
-  font-size: 3em;
-  font-family: "roboto";
+  padding-top: 1em;
+  font-size: 2em;
+  font-family: "Roboto";
 }
 
 .img-panneau {

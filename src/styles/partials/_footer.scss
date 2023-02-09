@@ -1,8 +1,8 @@
-
-//Pour importer les couleurs et les polices
+@use "helper" as h;
+//EXEMPLE: color: h.$red;
 
 .footer{
-    background-color: $blanc;
+    background-color: h.$blanc;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     /*align-items: flex-start;
@@ -17,6 +17,9 @@
     border-bottom: $bleu .0625rem;
     display: grid;
     padding: 10px;
+    border-top: h.$jaune 2px;
+    border-bottom: h.$bleu 1px;
+    //padding: 10px;
 
 }
 
