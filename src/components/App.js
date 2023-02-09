@@ -1,8 +1,9 @@
 import '../styles/styles.css';
-import Header from './Header';
-import DisplayArray from './DisplayArray';
-import Footer from './Footer';
-import PanneauHeader from './PanneauHeader';
+import Header from './Header.js';
+import DisplayArray from './DisplayArray.js';
+import Footer from './Footer.js';
+import PanneauHeader from './PanneauHeader.js';
+import DisplayAllArrays from './DiplayAllArrays.js';
 
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
     <div>
       <Header />
       <PanneauHeader/>
-      <DisplayArray url={"https://catfact.ninja/facts"}/>
-      <DisplayArray url={"http://cogip.great-site.net/get-contacts"}/>
+   
+      <DisplayAllArrays />
       <Footer />
     </div>
   );
