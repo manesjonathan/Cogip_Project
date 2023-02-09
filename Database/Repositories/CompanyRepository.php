@@ -23,19 +23,19 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createCompany($array)
+    public function createCompany($type_id, $name, $country, $tva)
     {
         $query = 'INSERT INTO companies (name, type_id, country, tva) 
                   VALUES (:name, :type_id, :country, :tva)';
-
         $stmt = $this->db->prepare($query);
-        return $stmt->execute($array);
+        return $stmt->execute(['name' => $name, 'type_id' => $type_id, 'country' => $country, 'tva' => $tva]);
+
     }
 
     public function getLastFiveCompanies()
     {
         $query = 'SELECT * FROM companies 
-                 ORDER BY created_at
+                 ORDER BY created_at DESC
                  LIMIT 5';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -52,17 +52,26 @@ class CompanyRepository
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createContact($array)
+    public function createContact($company_id, $name, $email, $phone)
     {
         $query = 'INSERT INTO contacts (name, company_id, email, phone)
                  VALUES (:name, :company_id, :email, :phone)';
         $stmt = $this->db->prepare($query);
-        return $stmt->execute($array);
+        return $stmt->execute(['company_id' => $company_id, 'name' => $name, 'email' => $email, 'phone' => $phone]);
+    }
+
+
+    public function getCompaniesTypes()
+    {
+        $query = 'SELECT * FROM types';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAllContacts()
     {
-        $query = "SELECT * FROM contacts";
+        $query = "SELECT * FROM contacts ORDER BY created_at DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
 
@@ -160,4 +169,5 @@ class CompanyRepository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 }

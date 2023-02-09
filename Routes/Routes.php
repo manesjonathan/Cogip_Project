@@ -95,26 +95,19 @@ $router->get("/admin/get-latest-companies", function () {
 // || End of admin related get requests
 
 // || Start of admin related post requests
-$router->post("/admin/add-company/{type_id}/{name}/{country}/{tva}", function ($type_id, $name, $country, $tva) {
-    return (new CompanyService())->createCompany([
-        "type_id" => $type_id,
-        "name" => $name,
-        "country" => $country,
-        "tva" => $tva
-    ]);
+$router->post("/admin/add-company", function () {
+    session_start();
+    return (new CompanyService())->createCompany($_POST['type_id'], $_POST['name'], $_POST['country'], $_POST['tva']);
 });
 
-$router->post("/admin/add-contact/{company_id}/{name}/{email}/{phone}", function ($company_id, $name, $email, $phone) {
-    return (new CompanyService())->createContact([
-        "company_id" => $company_id,
-        "name" => $name,
-        "email" => $email,
-        "phone" => $phone
-    ]);
+$router->post("/admin/add-contact", function () {
+    session_start();
+    return (new CompanyService())->createContact($_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
 });
 
-$router->post("/admin/add-invoice/{company_id}/{ref}", function ($company_id, $ref) {
-    return (new CompanyService())->createInvoice(["company_id" => $company_id, "ref" => $ref]);
+$router->post("/admin/add-invoice", function () {
+    session_start();
+    return (new CompanyService())->createInvoice($_POST['company_id'], $_POST['ref']);
 });
 // || End of admin related post requests
 // || End of admin routes

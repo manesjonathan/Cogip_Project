@@ -13,11 +13,38 @@ class CompanyService
         $this->company_repository = new CompanyRepository();
     }
 
-
-    public function createCompany($array)
+    public function getCompaniesTypes()
     {
+        return $this->company_repository->getCompaniesTypes();
+    }
 
-        return;
+
+    public function createCompany($type_id, $name, $country, $tva)
+    {
+        if (isset($_SESSION['user'])) {
+
+            $isIdEmpty = ValidatorService::isInputEmpty($type_id);
+            $isNameEmpty = ValidatorService::isInputEmpty($name);
+            $isCountryEmpty = ValidatorService::isInputEmpty($country);
+            $isTva = ValidatorService::isInputEmpty($tva);
+
+            if ($isIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
+                return false;
+            }
+
+            $type_id = ValidatorService::sanitize_text($type_id);
+            $name = ValidatorService::sanitize_text($name);
+            $country = ValidatorService::sanitize_text($country);
+            $tva = ValidatorService::sanitize_text($tva);
+
+            $result = $this->company_repository->createCompany($type_id, $name, $country, $tva);
+            header("Location:/admin/dashboard");
+            echo ($result) ? "Success" : "Failed to create invoice";
+
+            return $result;
+        }
+        echo "There is an error";
+        return false;
     }
 
     public function getLastFiveCompanies()
@@ -58,9 +85,36 @@ class CompanyService
 
     }
 
-    public function createContact($array)
+    public function createContact($company_id, $name, $email, $phone)
     {
-        return; // Todo: return boolean true on succes, false on failure
+        if (isset($_SESSION['user'])) {
+
+            $isCompanyEmpty = ValidatorService::isInputEmpty($company_id);
+            $isNameEmpty = ValidatorService::isInputEmpty($name);
+            $isEmailEmpty = ValidatorService::isInputEmpty($email);
+            $isPhoneEmpty = ValidatorService::isInputEmpty($phone);
+
+
+            if ($isCompanyEmpty || $isNameEmpty || $isEmailEmpty || $isPhoneEmpty) {
+                return false;
+            }
+
+            $company_id = ValidatorService::sanitize_text($company_id);
+            $name = ValidatorService::sanitize_text($name);
+            $email = ValidatorService::sanitize_text($email);
+            $phone = ValidatorService::sanitize_text($phone);
+
+            if (!ValidatorService::validateEmail($email)) {
+                return false;
+            }
+
+            $result = $this->company_repository->createContact($company_id, $name, $email, $phone);
+            header("Location:/admin/dashboard");
+            echo ($result) ? "Success" : "Failed to create invoice";
+            return $result;
+        }
+        echo "There is an error";
+        return false;
     }
 
     public function getAllContacts()
@@ -147,15 +201,27 @@ class CompanyService
         return true;
     }
 
-    public function createInvoice($array)
+    public function createInvoice($id_company, $ref)
     {
         if (isset($_SESSION['user'])) {
-            $ref = $array['ref'];
-            $id_company = -$array['company_id'];
+
+            $isIdEmpty = ValidatorService::isInputEmpty($id_company);
+            $isRefEmpty = ValidatorService::isInputEmpty($ref);
+
+            if ($isIdEmpty || $isRefEmpty) {
+                return false;
+            }
+
+            $id_company = ValidatorService::sanitize_text($id_company);
+            $ref = ValidatorService::sanitize_text($ref);
+
             $result = $this->company_repository->createInvoice($ref, $id_company);
+            header("Location:/admin/dashboard");
             echo ($result) ? "Success" : "Failed to create invoice";
+
             return $result;
         }
+        echo "There is an error";
         return false;
     }
 

@@ -10,13 +10,13 @@ usort($companies, function ($a, $b) {
 
 ?>
 
-<main class="md:ml-56 bg-gray-50 flex flex-col p-10">
-    <form action="/admin/create-invoice" method="post" class="w-full bg-white m-auto p-5">
+<main class="md:ml-56 bg-gray-50 flex flex-col px-10">
+    <form action="/admin/add-invoice" method="post" class="w-full bg-white m-auto p-5">
         <h3 class="text-lg font-bold my-6">New Invoice</h3>
         <hr>
         <div class="mt-12">
-            <label for="reference" class="block text-sm font-medium gray-900"></label>
-            <input type="text" name="reference" id="reference" required
+            <label for="ref" class="block text-sm font-medium gray-900"></label>
+            <input type="text" name="ref" id="ref" required
                    placeholder="Reference"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
@@ -44,7 +44,5 @@ usort($companies, function ($a, $b) {
                 Save
             </button>
         </div>
-
     </form>
-
 </main>
