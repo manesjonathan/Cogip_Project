@@ -4,36 +4,40 @@ use App\Services\CompanyService;
 
 $company_service = new CompanyService();
 $companies = $company_service->getLastFiveCompanies();
-$contacts = $company_service->getAllContacts(); //todo
-$invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
+$contacts = array_slice($company_service->getAllContacts(false), 0, 5); //todo
+$invoices = $company_service->getLastFiveInvoices();
+usort($invoices, function ($a, $b) {
+    return $b['created_at'] <=> $a['created_at'];
+});
 
 ?>
 
 <main class="px-5 md:ml-56 bg-gray-50 md:grid md:grid-cols-2 flex flex-col">
 
-    <div class="m-4 flex flex-col col-start-1 col-end-1">
-        <section class="bg-white p-4 rounded-lg my-4 items-center">
-                <h3 class="text-lg font-bold mb-2">Statistics</h3>
-            <ul class="flex text-sm text-white w-3/4 justify-center">
-                    <li class="items-center justify-center p-2 m-2">
-                        <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center">
-                            <p class="m-0"><?php echo count($invoices) ?></p>
-                            <p class="m-0">Invoices</p>
-                        </div>
-                    </li>
-                    <li class="items-center justify-center p-2 m-2">
-                        <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center">
-                            <p class="m-0"><?php echo count($contacts) ?></p>
-                            <p class="m-0">Contacts</p>
-                        </div>
-                    </li>
-                    <li class="items-center justify-center p-2 m-2">
-                        <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
-                            <p class="m-0"><?php echo count($companies) ?></p>
-                            <p class="m-0">Companies</p>
-                        </div>
-                    </li>
-                </ul>
+    <div class="my-2 flex flex-col col-start-1 col-end-1 px-5  mb-14">
+        <section class="bg-white rounded-lg my-4 items-center p-4">
+            <h3 class="text-lg font-bold mb-2">Statistics</h3>
+
+            <ul class="flex text-sm text-white justify-center">
+                <li class="items-center justify-center p-2 ">
+                    <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center">
+                        <p class="m-0"><?php echo count($company_service->getAllInvoices(false)) ?></p>
+                        <p class="m-0">Invoices</p>
+                    </div>
+                </li>
+                <li class="items-center justify-center p-2 ">
+                    <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center">
+                        <p class="m-0"><?php echo count($company_service->getAllContacts(false)) ?></p>
+                        <p class="m-0">Contacts</p>
+                    </div>
+                </li>
+                <li class="items-center justify-center p-2 ">
+                    <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
+                        <p class="m-0"><?php echo count($company_service->getAllCompanies(false)) ?></p>
+                        <p class="m-0">Companies</p>
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <section class="bg-white p-4 rounded-lg my-4">
@@ -62,7 +66,7 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
         </section>
     </div>
 
-    <div class="m-4 flex flex-col col-start-2 col-end-2">
+    <div class="my-2 flex flex-col col-start-2 col-end-2 px-5 mb-14">
         <section class="bg-white p-4 rounded-lg my-4 ">
             <div class="flex flex-col  overflow-x-auto">
                 <h3 class="text-lg font-bold mb-2">Last Invoices</h3>
@@ -80,7 +84,7 @@ $invoices = $company_service->getLastFiveInvoicesByCompany(1); //todo
                         <tr class="">
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['ref']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['created_at']; ?></td>
-                            <td class="px-4 py-4 text-sm"><?php echo $invoice['id_company']; ?></td>
+                            <td class="px-4 py-4 text-sm"><?php echo $company_service->getCompanyById($invoice['id_company'])['name']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

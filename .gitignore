@@ -2,3 +2,7 @@
 /Database/.env
 /.idea/
 /node_modules/
+
+.secret-*
+**.sample
+#amplify-do-not-edit-end

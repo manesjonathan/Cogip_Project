@@ -1,35 +1,44 @@
 Home / Login for Admin dashboard
-https://66d6-85-201-62-18.eu.ngrok.io/
+https://becode-cogip-2023.000webhostapp.com/
 
+//COMPANIES
 Get all companies
-https://66d6-85-201-62-18.eu.ngrok.io/get-data
-
-Get company by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-company/{id}
-
-Get all contacts
-https://66d6-85-201-62-18.eu.ngrok.io/get-contacts
-
-Get contact by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-contact/{id}
-
-Get contacts by company id
-https://66d6-85-201-62-18.eu.ngrok.io/get-contacts/company/{company_id}
-
-Get invoice by id
-https://66d6-85-201-62-18.eu.ngrok.io/get-invoice/{id}
-
-Get invoices by company id
-https://66d6-85-201-62-18.eu.ngrok.io/get-invoices/company/{company_id}
-
-Get latest contacts by company id
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-contacts/company/{company_id}
-
-Get latest invoices by company id
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-invoices/company/{company_id}
+https://becode-cogip-2023.000webhostapp.com/get-companies
 
 Get latest companies
-https://66d6-85-201-62-18.eu.ngrok.io/admin/get-latest-companies
+https://becode-cogip-2023.000webhostapp.com/get-latest-companies
+
+Get company by id
+https://becode-cogip-2023.000webhostapp.com/get-company/{id}
+
+//CONTACTS
+Get all contacts
+https://becode-cogip-2023.000webhostapp.com/get-contacts
+
+Get latest contacts
+https://becode-cogip-2023.000webhostapp.com/get-latest-contacts
+
+Get contact by id
+https://becode-cogip-2023.000webhostapp.com/get-contact/{id}
+
+Get contacts by company id
+https://becode-cogip-2023.000webhostapp.com/get-contacts/company/{company_id}
+
+Get latest contacts by company id
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-contacts/company/{company_id}
+
+//INVOICES
+Get invoice by id
+https://becode-cogip-2023.000webhostapp.com/get-invoice/{id}
+
+Get latest invoices
+https://becode-cogip-2023.000webhostapp.com/get-latest-invoice
+
+Get invoices by company id
+https://becode-cogip-2023.000webhostapp.com/get-invoices/company/{company_id}
+
+Get latest invoices by company id
+https://becode-cogip-2023.000webhostapp.com/admin/get-latest-invoices/company/{company_id}
 
 
 

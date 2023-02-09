@@ -15,24 +15,58 @@ class CompanyService
         $this->company_repository = new CompanyRepository();
     }
 
-
-    public function createCompany($array)
+    public function getCompaniesTypes()
     {
-        foreach($array as $data) {
-            if (ValidatorService::isInputEmpty($data)) {
-                return FALSE;
+        return $this->company_repository->getCompaniesTypes();
+    }
+
+
+    public function createCompany($type_id, $name, $country, $tva)
+    {
+        if (isset($_SESSION['user'])) {
+
+            $isTypeIdEmpty = ValidatorService::isInputEmpty($type_id);
+            $isNameEmpty = ValidatorService::isInputEmpty($name);
+            $isCountryEmpty = ValidatorService::isInputEmpty($country);
+            $isTva = ValidatorService::isInputEmpty($tva);
+
+            if ($isTypeIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
+                return false;
             }
 
-            $data = ValidatorService::sanitize_text($data);
+            $type_id = ValidatorService::sanitize_text($type_id);
+            $name = ValidatorService::sanitize_text($name);
+            $country = ValidatorService::sanitize_text($country);
+            $tva = ValidatorService::sanitize_text($tva);
+
+            $result = $this->company_repository->createCompany($type_id, $name, $country, $tva);
+            header("Location:/admin/dashboard");
+            echo ($result) ? "Success" : "Failed to create invoice";
+
+            return $result;
         }
-        
-        if (!(ValidatorService::isNumber($array["type_id"]) && ValidatorService::isAlphanumeric($array["tva"]))){
-            return FALSE;
-        };
+        echo "There is an error";
+        return false;
+    }
 
-        $array["type_id"] = intval($array["type_id"]);
+    public function getAllCompanies($last_five)
+    {
+        $data['companies'] = $this->company_repository->getAllCompanies();
 
-        return $this->createCompany($array);
+        if (isset($_SESSION['user'])) {
+            return $data['companies'];
+        }
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['companies'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
+            $json_encode = json_encode($data['companies'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
     }
 
     public function getLastFiveCompanies()
@@ -73,47 +107,57 @@ class CompanyService
 
     }
 
-    public function createContact($array)
+    public function createContact($company_id, $name, $email, $phone)
     {
-        foreach($array as $data) {
-            if (ValidatorService::isInputEmpty($data)) {
-                return FALSE;
+        if (isset($_SESSION['user'])) {
+
+            $isCompanyEmpty = ValidatorService::isInputEmpty($company_id);
+            $isNameEmpty = ValidatorService::isInputEmpty($name);
+            $isEmailEmpty = ValidatorService::isInputEmpty($email);
+            $isPhoneEmpty = ValidatorService::isInputEmpty($phone);
+
+
+            if ($isCompanyEmpty || $isNameEmpty || $isEmailEmpty || $isPhoneEmpty) {
+                return false;
             }
 
-            $data = ValidatorService::sanitize_text($data);
-        }
+            $company_id = ValidatorService::sanitize_text($company_id);
+            $name = ValidatorService::sanitize_text($name);
+            $email = ValidatorService::sanitize_text($email);
+            $phone = ValidatorService::sanitize_text($phone);
 
-        if (!ValidatorService::isNumber($array["company_id"])){
-            return FALSE;
-        }
-        $array["company_id"] = intval($array["company_id"]);
+            if (!ValidatorService::validateEmail($email)) {
+                return false;
+            }
 
-        $array["email"] = ValidatorService::validateEmail($array["email"]);
-        if (!$array["email"]){
-            return FALSE;
+            $result = $this->company_repository->createContact($company_id, $name, $email, $phone);
+            header("Location:/admin/dashboard");
+            echo ($result) ? "Success" : "Failed to create invoice";
+            return $result;
         }
-
-        $array["phone"] = ValidatorServie::isValidPhonenumber($array["phone"]);
-        if (!$array["phone"]){
-            return FALSE;
-        }
-
-        return $this->createContact($array);
+        echo "There is an error";
+        return false;
     }
 
-    public function getAllContacts()
+    public function getAllContacts($last_five)
     {
         $data["contacts"] = $this->company_repository->getAllContacts();
         if (isset($_SESSION['user'])) {
             return $data['contacts'];
         }
 
-        $json_encode = json_encode($data, true);
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['contacts'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
 
-        header('Content-type: application/json');
-        echo $json_encode;
-        return true;
-
+            $json_encode = json_encode($data['contacts'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
     }
 
     public function getContactById($id)
@@ -185,26 +229,27 @@ class CompanyService
         return true;
     }
 
-    public function createInvoice($array)
+    public function createInvoice($id_company, $ref)
     {
-        foreach($array as $data) {
-            if (ValidatorService::isInputEmpty($data)) {
-                return FALSE;
+        if (isset($_SESSION['user'])) {
+            $isCompanyIdEmpty = ValidatorService::isInputEmpty($id_company);
+            $isRefEmpty = ValidatorService::isInputEmpty($ref);
+
+            if ($isCompanyIdEmpty || $isRefEmpty) {
+                return false;
             }
 
-            $data = ValidatorService::sanitize_text($data);
-        }
+            $id_company = ValidatorService::sanitize_text($id_company);
+            $ref = ValidatorService::sanitize_text($ref);
 
-        if (!ValidatorService::isNumber($array["company_id"])) {
-            return FALSE;
-        }
-        $array["company_id"] = intval($array["company_id"]);
+            $result = $this->company_repository->createInvoice($ref, $id_company);
+            header("Location:/admin/dashboard");
+            echo ($result) ? "Success" : "Failed to create invoice";
 
-        if (!ValidatorService::isAlphaNumeric($array["ref"])){
-            return FALSE;
+            return $result;
         }
-
-        return $this->createInvoice($array);
+        echo "There is an error";
+        return false;
     }
 
     public function getInvoiceById($id)
@@ -251,6 +296,33 @@ class CompanyService
         return true;
     }
 
+    public function getLastFiveInvoices()
+    {
+        $data['invoices'] = $this->company_repository->getLast5Invoices();
+        return $data['invoices'];
+    }
+
+    public function getAllInvoices($last_five)
+    {
+        $data['invoices'] = $this->company_repository->getAllInvoices();
+
+        if (isset($_SESSION['user'])) {
+            return $data['invoices'];
+        }
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['invoices'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
+            $json_encode = json_encode($data['invoices'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
+    }
+
+
     public function getInvoicesByCompany($company)
     {
         if (!ValidatorService::isNumber($id)) {
@@ -272,63 +344,5 @@ class CompanyService
         echo $json_encode;
         return true;
     }
-
-    // function getData() -> return to frontend if user is valid
-    //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
-    public function getData()
-    {
-        $data = [];
-        $companies = $this->company_repository->getAllCompanies();
-        $data['companies'] = $companies;
-        if (isset($_SESSION['user'])) {
-            return $data['companies'];
-        }
-        $json_encode = json_encode($data, true);
-
-        header('Content-type: application/json');
-        echo $json_encode;
-        return true;
-    }
-
-    public function deleteCompany($company_id)
-    {
-        header('Content-type: application/json');
-
-        if (!ValidatorService::isNumber($company_id)){
-            echo $json_encode(["id" => "not valid"]) ;
-            exit();
-        }
-        $company_id = intval($company_id);
-        $status = $this->company_repository->deleteCompany($company_id);
-
-        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-    }
-
-    public function deleteContact($contact_id)
-    {
-        header('Content-type: application/json');
-
-        if (!ValidatorService::isNumber($contact_id)){
-            echo json_encode(["id" => "not valid"]);
-        }
-        $contact_id = intval($contact_id);
-        $status = $this->company_repository->deleteContact($contact_id);
-
-        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-    }
-
-    public function deleteInvoice($invoice_id)
-    {
-        header('Content-type: application/json');
-
-        if (!ValidatorService::isNumber($invoice_id)){
-             echo json_encode(["id" => "not valid"]);
-        }
-        $invoice_id = intval($invoice_id);
-        $status = $this->company_repository->deleteInvoice($invoice_id);
-
-        echo $status ? json_encode(["status" => "ok"]) : json_encode(["status" => "failed"]);
-    }
-
 
 }
