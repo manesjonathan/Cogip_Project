@@ -17,7 +17,7 @@ class CompanyRepository
 
     public function getAllCompanies()
     {
-        $query = 'SELECT * FROM companies';
+        $query = 'SELECT * FROM companies ORDER BY created_at DESC';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +152,7 @@ class CompanyRepository
 
     public function getAllInvoices()
     {
-        $query = 'SELECT *  FROM invoices';
+        $query = 'SELECT *  FROM invoices ORDER BY created_at DESC';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
