@@ -1,10 +1,14 @@
+@use "helper" as h;
+//EXEMPLE: color: h.$red;
+
 .panneau-container{
-    background-color: $jaune;
+    background-color: h.$jaune;
 }
 .title-panneau{
     text-align:center;
-    font-size:3em;
-    font-family: "roboto";
+    padding-top:1em;
+    font-size:2em;
+    font-family: h.$roboto;
 }
 
 .img-panneau{
