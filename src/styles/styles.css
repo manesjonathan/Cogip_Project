@@ -135,8 +135,46 @@
     padding: 0em 1em;
   }
 }
+.footer {
+  background-color: white;
+  /*align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 481px;
+  width: 1103px;*/
+}
+
+.social-container {
+  border-top: #F9DE49 2px;
+  border-bottom: #7BB9FC 1px;
+}
+
+.footer-title {
+  font-family: "Roboto", sans-serif;
+  width: 2em;
+  padding: 1em;
+}
+
+.social-contact {
+  list-style: none;
+}
+
+.title-social {
+  font-family: "inter", sans-serif;
+  size: 14px;
+}
+
+/*.social-media{
+
+}*/
 .panneau-container {
   background-color: #F9DE49;
+}
+
+.title-panneau {
+  padding: 3em;
+  font-size: 3em;
+  font-family: "roboto";
 }
 
 .img-panneau {

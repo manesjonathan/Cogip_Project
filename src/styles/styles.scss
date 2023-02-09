@@ -1,1 +1,7 @@
-@use "partials/index";
+@import "partials/variables";
+@import "partials/base";
+@import "partials/burger";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/panneauheader";
+// @use 'partials/index';
