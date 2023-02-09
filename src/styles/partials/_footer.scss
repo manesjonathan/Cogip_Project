@@ -13,9 +13,10 @@
 }
 
 .social-container{
-    border-top: $jaune 2px;
-    border-bottom: $bleu 1px;
-    //padding: 10px;
+    border-top: $jaune .125rem;
+    border-bottom: $bleu .0625rem;
+    display: grid;
+    padding: 10px;
 
 }
 
@@ -23,6 +24,7 @@
     font-family: 'Roboto', sans-serif;
     width:2em;
     padding: 1em;
+
 }
 
 .social-contact{
