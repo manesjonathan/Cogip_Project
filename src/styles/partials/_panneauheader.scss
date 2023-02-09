@@ -2,13 +2,13 @@
     background-color: $jaune;
 }
 .title-panneau{
-    padding:3em;
+    text-align:center;
     font-size:3em;
     font-family: "roboto";
 }
 
 .img-panneau{
-    width:500px;
+    width:400px;
 }
 
 //----------------------------Media queries-------------------------------//
@@ -17,13 +17,19 @@
 
 .panneau-container{
     display: grid;
+    padding:1%;
 }    
 
 .img-panneau{
     grid-area: 1 / 2 / 2 / 3;
+    width:600px;
 }
 
 .title-panneau{
     grid-area: 1 / 1 / 2 / 2;
+    padding: 5%;
+    text-align: left;
+    padding-top: 1em;
+    font-size: 5em;
 }
 }
