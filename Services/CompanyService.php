@@ -23,12 +23,12 @@ class CompanyService
     {
         if (isset($_SESSION['user'])) {
 
-            $isIdEmpty = ValidatorService::isInputEmpty($type_id);
+            $isTypeIdEmpty = ValidatorService::isInputEmpty($type_id);
             $isNameEmpty = ValidatorService::isInputEmpty($name);
             $isCountryEmpty = ValidatorService::isInputEmpty($country);
             $isTva = ValidatorService::isInputEmpty($tva);
 
-            if ($isIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
+            if ($isTypeIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
                 return false;
             }
 
@@ -45,6 +45,26 @@ class CompanyService
         }
         echo "There is an error";
         return false;
+    }
+
+    public function getAllCompanies($last_five)
+    {
+        $data['companies'] = $this->company_repository->getAllCompanies();
+
+        if (isset($_SESSION['user'])) {
+            return $data['companies'];
+        }
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['companies'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
+            $json_encode = json_encode($data['companies'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
     }
 
     public function getLastFiveCompanies()
@@ -117,19 +137,25 @@ class CompanyService
         return false;
     }
 
-    public function getAllContacts()
+    public function getAllContacts($last_five)
     {
         $data["contacts"] = $this->company_repository->getAllContacts();
         if (isset($_SESSION['user'])) {
             return $data['contacts'];
         }
 
-        $json_encode = json_encode($data, true);
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['contacts'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
 
-        header('Content-type: application/json');
-        echo $json_encode;
-        return true;
-
+            $json_encode = json_encode($data['contacts'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
     }
 
     public function getContactById($id)
@@ -204,11 +230,10 @@ class CompanyService
     public function createInvoice($id_company, $ref)
     {
         if (isset($_SESSION['user'])) {
-
-            $isIdEmpty = ValidatorService::isInputEmpty($id_company);
+            $isCompanyIdEmpty = ValidatorService::isInputEmpty($id_company);
             $isRefEmpty = ValidatorService::isInputEmpty($ref);
 
-            if ($isIdEmpty || $isRefEmpty) {
+            if ($isCompanyIdEmpty || $isRefEmpty) {
                 return false;
             }
 
@@ -275,10 +300,24 @@ class CompanyService
         return $data['invoices'];
     }
 
-    public function getAllInvoices()
+    public function getAllInvoices($last_five)
     {
         $data['invoices'] = $this->company_repository->getAllInvoices();
-        return $data['invoices'];
+
+        if (isset($_SESSION['user'])) {
+            return $data['invoices'];
+        }
+        if ($last_five) {
+            $json_encode = json_encode(array_slice($data['invoices'], 0, 5), true);
+            header('Content-type: application/json');
+            echo $json_encode;
+        } else {
+            $json_encode = json_encode($data['invoices'], true);
+            header('Content-type: application/json');
+            echo $json_encode;
+            return true;
+        }
+        return null;
     }
 
 
@@ -304,19 +343,4 @@ class CompanyService
         return true;
     }
 
-    // function getData() -> return to frontend if user is valid
-    //return json object containing 3 arrays (last 5 invoices, last 5 contact, last 5 companies)
-    public function getAllCompanies()
-    {
-        $data['companies'] = $this->company_repository->getAllCompanies();
-
-        if (isset($_SESSION['user'])) {
-            return $data['companies'];
-        }
-        $json_encode = json_encode($data, true);
-
-        header('Content-type: application/json');
-        echo $json_encode;
-        return true;
-    }
 }

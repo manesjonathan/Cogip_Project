@@ -3,7 +3,7 @@
 use App\Services\CompanyService;
 
 $company_service = new CompanyService();
-$companies = $company_service->getAllCompanies();
+$companies = $company_service->getAllCompanies(false);
 usort($companies, function ($a, $b) {
     return $a['name'] <=> $b['name'];
 });

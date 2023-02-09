@@ -4,7 +4,7 @@ use App\Services\CompanyService;
 
 $company_service = new CompanyService();
 $companies = $company_service->getLastFiveCompanies();
-$contacts = array_slice($company_service->getAllContacts(), 0, 5); //todo
+$contacts = array_slice($company_service->getAllContacts(false), 0, 5); //todo
 $invoices = $company_service->getLastFiveInvoices();
 usort($invoices, function ($a, $b) {
     return $b['created_at'] <=> $a['created_at'];
@@ -21,19 +21,19 @@ usort($invoices, function ($a, $b) {
             <ul class="flex text-sm text-white justify-center">
                 <li class="items-center justify-center p-2 ">
                     <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllInvoices()) ?></p>
+                        <p class="m-0"><?php echo count($company_service->getAllInvoices(false)) ?></p>
                         <p class="m-0">Invoices</p>
                     </div>
                 </li>
                 <li class="items-center justify-center p-2 ">
                     <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllContacts()) ?></p>
+                        <p class="m-0"><?php echo count($company_service->getAllContacts(false)) ?></p>
                         <p class="m-0">Contacts</p>
                     </div>
                 </li>
                 <li class="items-center justify-center p-2 ">
                     <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllCompanies()) ?></p>
+                        <p class="m-0"><?php echo count($company_service->getAllCompanies(false)) ?></p>
                         <p class="m-0">Companies</p>
                     </div>
                 </li>
