@@ -8,8 +8,8 @@
 .ham-menu {
   display: flex;
   justify-content: flex-end;
-  grid-area: 1/2/2/2;
-  padding: 1em;
+  grid-area: 1/2/2/3;
+  padding-right: 1em;
 }
 
 .hm-button {
@@ -58,9 +58,10 @@
   }
 }
 .header {
-  background-color: #F9DE49;
   font-family: "Roboto";
   font-weight: 500;
+  width: 100%;
+  background-color: #F9DE49;
 }
 
 .menu-container {
@@ -68,63 +69,54 @@
 }
 
 .menu-title {
+  grid-area: 1/1/2/2;
+  padding: 1em;
   font-weight: 900;
   font-size: 2em;
-  width: 2em;
-  padding: 1em;
   cursor: pointer;
 }
 
-.list {
-  /* background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    margin-left: -200%;
-    font-size: 2em;
-    background-color: rgba(27, 27, 27, 0.7);
-    top: 3.2em;
-    width: 100%;
-    padding:2%;*/
+.menu-list-mobile {
+  transition: ease 0.3s;
+  list-style-type: none;
+  background: rgb(255, 255, 255);
+  text-transform: uppercase;
+  margin-left: -200%;
+  font-size: 1.3em;
+  top: 3.5em;
+  width: 100%;
+  padding-bottom: 1em;
   position: absolute;
   text-align: center;
 }
+.menu-list-mobile li {
+  padding-top: 1em;
+}
 
-.menu-list, .menu-log {
-  list-style-type: none;
+.menu {
+  display: none;
 }
 
 @media screen and (min-width: 1023px) {
-  .header {
-    padding: 1%;
-  }
   .menu-container {
     display: flex;
-    justify-content: space-between;
   }
-  li {
+  .menu {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
     cursor: pointer;
   }
-  .list {
-    display: flex;
-    flex-direction: row;
-    padding-top: 2.5em;
-    position: relative;
-  }
   .menu-list {
-    display: flex;
-    padding-left: 3em;
-    width: 50em;
-  }
-  .menu-list li {
-    padding-right: 3em;
+    width: 30em;
+    justify-content: space-around;
   }
   .menu-log {
-    width: 15em;
-    display: flex;
+    width: 35em;
+    justify-content: flex-end;
   }
   .menu-log li {
-    padding-right: 1em;
-    padding-left: 1em;
+    margin-right: 2em;
   }
   .menu-signup {
     background-color: white;
@@ -132,7 +124,10 @@
     border-radius: 0.5em;
     height: 1.5em;
     margin-left: 1em;
-    padding: 0em 1em;
+    padding: 0.2em 1em;
+  }
+  .menu-list-mobile {
+    display: none;
   }
 }
 .footer {

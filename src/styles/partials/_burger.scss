@@ -1,8 +1,9 @@
 .ham-menu{
+    //padding: 1em;
     display: flex;
     justify-content: flex-end;
-    grid-area: 1 / 2 / 2 / 2;
-    padding: 1em;
+    grid-area: 1 / 2 / 2 / 3;
+    padding-right: 1em;
 }
 
 .hm-button{
