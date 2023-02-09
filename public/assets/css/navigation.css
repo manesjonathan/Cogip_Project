@@ -1,0 +1,13 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: red;
+  width: 20vw;
+  overflow-x: hidden;
+}
+
+/*# sourceMappingURL=navigation.css.map */
