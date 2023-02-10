@@ -52,19 +52,16 @@ class CompanyService
         $data['companies'] = $this->company_repository->getAllCompanies();
 
         if (isset($_SESSION['user'])) {
-            return $data['companies'];
+            return $data['contacts'];
         }
-        if ($last_five) {
-            $json_encode = json_encode(array_slice($data['companies'], 0, 5), true);
-            header('Content-type: application/json');
-            echo $json_encode;
-        } else {
-            $json_encode = json_encode($data['companies'], true);
-            header('Content-type: application/json');
-            echo $json_encode;
-            return true;
+        if ($last_five === true) {
+            $data['companies'] = array_slice($data['companies'], 0, 5);
+
         }
-        return null;
+        $json_encode = json_encode($data, true);
+        header('Content-type: application/json');
+        echo $json_encode;
+        return true;
     }
 
     public function getLastFiveCompanies()
@@ -139,23 +136,19 @@ class CompanyService
 
     public function getAllContacts($last_five)
     {
-        $data["contacts"] = $this->company_repository->getAllContacts();
+        $data['contacts'] = $this->company_repository->getAllContacts();
+
         if (isset($_SESSION['user'])) {
             return $data['contacts'];
         }
+        if ($last_five === true) {
+            $data['contacts'] = array_slice($data['contacts'], 0, 5);
 
-        if ($last_five) {
-            $json_encode = json_encode(array_slice($data['contacts'], 0, 5), true);
-            header('Content-type: application/json');
-            echo $json_encode;
-        } else {
-
-            $json_encode = json_encode($data['contacts'], true);
-            header('Content-type: application/json');
-            echo $json_encode;
-            return true;
         }
-        return null;
+        $json_encode = json_encode($data, true);
+        header('Content-type: application/json');
+        echo $json_encode;
+        return true;
     }
 
     public function getContactById($id)
@@ -307,17 +300,14 @@ class CompanyService
         if (isset($_SESSION['user'])) {
             return $data['invoices'];
         }
-        if ($last_five) {
-            $json_encode = json_encode(array_slice($data['invoices'], 0, 5), true);
-            header('Content-type: application/json');
-            echo $json_encode;
-        } else {
-            $json_encode = json_encode($data['invoices'], true);
-            header('Content-type: application/json');
-            echo $json_encode;
-            return true;
+        if ($last_five === true) {
+            $data['invoices'] = array_slice($data['invoices'], 0, 5);
+
         }
-        return null;
+        $json_encode = json_encode($data, true);
+        header('Content-type: application/json');
+        echo $json_encode;
+        return true;
     }
 
 
