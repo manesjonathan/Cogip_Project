@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import{Link} from "react-router-dom";
-import rectwhite02 from '../../Images/rect-white-10.avif';
 
 const HeaderHome = () => {
 
 const [isOpened, setIsOpened] = useState(false);
 return (
 
-<header className='h'>
+<header className='header-home'>
 <nav className="menu-container">
 
 <h1 className="menu-title"><Link to="/">COGIP</Link></h1>
@@ -44,7 +43,6 @@ return (
         <li>login</li>
     </ul>
 </nav>
-<img className ="img-rectwhite02" src={rectwhite02} alt="img-rectwhite02" ></img>
 </header>
 
 )}

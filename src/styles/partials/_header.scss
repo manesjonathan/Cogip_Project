@@ -1,84 +1,15 @@
 @use "helper" as h;
 //EXEMPLE: color: h.$red;
 
-.header{
-    font-family: h.$roboto;
-    font-weight: 500;
-    width:100%;
+.h{
     background-color: h.$jaune;
+    padding-bottom: 4em;
 }
 
-.menu-container{
-    display:grid;
-}
-
-.menu-title{
-    grid-area: 1 / 1 / 2 / 2;
-    padding: 1em;
-    font-weight: 900;
-    font-size: 2em;
-    cursor: pointer;
-}
-
-.menu-list-mobile{
-    transition: ease 0.3s;
-    list-style-type: none;
-    background: rgb(255, 255, 255);
-    text-transform: uppercase;
-    margin-left: -200%;
-    font-size: 1.3em;
-    top: 3.5em;
-    width: 100%;
-    padding-bottom: 1em;
-    position:absolute;
-    text-align: center;
-    li{
-        padding-top: 1em;
-    }
-}
-
-.menu {
-    display:none;
-}
-
-//----------------------------Media queries-------------------------------//
-
-@media screen and (min-width: 818px) {
-
-.menu-container{
-    display:flex;
-}
-
-.menu{
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-    cursor :pointer;
-}
-
-.menu-list{
-    width:30em;
-    justify-content: space-around;
-}
-.menu-log{
-    width:35em;
-    justify-content: flex-end;
-    li{
-        margin-right:2em;
-    }
-}
-
-.menu-signup{
-    background-color: white;
-    color:black;
-    border-radius: 0.5em;
-    height:1.5em;
-    margin-left:1em;
-    padding: 0.2em 1em;
-}
-
-.menu-list-mobile{
-    display: none;
-}
+.img-rectwhite02{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin-top: 6em;
 
 }
