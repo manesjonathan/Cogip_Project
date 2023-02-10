@@ -8,7 +8,7 @@ return (
 <header className='header'>
 <nav className="menu-container">
 
-<h1 className="menu-title">COGIP</h1>
+<h1 className="menu-title"><Link to="/">COGIP</Link></h1>
 
 
         <ul className="menu menu-list">
@@ -34,10 +34,10 @@ return (
     </nav>
 
     <ul className="menu-list-mobile" style={{ marginLeft: isOpened ? '0%' : '-200%' }}>
-        <li>Home</li>
-        <li>Invoices</li>
-        <li>Compagnies</li>
-        <li>Contacts</li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/Invoices">Invoices</Link></li>
+        <li><Link to="/Compagnies">Compagnies</Link></li>
+        <li><Link to="/Contacts">Contacts</Link></li>
         <li>Sign up</li>
         <li>login</li>
     </ul>
