@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import{Link} from "react-router-dom";
 const Header = () => {
 
 const [isOpened, setIsOpened] = useState(false);
@@ -11,10 +12,10 @@ return (
 
 
         <ul className="menu menu-list">
-            <li>Home</li>
-            <li>Invoices</li>
-            <li>Compagnies</li>
-            <li>Contacts</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/Invoices">Invoices</Link></li>
+            <li><Link to="/Compagnies">Compagnies</Link></li>
+            <li><Link to="/Contacts">Contacts</Link></li>
         </ul>
       <ul className="menu menu-log">
         <li className="menu-signup">Sign up</li>
