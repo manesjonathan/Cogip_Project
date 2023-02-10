@@ -5,15 +5,15 @@ import PanneauHeader from '../Elements/PanneauHeader.js';
 import DisplayAllArrays from '../Elements/DiplayAllArrays.js';
 
 
-function HomePages() {
+function HomePage() {
   return (
     <div>
       <Header />
       <PanneauHeader/>
       <DisplayAllArrays />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
 
-export default HomePages;
+export default HomePage;
