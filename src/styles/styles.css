@@ -161,6 +161,10 @@ footer {
     height: 7.2em;
   }
 }
+thead {
+  background-color: #F9DE49;
+}
+
 tr {
   font-family: "Roboto";
 }

@@ -1,6 +1,10 @@
 @use "helper" as h;
 //EXEMPLE: color: h.$red;
 
+thead{
+    background-color: h.$jaune ;
+}
+
 tr{
     font-family: h.$roboto;
 }
