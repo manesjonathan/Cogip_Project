@@ -222,6 +222,10 @@ footer {
     height: 7.2em;
   }
 }
+tr {
+  font-family: "Roboto";
+}
+
 tr:nth-of-type(even) {
   background-color: #F5F5F5;
 }/*# sourceMappingURL=styles.css.map */

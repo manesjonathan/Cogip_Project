@@ -1,6 +1,10 @@
 @use "helper" as h;
 //EXEMPLE: color: h.$red;
 
+tr{
+    font-family: h.$roboto;
+}
+
 tr:nth-of-type(even){
     background-color: h.$lightgrey;
 }
