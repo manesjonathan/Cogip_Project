@@ -52,7 +52,7 @@ class CompanyService
         $data['companies'] = $this->company_repository->getAllCompanies();
 
         if (isset($_SESSION['user'])) {
-            return $data['contacts'];
+            return $data['companies'];
         }
         if ($last_five === true) {
             $data['companies'] = array_slice($data['companies'], 0, 5);
