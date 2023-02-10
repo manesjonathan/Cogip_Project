@@ -221,4 +221,7 @@ footer {
     width: 90%;
     height: 7.2em;
   }
+}
+tr:nth-of-type(even) {
+  background-color: #F5F5F5;
 }/*# sourceMappingURL=styles.css.map */
