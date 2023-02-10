@@ -1,8 +1,8 @@
 import React from "react";
-import Header from '../Header.js';
-import Footer from '../Footer.js';
-import PanneauHeader from '../PanneauHeader.js';
-import DisplayAllArrays from '../DiplayAllArrays.js';
+import Header from '../Elements/Header.js';
+import Footer from '../Elements/Footer.js';
+import PanneauHeader from '../Elements/PanneauHeader.js';
+import DisplayAllArrays from '../Elements/DiplayAllArrays.js';
 
 
 function HomePages() {
@@ -11,7 +11,7 @@ function HomePages() {
       <Header />
       <PanneauHeader/>
       <DisplayAllArrays />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

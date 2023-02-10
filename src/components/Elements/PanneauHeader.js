@@ -1,6 +1,6 @@
 import React from "react";
-import panneau from '../Images/header-img.avif'
-import rectwhite from '../Images/rect-white-10.avif'
+import panneau from '../../Images/header-img.avif'
+import rectwhite from '../../Images/rect-white-10.avif'
 
 const PanneauHeader = () => {
 
