@@ -1,47 +1,41 @@
 Home / Login for Admin dashboard
-https://becode-cogip-2023.000webhostapp.com/
+https://cogip.jonathan-manes.be/
 
 //COMPANIES
 Get all companies
-https://becode-cogip-2023.000webhostapp.com/get-companies
+https://cogip.jonathan-manes.be/get-companies
 
 Get latest companies
-https://becode-cogip-2023.000webhostapp.com/get-latest-companies
+https://cogip.jonathan-manes.be/get-latest-companies
 
 Get company by id
-https://becode-cogip-2023.000webhostapp.com/get-company/{id}
+https://cogip.jonathan-manes.be/get-company/{id}
 
 //CONTACTS
 Get all contacts
-https://becode-cogip-2023.000webhostapp.com/get-contacts
+https://cogip.jonathan-manes.be/get-contacts
 
 Get latest contacts
-https://becode-cogip-2023.000webhostapp.com/get-latest-contacts
+https://cogip.jonathan-manes.be/get-latest-contacts
 
 Get contact by id
-https://becode-cogip-2023.000webhostapp.com/get-contact/{id}
+https://cogip.jonathan-manes.be/get-contact/{id}
 
 Get contacts by company id
-https://becode-cogip-2023.000webhostapp.com/get-contacts/company/{company_id}
+https://cogip.jonathan-manes.be/get-contacts/company/{company_id}
 
 Get latest contacts by company id
-https://becode-cogip-2023.000webhostapp.com/admin/get-latest-contacts/company/{company_id}
+https://cogip.jonathan-manes.be/admin/get-latest-contacts/company/{company_id}
 
 //INVOICES
 Get invoice by id
-https://becode-cogip-2023.000webhostapp.com/get-invoice/{id}
+https://cogip.jonathan-manes.be/get-invoice/{id}
 
 Get latest invoices
-https://becode-cogip-2023.000webhostapp.com/get-latest-invoice
+https://cogip.jonathan-manes.be/get-latest-invoice
 
 Get invoices by company id
-https://becode-cogip-2023.000webhostapp.com/get-invoices/company/{company_id}
+https://cogip.jonathan-manes.be/get-invoices/company/{company_id}
 
 Get latest invoices by company id
-https://becode-cogip-2023.000webhostapp.com/admin/get-latest-invoices/company/{company_id}
-
-
-
-
-
-
+https://cogip.jonathan-manes.be/admin/get-latest-invoices/company/{company_id}

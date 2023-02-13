@@ -152,8 +152,7 @@ $router->get('/get-invoices', function () {
 });
 
 $router->get('/get-latest-invoices', function () {
-    $allInvoices = (new CompanyService())->getAllInvoices(true);
-    return array_slice($allInvoices, 0, 5);
+    return (new CompanyService())->getAllInvoices(true);
 });
 
 $router->get("/get-invoices/company/{company_id}", function ($company_id) {
