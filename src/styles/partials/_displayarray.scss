@@ -3,22 +3,19 @@
 
 .tab{
     width:100%;
+    padding: 3%;
 
 
 }
 
 table{
-    width: 80%;
+    width: 90%;
     text-align: left;
     border-collapse: collapse;
-
-
-
 }
 
 thead{
     background-color: h.$jaune ;
-    
 }
 
 th{
@@ -27,20 +24,59 @@ th{
 
 tr{
     font-family: h.$roboto;
-
 }
 
 tr:nth-of-type(even){
     background-color: h.$lightgrey;
-
 }
+
 td{
     padding: 1%;
 }
 
 .tab-title{
     font-family: h.$inter;
-    font-size:3em;
+    width: 20em;
+    font-size:2em;
     font-weight: 900;
-    padding: 1em;
+    padding-bottom: 1em;
+
+}
+
+.tab01-img{
+    position: absolute;
+    right:0; 
+    width:5em;
+}
+
+.tab02-img{
+    position: absolute;
+    left:0; 
+    width:5em;
+}
+@media screen and (min-width: 1023px) {
+
+.tab{
+    padding: 10%;
+}
+    
+table{
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.tab-title{
+    font-size:3em;
+    padding-bottom: 1em;
+}
+
+.tab01-img{
+    width:10em;
+}
+
+.tab02-img{
+    width:10em;
+
+}
 }

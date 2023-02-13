@@ -80,11 +80,15 @@ a {
 }
 
 @media screen and (min-width: 818px) {
+  .h {
+    padding-bottom: 5.7em;
+  }
   .img-rectwhite02 {
     position: absolute;
     top: 0;
     left: 5%;
     margin-top: 6em;
+    height: 6em;
   }
 }
 footer {
@@ -181,10 +185,11 @@ footer {
 }
 .tab {
   width: 100%;
+  padding: 3%;
 }
 
 table {
-  width: 80%;
+  width: 90%;
   text-align: left;
   border-collapse: collapse;
 }
@@ -211,11 +216,44 @@ td {
 
 .tab-title {
   font-family: "Inter";
-  font-size: 3em;
+  width: 20em;
+  font-size: 2em;
   font-weight: 900;
-  padding: 1em;
+  padding-bottom: 1em;
 }
 
+.tab01-img {
+  position: absolute;
+  right: 0;
+  width: 5em;
+}
+
+.tab02-img {
+  position: absolute;
+  left: 0;
+  width: 5em;
+}
+
+@media screen and (min-width: 1023px) {
+  .tab {
+    padding: 10%;
+  }
+  table {
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
+  }
+  .tab-title {
+    font-size: 3em;
+    padding-bottom: 1em;
+  }
+  .tab01-img {
+    width: 10em;
+  }
+  .tab02-img {
+    width: 10em;
+  }
+}
 .header-home {
   font-family: "Roboto";
   font-weight: 500;

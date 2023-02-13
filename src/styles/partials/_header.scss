@@ -19,12 +19,17 @@
 //----------------------------Media queries-------------------------------//
 
 @media screen and (min-width: 818px) {
+   
+.h{
+
+    padding-bottom: 5.7em;
+}
 
 .img-rectwhite02{
     position: absolute;
     top: 0;
     left: 5%;
     margin-top: 6em;
-    
+    height:6em;
     }
 }
