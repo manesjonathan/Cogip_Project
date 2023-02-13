@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -183,7 +184,7 @@ footer {
 }
 
 table {
-  width: 60em;
+  width: 80%;
   text-align: left;
   border-collapse: collapse;
 }
@@ -230,7 +231,7 @@ td {
 .menu-title {
   grid-area: 1/1/2/2;
   padding: 1em;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 2em;
   cursor: pointer;
 }
