@@ -1,14 +1,45 @@
 @use "helper" as h;
 //EXEMPLE: color: h.$red;
 
+.tab{
+    width:100%;
+
+
+}
+
+table{
+    width: 60em;
+    text-align: left;
+    border-collapse: collapse;
+
+
+}
+
 thead{
     background-color: h.$jaune ;
+    
+}
+
+th{
+    padding: 0.5em;
 }
 
 tr{
     font-family: h.$roboto;
+
 }
 
 tr:nth-of-type(even){
     background-color: h.$lightgrey;
+
+}
+td{
+    padding: 1%;
+}
+
+.tab-title{
+    font-family: h.$inter;
+    font-size:3em;
+    font-weight: 900;
+    padding: 1em;
 }

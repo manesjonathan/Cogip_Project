@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .ham-menu {
@@ -60,16 +66,26 @@
 .h {
   background-color: #F9DE49;
   font-family: "Roboto";
-  padding-bottom: 4em;
+  padding-bottom: 3.5em;
 }
 
 .img-rectwhite02 {
   position: absolute;
   top: 0;
   left: 5%;
-  margin-top: 6em;
+  margin-top: 5.8em;
+  width: 90%;
+  height: 4em;
 }
 
+@media screen and (min-width: 818px) {
+  .img-rectwhite02 {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin-top: 6em;
+  }
+}
 footer {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -162,8 +178,22 @@ footer {
     height: 7.2em;
   }
 }
+.tab {
+  width: 100%;
+}
+
+table {
+  width: 60em;
+  text-align: left;
+  border-collapse: collapse;
+}
+
 thead {
   background-color: #F9DE49;
+}
+
+th {
+  padding: 0.5em;
 }
 
 tr {
@@ -174,11 +204,23 @@ tr:nth-of-type(even) {
   background-color: #F5F5F5;
 }
 
+td {
+  padding: 1%;
+}
+
+.tab-title {
+  font-family: "Inter";
+  font-size: 3em;
+  font-weight: 900;
+  padding: 1em;
+}
+
 .header-home {
   font-family: "Roboto";
   font-weight: 500;
   width: 100%;
   background-color: #F9DE49;
+  text-decoration: none;
 }
 
 .menu-container {
@@ -204,6 +246,7 @@ tr:nth-of-type(even) {
   width: 100%;
   padding-bottom: 1em;
   position: absolute;
+  z-index: 1;
   text-align: center;
 }
 .menu-list-mobile li {
@@ -227,6 +270,9 @@ tr:nth-of-type(even) {
   .menu-list {
     width: 30em;
     justify-content: space-around;
+  }
+  .menu-list li {
+    margin-right: 2em;
   }
   .menu-log {
     width: 35em;

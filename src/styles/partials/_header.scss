@@ -4,13 +4,27 @@
 .h{
     background-color: h.$jaune;
     font-family: h.$roboto;
-    padding-bottom: 4em;
+    padding-bottom: 3.5em;
 }
 
 .img-rectwhite02{
     position: absolute;
     top: 0;
     left: 5%;
-    margin-top: 6em;
+    margin-top: 5.8em;
+    width: 90%;
+    height: 4em;
+}
 
+//----------------------------Media queries-------------------------------//
+
+@media screen and (min-width: 818px) {
+
+.img-rectwhite02{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin-top: 6em;
+    
+    }
 }

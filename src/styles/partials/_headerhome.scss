@@ -6,6 +6,9 @@
     font-weight: 500;
     width:100%;
     background-color: h.$jaune;
+    text-decoration: none;
+//     z-index: 1;
+//   position: fixed;
 }
 
 .menu-container{
@@ -21,6 +24,7 @@
 }
 
 .menu-list-mobile{
+
     transition: ease 0.3s;
     list-style-type: none;
     background: rgb(255, 255, 255);
@@ -31,6 +35,7 @@
     width: 100%;
     padding-bottom: 1em;
     position:absolute;
+    z-index: 1;
     text-align: center;
     li{
         padding-top: 1em;
@@ -59,6 +64,9 @@
 .menu-list{
     width:30em;
     justify-content: space-around;
+    li{
+        margin-right:2em;
+    }
 }
 .menu-log{
     width:35em;

@@ -14,7 +14,7 @@ return (
 
 
         <ul className="menu menu-list">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/" >Home</Link></li>
             <li><Link to="/Invoices">Invoices</Link></li>
             <li><Link to="/Compagnies">Compagnies</Link></li>
             <li><Link to="/Contacts">Contacts</Link></li>
