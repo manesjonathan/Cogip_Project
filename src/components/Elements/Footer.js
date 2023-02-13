@@ -1,15 +1,15 @@
 import React from "react";
-import Location from "../Images/location.avif";
-import Phone from "../Images/phone.avif";
-import Printer from "../Images/printer.avif";
-import Facebook from "../Images/facebook.avif";
-import Twitter from "../Images/twitter.avif";
-import Linkedin from "../Images/linkedin.avif";
-import Youtube from "../Images/youtube.avif";
-import Instagram from "../Images/instagram.avif";
-import Googleplus from "../Images/googleplus.avif";
-import Pinterest from "../Images/pinterest.avif";
-import RSS from "../Images/rss.avif";
+import Location from "../../Images/location.avif";
+import Phone from "../../Images/phone.avif";
+import Printer from "../../Images/printer.avif";
+import Facebook from "../../Images/facebook.avif";
+import Twitter from "../../Images/twitter.avif";
+import Linkedin from "../../Images/linkedin.avif";
+import Youtube from "../../Images/youtube.avif";
+import Instagram from "../../Images/instagram.avif";
+import Googleplus from "../../Images/googleplus.avif";
+import Pinterest from "../../Images/pinterest.avif";
+import RSS from "../../Images/rss.avif";
 
 
 const Footer = () => {

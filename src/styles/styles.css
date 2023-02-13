@@ -1,15 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .ham-menu {
   display: flex;
   justify-content: flex-end;
-  grid-area: 1/2/2/2;
-  padding: 1em;
+  grid-area: 1/2/2/3;
+  padding-right: 1em;
 }
 
 .hm-button {
@@ -52,87 +58,32 @@
   rotate: -45deg;
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 818px) {
   .ham-menu {
     display: none;
   }
 }
-.header {
+.h {
   background-color: #F9DE49;
   font-family: "Roboto";
-  font-weight: 500;
+  padding-bottom: 3.5em;
 }
 
-.menu-container {
-  display: grid;
-}
-
-.menu-title {
-  font-weight: 900;
-  font-size: 2em;
-  width: 2em;
-  padding: 1em;
-  cursor: pointer;
-}
-
-.list {
-  /* background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    margin-left: -200%;
-    font-size: 2em;
-    background-color: rgba(27, 27, 27, 0.7);
-    top: 3.2em;
-    width: 100%;
-    padding:2%;*/
+.img-rectwhite02 {
   position: absolute;
-  text-align: center;
+  top: 0;
+  left: 5%;
+  margin-top: 5.8em;
+  width: 90%;
+  height: 4em;
 }
 
-.menu-list, .menu-log {
-  list-style-type: none;
-}
-
-@media screen and (min-width: 1023px) {
-  .header {
-    padding: 1%;
-  }
-  .menu-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  li {
-    cursor: pointer;
-  }
-  .list {
-    display: flex;
-    flex-direction: row;
-    padding-top: 2.5em;
-    position: relative;
-  }
-  .menu-list {
-    display: flex;
-    padding-left: 3em;
-    width: 50em;
-  }
-  .menu-list li {
-    padding-right: 3em;
-  }
-  .menu-log {
-    width: 15em;
-    display: flex;
-  }
-  .menu-log li {
-    padding-right: 1em;
-    padding-left: 1em;
-  }
-  .menu-signup {
-    background-color: white;
-    color: black;
-    border-radius: 0.5em;
-    height: 1.5em;
-    margin-left: 1em;
-    padding: 0em 1em;
+@media screen and (min-width: 818px) {
+  .img-rectwhite02 {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin-top: 6em;
   }
 }
 footer {
@@ -176,6 +127,7 @@ footer {
 }*/
 .panneau-container {
   background-color: #F9DE49;
+  padding-bottom: 1em;
 }
 
 .title-panneau {
@@ -189,8 +141,20 @@ footer {
   width: 400px;
 }
 
-@media screen and (min-width: 1023px) {
+.img-rectwhite {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  margin-top: 29.7em;
+  width: 90%;
+  height: 4em;
+}
+
+@media screen and (min-width: 818px) {
   .panneau-container {
+    padding-bottom: 4em;
+  }
+  .panneau {
     display: grid;
     padding: 1%;
   }
@@ -204,5 +168,128 @@ footer {
     text-align: left;
     padding-top: 1em;
     font-size: 5em;
+  }
+  .img-rectwhite {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin-top: 34em;
+    width: 90%;
+    height: 7.2em;
+  }
+}
+.tab {
+  width: 100%;
+}
+
+table {
+  width: 60em;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #F9DE49;
+}
+
+th {
+  padding: 0.5em;
+}
+
+tr {
+  font-family: "Roboto";
+}
+
+tr:nth-of-type(even) {
+  background-color: #F5F5F5;
+}
+
+td {
+  padding: 1%;
+}
+
+.tab-title {
+  font-family: "Inter";
+  font-size: 3em;
+  font-weight: 900;
+  padding: 1em;
+}
+
+.header-home {
+  font-family: "Roboto";
+  font-weight: 500;
+  width: 100%;
+  background-color: #F9DE49;
+  text-decoration: none;
+}
+
+.menu-container {
+  display: grid;
+}
+
+.menu-title {
+  grid-area: 1/1/2/2;
+  padding: 1em;
+  font-weight: 900;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.menu-list-mobile {
+  transition: ease 0.3s;
+  list-style-type: none;
+  background: rgb(255, 255, 255);
+  text-transform: uppercase;
+  margin-left: -200%;
+  font-size: 1.3em;
+  top: 3.5em;
+  width: 100%;
+  padding-bottom: 1em;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+.menu-list-mobile li {
+  padding-top: 1em;
+}
+
+.menu {
+  display: none;
+}
+
+@media screen and (min-width: 818px) {
+  .menu-container {
+    display: flex;
+  }
+  .menu {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    cursor: pointer;
+  }
+  .menu-list {
+    width: 30em;
+    justify-content: space-around;
+  }
+  .menu-list li {
+    margin-right: 2em;
+  }
+  .menu-log {
+    width: 35em;
+    justify-content: flex-end;
+  }
+  .menu-log li {
+    margin-right: 2em;
+  }
+  .menu-signup {
+    background-color: white;
+    color: black;
+    border-radius: 0.5em;
+    height: 1.5em;
+    margin-left: 1em;
+    padding: 0.2em 1em;
+  }
+  .menu-list-mobile {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */
