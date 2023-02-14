@@ -10,6 +10,7 @@ table{
     width: 90%;
     text-align: left;
     border-collapse: collapse;
+
 }
 
 thead{
@@ -37,11 +38,16 @@ td{
     width: 20em;
     font-size:2em;
     font-weight: 900;
-    padding-bottom: 1em;
+    padding: 4% 0%;
+}
+
+.title02, .title03{
+    margin-top: 1em;
 }
 
 .tab01-img{
     position: absolute;
+    margin-top: 2em;
     right:0; 
     width:5em;
 }
@@ -62,14 +68,16 @@ td{
 @media screen and (min-width: 1023px) {
 
 .tab{
-    padding: 10%;
+    padding: 8%;
+
 }
     
 table{
-    width: 80%;
+    width: 82%;
     text-align: left;
     border-collapse: collapse;
 }
+
 
 .tab-title{
     font-size:3em;
@@ -81,6 +89,8 @@ table{
 }
 
 .tab02-img{
+    top:0;
+    margin-top: 102em;
     width:10em;
 
 }

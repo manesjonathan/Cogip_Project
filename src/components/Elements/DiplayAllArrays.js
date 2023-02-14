@@ -21,19 +21,19 @@ export default function DisplayAllArrays (){
 
     return  <div className="tab">
                 <section className="tab01">
-                    <h2 className="tab-title">Last invoices</h2>
+                    <h2 className="tab-title title01">Last invoices</h2>
                     <DisplayArray url={invoicesUrl} companyUrl={companyUrlId} titles={invoicesTitles} keysColumn={invoicesKeys} type="invoices"/>
                     <img className="tab01-img" src={illuproject} alt="image d'illu" />
                 </section>
 
                 <section className="tab02">
-                    <h2 className="tab-title">Last contacts</h2>
+                    <h2 className="tab-title title02">Last contacts</h2>
                     <DisplayArray url={contactsUrl} companyUrl={companyUrlId} titles={contactsTitles} keysColumn={contactsKeys} type="contacts"/>
                     <img className="tab02-img" src={bulb} alt="bulb-image" />
                 </section>
 
                 <section className="tab03">
-                    <h2 className="tab-title">Last companies</h2>
+                    <h2 className="tab-title title03">Last companies</h2>
                     <DisplayArray url={companiesUrl} companyUrl={companyUrlId} titles={companiesTitles} keysColumn={companiesKeys} type="companies"/>
                 </section>
             </div>;
