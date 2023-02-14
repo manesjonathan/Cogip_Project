@@ -55,22 +55,18 @@ $router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
 //route to return create invoice view
 
 $router->get('/admin/dashboard', function () {
-    session_start();
     (new HomeController())->index('dashboard');
 });
 
 $router->get('/admin/invoices', function () {
-    session_start();
     (new HomeController())->index('invoices');
 });
 
 $router->get('/admin/companies', function () {
-    session_start();
     (new HomeController())->index('companies');
 });
 
 $router->get('/admin/contacts', function () {
-    session_start();
     (new HomeController())->index('contacts');
 });
 
@@ -92,17 +88,14 @@ $router->get("/admin/get-latest-companies", function () {
 
 
 $router->get("/admin/edit-company/{id}", function ($id) {
-    session_start();
     return (new HomeController())->viewAdmin('companies', ['id' => $id]);
 });
 
 $router->post("/admin/create-company", function () {
-    session_start();
     return (new CompanyService())->createCompany($_POST['type_id'], $_POST['name'], $_POST['country'], $_POST['tva']);
 });
 
 $router->get("/admin/delete-company/{id}", function ($id) {
-    session_start();
     $deleteCompany = (new CompanyService())->deleteCompany($id);
     if ($deleteCompany) {
         return (new HomeController())->viewAdmin('dashboard', ['message' => 'Company with id ' . $id . ' deleted']);
@@ -111,17 +104,14 @@ $router->get("/admin/delete-company/{id}", function ($id) {
 });
 
 $router->get("/admin/edit-contact/{id}", function ($id) {
-    session_start();
     return (new HomeController())->viewAdmin('contacts', ['id' => $id]);
 });
 
 $router->post("/admin/create-contact", function () {
-    session_start();
     return (new CompanyService())->createContact($_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
 });
 
 $router->get("/admin/delete-contact/{id}", function ($id) {
-    session_start();
     $deleteContact = (new CompanyService())->deleteContact($id);
     if ($deleteContact) {
         return (new HomeController())->viewAdmin('dashboard', ['message' => 'Contact with id ' . $id . ' deleted']);
@@ -131,17 +121,14 @@ $router->get("/admin/delete-contact/{id}", function ($id) {
 
 
 $router->get("/admin/edit-invoice/{id}", function ($id) {
-    session_start();
     return (new HomeController())->viewAdmin('invoices', ['id' => $id]);
 });
 
 $router->post("/admin/create-invoice", function () {
-    session_start();
     return (new CompanyService())->createInvoice($_POST['company_id'], $_POST['ref']);
 });
 
 $router->get("/admin/delete-invoice/{id}", function ($id) {
-    session_start();
     $deleteInvoice = (new CompanyService())->deleteInvoice($id);
     if ($deleteInvoice) {
         return (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice with id ' . $id . ' deleted']);

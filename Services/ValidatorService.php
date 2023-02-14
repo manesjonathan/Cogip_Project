@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 class ValidatorService{
@@ -32,7 +33,7 @@ class ValidatorService{
         return $input;
     }
 
-    public static function isValidPhonenumber($phoneNumber)
+    public static function isValidPhoneNumber($phoneNumber)
     {
         return filter_var($phoneNumber, FILTER_SANITIZE_NUMBER_INT);
     }

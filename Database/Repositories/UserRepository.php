@@ -42,8 +42,7 @@ class UserRepository
         $stmt->bindParam(':password', $password);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $user = $stmt->fetch();
-        return $user;
+        return $stmt->fetch();
     }
 
     public function createUser($user)

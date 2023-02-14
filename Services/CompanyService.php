@@ -4,8 +4,6 @@ namespace App\Services;
 
 use App\Database\Repositories\CompanyRepository;
 
-require "ValidatorService.php";
-
 class CompanyService
 {
     private $company_repository;
