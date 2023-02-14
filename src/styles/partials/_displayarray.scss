@@ -4,8 +4,6 @@
 .tab{
     width:100%;
     padding: 3%;
-
-
 }
 
 table{
@@ -40,7 +38,6 @@ td{
     font-size:2em;
     font-weight: 900;
     padding-bottom: 1em;
-
 }
 
 .tab01-img{
@@ -54,6 +51,14 @@ td{
     left:0; 
     width:5em;
 }
+
+.input{
+    padding: 1em;
+    margin:1em;
+    border: 1px solid black;
+    border-radius: 1em;
+}
+
 @media screen and (min-width: 1023px) {
 
 .tab{
