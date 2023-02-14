@@ -13,16 +13,12 @@ footer {
   //background-color: aquamarine;
   width: 100%;
   height: auto;
-  margin: 50px;
-  padding: 2.5rem;
+  margin: 1.5rem;
+  padding: 1rem;
   display: grid;
   border-top: h.$jaune 2em;  //Chercher pourquoi ça ne fct pas
   border-bottom: h.$bleu 1em;
   
-  /*grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;*/
 }
 
 .footer-title {
@@ -32,38 +28,20 @@ footer {
   position: absolute;
   border: 5px solid #F9DE4E;
   grid-area: 1 / 1 / 2 / 2;
+  
 }
 
 .social-contact {
-  background-color: aquamarine;
+  
   grid-area: 1 / 2 / 2 / 3;
   display: inline;
   list-style: none;
 }
 
-/*.logo-location {
-  position: absolute;
-  width: 100px; // Largeur souhaitée de votre logo
-  height: auto; // Pour conserver les proportions originales du logo
+img {
+  width: 1rem;
+  height: 1rem;
 }
-
-.logo-phone {
-  position: absolute;
-  //width: 100px;
-  //height: auto;
-  height: 19.469999313354492px;
-  width: 14px;
-  left: 5px;
-  top: 2px;
-  border-radius: 0px;
-
-}
-
-.logo-printer {
-  position: absolute;
-  width: 100px;
-  height: auto;
-};*/
 
 .title-social {
   grid-area: 1 / 2 / 2 / 3;
