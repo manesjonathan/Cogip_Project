@@ -178,7 +178,7 @@ class CompanyService
 
     public function getAllContactsByCompany($company)
     {
-        if (!ValidatorService::isNumber($id)) {
+        if (!ValidatorService::isNumber($company)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -315,7 +315,7 @@ class CompanyService
 
     public function getInvoicesByCompany($company)
     {
-        if (!ValidatorService::isNumber($id)) {
+        if (!ValidatorService::isNumber($company)) {
             header('Content-type: application/json');
             http_response_code(400);
 

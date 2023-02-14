@@ -20,14 +20,14 @@ class ValidatorService{
 
     public static function sanitize_text($input)
     { 
-        // Strip whitespace from the beginning and end of a string
-        $input = trim($input);
-        
         // Remove backslashes
         $input = stripslashes($input);
-
+        
         // Strip HTML and PHP tags 
         $input = strip_tags($input);
+        
+        // Strip whitespace from the beginning and end of a string
+        $input = trim($input);
 
         return $input;
     }
@@ -37,9 +37,9 @@ class ValidatorService{
         return filter_var($phoneNumber, FILTER_SANITIZE_NUMBER_INT);
     }
 
-    public static function isAplhaNumeric($input)
+    public static function isAlphaNumeric($input)
     {
-        return ctype_alnum($input); 
+        return preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $input);
     }
 
     public static function isNumber($number)
