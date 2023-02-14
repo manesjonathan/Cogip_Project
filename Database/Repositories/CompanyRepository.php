@@ -82,8 +82,8 @@ class CompanyRepository
     {
         $query = 'SELECT * FROM contacts WHERE id=:id';
         $stmt = $this->db->prepare($query);
-
-        return $stmt->execute(["id" => $id]);
+        $stmt->execute(["id" => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getAllContactsByCompany($id)

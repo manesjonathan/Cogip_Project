@@ -21,30 +21,30 @@ class CompanyService
 
     public function createCompany($type_id, $name, $country, $tva)
     {
-        if (isset($_SESSION['user'])) {
-
-            $isTypeIdEmpty = ValidatorService::isInputEmpty($type_id);
-            $isNameEmpty = ValidatorService::isInputEmpty($name);
-            $isCountryEmpty = ValidatorService::isInputEmpty($country);
-            $isTva = ValidatorService::isInputEmpty($tva);
-
-            if ($isTypeIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
-                return false;
-            }
-
-            $type_id = ValidatorService::sanitize_text($type_id);
-            $name = ValidatorService::sanitize_text($name);
-            $country = ValidatorService::sanitize_text($country);
-            $tva = ValidatorService::sanitize_text($tva);
-
-            $result = $this->company_repository->createCompany($type_id, $name, $country, $tva);
-            header("Location:/admin/dashboard");
-            echo ($result) ? "Success" : "Failed to create invoice";
-
-            return $result;
+        if (!isset($_SESSION['user'])) {
+            echo "There is an error";
+            return false;
         }
-        echo "There is an error";
-        return false;
+
+        $isTypeIdEmpty = ValidatorService::isInputEmpty($type_id);
+        $isNameEmpty = ValidatorService::isInputEmpty($name);
+        $isCountryEmpty = ValidatorService::isInputEmpty($country);
+        $isTva = ValidatorService::isInputEmpty($tva);
+
+        if ($isTypeIdEmpty || $isNameEmpty || $isCountryEmpty || $isTva) {
+            return false;
+        }
+
+        $type_id = ValidatorService::sanitize_text($type_id);
+        $name = ValidatorService::sanitize_text($name);
+        $country = ValidatorService::sanitize_text($country);
+        $tva = ValidatorService::sanitize_text($tva);
+
+        $result = $this->company_repository->createCompany($type_id, $name, $country, $tva);
+        header("Location:/admin/dashboard");
+        echo ($result) ? "Success" : "Failed to create invoice";
+
+        return $result;
     }
 
     public function getAllCompanies($last_five)
@@ -105,33 +105,33 @@ class CompanyService
     public function createContact($company_id, $name, $email, $phone)
     {
         if (isset($_SESSION['user'])) {
-
-            $isCompanyEmpty = ValidatorService::isInputEmpty($company_id);
-            $isNameEmpty = ValidatorService::isInputEmpty($name);
-            $isEmailEmpty = ValidatorService::isInputEmpty($email);
-            $isPhoneEmpty = ValidatorService::isInputEmpty($phone);
-
-
-            if ($isCompanyEmpty || $isNameEmpty || $isEmailEmpty || $isPhoneEmpty) {
-                return false;
-            }
-
-            $company_id = ValidatorService::sanitize_text($company_id);
-            $name = ValidatorService::sanitize_text($name);
-            $email = ValidatorService::sanitize_text($email);
-            $phone = ValidatorService::sanitize_text($phone);
-
-            if (!ValidatorService::validateEmail($email)) {
-                return false;
-            }
-
-            $result = $this->company_repository->createContact($company_id, $name, $email, $phone);
-            header("Location:/admin/dashboard");
-            echo ($result) ? "Success" : "Failed to create invoice";
-            return $result;
+            echo "There is an error";
+            return false;
         }
-        echo "There is an error";
-        return false;
+
+        $isCompanyEmpty = ValidatorService::isInputEmpty($company_id);
+        $isNameEmpty = ValidatorService::isInputEmpty($name);
+        $isEmailEmpty = ValidatorService::isInputEmpty($email);
+        $isPhoneEmpty = ValidatorService::isInputEmpty($phone);
+
+
+        if ($isCompanyEmpty || $isNameEmpty || $isEmailEmpty || $isPhoneEmpty) {
+            return false;
+        }
+
+        $company_id = ValidatorService::sanitize_text($company_id);
+        $name = ValidatorService::sanitize_text($name);
+        $email = ValidatorService::sanitize_text($email);
+        $phone = ValidatorService::sanitize_text($phone);
+
+        if (!ValidatorService::validateEmail($email)) {
+            return false;
+        }
+
+        $result = $this->company_repository->createContact($company_id, $name, $email, $phone);
+        header("Location:/admin/dashboard");
+        echo ($result) ? "Success" : "Failed to create invoice";
+        return $result;
     }
 
     public function getAllContacts($last_five)
@@ -162,7 +162,7 @@ class CompanyService
         }
         $id = intval($id);
 
-        $data["contact"] = $this->company_repository->getCompanyById($id);
+        $data["contact"] = $this->company_repository->getContactById($id);
         if (isset($_SESSION['user'])) {
             return $data['contact'];
         }
@@ -222,25 +222,25 @@ class CompanyService
 
     public function createInvoice($id_company, $ref)
     {
-        if (isset($_SESSION['user'])) {
-            $isCompanyIdEmpty = ValidatorService::isInputEmpty($id_company);
-            $isRefEmpty = ValidatorService::isInputEmpty($ref);
-
-            if ($isCompanyIdEmpty || $isRefEmpty) {
-                return false;
-            }
-
-            $id_company = ValidatorService::sanitize_text($id_company);
-            $ref = ValidatorService::sanitize_text($ref);
-
-            $result = $this->company_repository->createInvoice($ref, $id_company);
-            header("Location:/admin/dashboard");
-            echo ($result) ? "Success" : "Failed to create invoice";
-
-            return $result;
+        if (!isset($_SESSION['user'])) {
+            echo "There is an error";
+            return false;
         }
-        echo "There is an error";
-        return false;
+        $isCompanyIdEmpty = ValidatorService::isInputEmpty($id_company);
+        $isRefEmpty = ValidatorService::isInputEmpty($ref);
+
+        if ($isCompanyIdEmpty || $isRefEmpty) {
+            return false;
+        }
+
+        $id_company = ValidatorService::sanitize_text($id_company);
+        $ref = ValidatorService::sanitize_text($ref);
+
+        $result = $this->company_repository->createInvoice($ref, $id_company);
+        header("Location:/admin/dashboard");
+        echo ($result) ? "Success" : "Failed to create invoice";
+
+        return $result;
     }
 
     public function getInvoiceById($id)
