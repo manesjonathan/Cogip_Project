@@ -333,4 +333,18 @@ class CompanyService
         return true;
     }
 
+    public function deleteCompany($id)
+    {
+        return $this->company_repository->deleteCompany($id);
+    }
+
+    public function deleteInvoice($id)
+    {
+        return $this->company_repository->deleteInvoice($id);
+    }
+
+    public function deleteContact($id)
+    {
+        return $this->company_repository->deleteContact($id);
+    }
 }

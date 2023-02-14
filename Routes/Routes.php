@@ -125,6 +125,27 @@ $router->get('/get-latest-companies', function () {
 $router->get("/get-company/{id}", function ($id) {
     return (new CompanyService())->getCompanyById($id);
 });
+
+
+$router->get("/delete-company/{id}", function ($id) {
+    session_start();
+    $deleteCompany = (new CompanyService())->deleteCompany($id);
+    if ($deleteCompany) {
+        return (new HomeController())->viewAdmin('dashboard', ['message' => 'Company with id ' . $id . ' deleted']);
+    }
+    return null;
+});
+
+$router->get("/delete-company/{id}", function ($id) {
+    session_start();
+
+    return (new CompanyService())->deleteCompany($id);
+});
+
+
+/*$router->get("/delete-company/{id}", function ($id) {
+    return (new HomeController())->viewAdmin('companies', ['id' => $id]);
+});*/
 // End of company related routes
 
 // || Start of contact routes
@@ -143,6 +164,22 @@ $router->get("/get-contacts/company/{company_id}", function ($company_id) {
 $router->get("/get-contact/{id}", function ($id) {
     return (new CompanyService())->getContactById($id);
 });
+
+$router->get("/edit-contact/{id}", function ($id) {
+    session_start();
+
+    return (new HomeController())->viewAdmin('contacts', ['id' => $id]);
+});
+
+$router->get("/delete-contact/{id}", function ($id) {
+    session_start();
+    $deleteContact = (new CompanyService())->deleteContact($id);
+    if ($deleteContact) {
+        return (new HomeController())->viewAdmin('dashboard', ['message' => 'Contact with id ' . $id . ' deleted']);
+    }
+    return null;
+});
+// ||
 // End of contact routes
 
 // || Start of invoice routes
@@ -161,6 +198,21 @@ $router->get("/get-invoices/company/{company_id}", function ($company_id) {
 
 $router->get("/get-invoice/{id}", function ($id) {
     return (new CompanyService())->getInvoiceById($id);
+});
+
+$router->get("/edit-invoice/{id}", function ($id) {
+    session_start();
+
+    return (new HomeController())->viewAdmin('invoices', ['id' => $id]);
+});
+
+$router->get("/delete-invoice/{id}", function ($id) {
+    session_start();
+    $deleteInvoice = (new CompanyService())->deleteInvoice($id);
+    if ($deleteInvoice) {
+        return (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice with id ' . $id . ' deleted']);
+    }
+    return null;
 });
 // || End of invoice routes
 // || End of frontend related routes

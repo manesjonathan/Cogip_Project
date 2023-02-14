@@ -170,4 +170,26 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function deleteCompany($id)
+    {
+        $query = 'SET FOREIGN_KEY_CHECKS=0;
+                DELETE FROM companies WHERE id = :id; 
+                SET FOREIGN_KEY_CHECKS=0';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
+    }
+
+    public function deleteInvoice($id)
+    {
+        $query = 'DELETE FROM invoices WHERE id = :id';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
+    }
+
+    public function deleteContact($id)
+    {
+        $query = 'DELETE FROM contacts WHERE id = :id';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
+    }
 }
