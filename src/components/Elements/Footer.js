@@ -23,12 +23,14 @@ const Footer = () => {
             src={Location} 
             alt="logo location" />
             Square des Martyrs, 6000 Charleroi
-          </li><br></br>
+          </li><br />
           <li>
             <img className="logo-phone" 
             src={Phone} 
             alt="logo phone" />
             (123)456-7890<br />
+          <li>
+          </li>
             <img className="logo-printer" 
             src={Printer} 
             alt="logo printer " />
