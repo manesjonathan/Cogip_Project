@@ -15,9 +15,14 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
         fetch(url)
         .then((res) => res.json())
         .then((data) => {
+
+
+
             setDataBack(data[type]);
         })
-    },[]);    
+    },[]);  
+    
+    
         
     //Affichage (render)
     return  <div>                
@@ -33,12 +38,21 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
                         {dataBack.map((dataB) => (
                         <tr key={`${type}-${dataB.id}`}>
                             {keysColumn.map((keyColumn) => 
-                            {
-                                return ((keyColumn=='id_company') || (keyColumn=='company_id'))?
-                                (<td key={`${type}-${dataB.id}-${keyColumn}`}>
-                                    <GetCompanyName companyUrl={companyUrl} id={dataB[keyColumn]}/>
-                                </td>) :
-                                (<td key={`${type}-${dataB.id}-${keyColumn}`}>{dataB[keyColumn]}</td>);
+                            {return ( function() {
+                                switch (keyColumn) {
+                                    case 'id_company':
+                                    case 'company_id':
+                                        return  <td key={`${type}-${dataB.id}-${keyColumn}`}>
+                                                    <GetCompanyName companyUrl={companyUrl} id={dataB[keyColumn]}/>
+                                                </td>
+                                    case 'created_at':
+                                        const createdAt = new Date(Date.parse(dataB[keyColumn]));
+                                        return <td key={`${type}-${dataB.id}-${keyColumn}`}>{createdAt.toLocaleDateString('fr-FR')}</td>
+                                    default:
+                                        return <td key={`${type}-${dataB.id}-${keyColumn}`}>{dataB[keyColumn]}</td>
+                                  }
+                              })()
+                               
                                 }
                             )}
                         </tr>
@@ -47,3 +61,9 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
                 </table>               
             </div>;      
 }
+
+// return ((keyColumn=='id_company') || (keyColumn=='company_id'))?
+// (<td key={`${type}-${dataB.id}-${keyColumn}`}>
+//     <GetCompanyName companyUrl={companyUrl} id={dataB[keyColumn]}/>
+// </td>) :
+// (<td key={`${type}-${dataB.id}-${keyColumn}`}>{dataB[keyColumn]}</td>);
