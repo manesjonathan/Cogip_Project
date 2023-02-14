@@ -1,5 +1,6 @@
 import DisplayArray from "./DisplayArray.js";
-
+import illuproject from '../../Images/illustration-project.avif';
+import bulb from '../../Images/bulb.avif';
 
 //Ce composant permet de gÃ©rer l'affichage des 3 tableaux : "last invoices", "last contacts", "last companies"
 export default function DisplayAllArrays (){
@@ -22,13 +23,13 @@ export default function DisplayAllArrays (){
                 <section className="tab01">
                     <h2 className="tab-title">Last invoices</h2>
                     <DisplayArray url={invoicesUrl} companyUrl={companyUrlId} titles={invoicesTitles} keysColumn={invoicesKeys} type="invoices"/>
-                    <img className="tab01-img" src="" alt="" />
+                    <img className="tab01-img" src={illuproject} alt="image d'illu" />
                 </section>
 
                 <section className="tab02">
                     <h2 className="tab-title">Last contacts</h2>
                     <DisplayArray url={contactsUrl} companyUrl={companyUrlId} titles={contactsTitles} keysColumn={contactsKeys} type="contacts"/>
-                    <img className="tab02-img" src="" alt="" />
+                    <img className="tab02-img" src={bulb} alt="bulb-image" />
                 </section>
 
                 <section className="tab03">

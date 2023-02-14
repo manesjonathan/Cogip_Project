@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -74,17 +75,21 @@ a {
   position: absolute;
   top: 0;
   left: 5%;
-  margin-top: 5.8em;
+  margin-top: 6em;
   width: 90%;
   height: 4em;
 }
 
 @media screen and (min-width: 818px) {
+  .h {
+    padding-bottom: 5.7em;
+  }
   .img-rectwhite02 {
     position: absolute;
     top: 0;
     left: 5%;
-    margin-top: 6em;
+    margin-top: 6.2em;
+    height: 6em;
   }
 }
 footer {
@@ -220,10 +225,11 @@ footer {
 }
 .tab {
   width: 100%;
+  padding: 3%;
 }
 
 table {
-  width: 60em;
+  width: 90%;
   text-align: left;
   border-collapse: collapse;
 }
@@ -250,11 +256,51 @@ td {
 
 .tab-title {
   font-family: "Inter";
-  font-size: 3em;
+  width: 20em;
+  font-size: 2em;
   font-weight: 900;
-  padding: 1em;
+  padding-bottom: 1em;
 }
 
+.tab01-img {
+  position: absolute;
+  right: 0;
+  width: 5em;
+}
+
+.tab02-img {
+  position: absolute;
+  left: 0;
+  width: 5em;
+}
+
+.input {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+
+@media screen and (min-width: 1023px) {
+  .tab {
+    padding: 10%;
+  }
+  table {
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
+  }
+  .tab-title {
+    font-size: 3em;
+    padding-bottom: 1em;
+  }
+  .tab01-img {
+    width: 10em;
+  }
+  .tab02-img {
+    width: 10em;
+  }
+}
 .header-home {
   font-family: "Roboto";
   font-weight: 500;
@@ -270,7 +316,7 @@ td {
 .menu-title {
   grid-area: 1/1/2/2;
   padding: 1em;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 2em;
   cursor: pointer;
 }
