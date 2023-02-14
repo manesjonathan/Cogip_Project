@@ -7,26 +7,37 @@ $companies = $company_service->getAllCompanies(false);
 usort($companies, function ($a, $b) {
     return $a['name'] <=> $b['name'];
 });
+
+$contact_id = $id ?? null;
+
+if ($contact_id) {
+    $contact_edit = $company_service->getContactById($contact_id);
+}
+
 ?>
 <main class="md:ml-56 bg-gray-50 flex flex-col px-10">
-    <form action="/admin/add-contact/" method="post" class="w-full bg-white m-auto p-5 mb-14">
+    <form action="/admin/add-contact/" method="post"
+          class="w-full bg-white m-auto p-5 mb-14">
         <h3 class="text-lg font-bold my-6">New Contact</h3>
         <hr>
         <div class="mt-12">
             <label for="name" class="block text-sm font-medium gray-900"></label>
             <input type="text" name="name" id="name" required
+                   value="<?php echo $contact_edit['name'] ?? null ?>"
                    placeholder="Name"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
         <div class="mt-12">
             <label for="email" class="block text-sm font-medium gray-900"></label>
             <input type="email" name="email" id="email" required
+                   value="<?php echo $contact_edit['email'] ?? null ?>"
                    placeholder="Email"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
         <div class="mt-12">
             <label for="phone" class="block text-sm font-medium gray-900"></label>
             <input type="tel" name="phone" id="phone" required
+                   value="<?php echo $contact_edit['phone'] ?? null ?>"
                    placeholder="Phone"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
@@ -36,7 +47,8 @@ usort($companies, function ($a, $b) {
             <select name="type_id" id="type_id"
                     class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 ">
                 <?php foreach ($companies as $company): ?>
-                    <option value="<?php echo $company['id'] ?>"><?php echo ucfirst($company['name']) ?></option>
+                    <option <?php echo $contact_edit['company_id'] ?? null == $company['id'] ? 'selected' : '' ?>
+                            value="<?php echo $company['id'] ?>"><?php echo ucfirst($company['name']) ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
