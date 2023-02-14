@@ -89,7 +89,14 @@ $router->get("/admin/get-latest-companies", function () {
 // || End of admin related get requests
 
 // || Start of admin related post requests
-$router->post("/admin/add-company", function () {
+
+
+$router->get("/admin/edit-company/{id}", function ($id) {
+    session_start();
+    return (new HomeController())->viewAdmin('companies', ['id' => $id]);
+});
+
+$router->post("/admin/create-company", function () {
     session_start();
     return (new CompanyService())->createCompany($_POST['type_id'], $_POST['name'], $_POST['country'], $_POST['tva']);
 });
@@ -103,7 +110,12 @@ $router->get("/admin/delete-company/{id}", function ($id) {
     return null;
 });
 
-$router->post("/admin/add-contact", function () {
+$router->get("/admin/edit-contact/{id}", function ($id) {
+    session_start();
+    return (new HomeController())->viewAdmin('contacts', ['id' => $id]);
+});
+
+$router->post("/admin/create-contact", function () {
     session_start();
     return (new CompanyService())->createContact($_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
 });
@@ -117,7 +129,13 @@ $router->get("/admin/delete-contact/{id}", function ($id) {
     return null;
 });
 
-$router->post("/admin/add-invoice", function () {
+
+$router->get("/admin/edit-invoice/{id}", function ($id) {
+    session_start();
+    return (new HomeController())->viewAdmin('invoices', ['id' => $id]);
+});
+
+$router->post("/admin/create-invoice", function () {
     session_start();
     return (new CompanyService())->createInvoice($_POST['company_id'], $_POST['ref']);
 });
