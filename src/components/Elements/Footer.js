@@ -19,38 +19,48 @@ const Footer = () => {
         <h1 className="footer-title">COGIP</h1>
         <ul className="social-contact">
           <li>
-            <img className="logo-location" src={Location} alt="logo location" />
+            <img className="logo-location" 
+            src={Location} 
+            alt="logo location" />
             Square des Martyrs, 6000 Charleroi
           </li>
           <li>
-            <img className="logo-phone" src={Phone} alt="logo phone" />
-            (123)456-7890
-          </li>
-          <li>
-            <img className="logo-printer" src={Printer} alt="logo printer " />
+            <img className="logo-phone" 
+            src={Phone} 
+            alt="logo phone" />
+            (123)456-7890<br />
+            <img className="logo-printer" 
+            src={Printer} 
+            alt="logo printer " />
             (123)456-7890
           </li>
         </ul>
         <ul className="social-media">
-          <li>Social Media</li>
+          <h4>Social Media</h4>
           <li>
-            <img className="logo-facebook" src={Facebook} alt="logo facebook" />
+            <img className="logo-facebook" 
+            src={Facebook} 
+            alt="logo facebook" />
           </li>
           <li>
-            <img className="logo-twitter" src={Twitter} alt="logo twitter" />
+            <img className="logo-twitter" 
+            src={Twitter} 
+            alt="logo twitter" />
           </li>
           <li>
-            <img className="logo-linkedin" src={Linkedin} alt="logo linkedin" />
+            <img className="logo-linkedin" 
+            src={Linkedin} 
+            alt="logo linkedin" />
           </li>
           <li>
-            <img className="logo-youtube" src={Youtube} alt="logo youtube" />
+            <img className="logo-youtube" 
+            src={Youtube} 
+            alt="logo youtube" />
           </li>
           <li>
-            <img
-              className="logo-instagram"
-              src={Instagram}
-              alt="logo instagram"
-            />
+            <img className="logo-instagram"
+            src={Instagram} 
+            alt="logo instagram" />
           </li>
           <li>
             <img
@@ -67,7 +77,9 @@ const Footer = () => {
             />
           </li>
           <li>
-            <img className="logo-rss" src={RSS} alt="logo rss" />
+            <img className="logo-rss" 
+            src={RSS} 
+            alt="logo rss" />
           </li>
         </ul>
       </nav>
