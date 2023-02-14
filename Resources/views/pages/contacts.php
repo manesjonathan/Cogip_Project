@@ -12,6 +12,8 @@ $contact_id = $id ?? null;
 
 if ($contact_id) {
     $contact_edit = $company_service->getContactById($contact_id);
+} else {
+    $contact_edit = null;
 }
 
 ?>
@@ -47,7 +49,8 @@ if ($contact_id) {
             <select name="type_id" id="type_id"
                     class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 ">
                 <?php foreach ($companies as $company): ?>
-                    <option <?php echo $contact_edit['company_id'] ?? null == $company['id'] ? 'selected' : '' ?>
+                    <option <?php if ($contact_edit) {
+                        echo ($contact_edit['company_id'] == $company['id']) ? 'selected' : '';} ?>
                             value="<?php echo $company['id'] ?>"><?php echo ucfirst($company['name']) ?></option>
                 <?php endforeach; ?>
             </select>

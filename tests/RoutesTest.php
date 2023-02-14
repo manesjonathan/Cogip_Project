@@ -1,6 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\TestCase;
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');

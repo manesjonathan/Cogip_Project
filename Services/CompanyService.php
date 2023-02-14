@@ -104,7 +104,7 @@ class CompanyService
 
     public function createContact($company_id, $name, $email, $phone)
     {
-        if (isset($_SESSION['user'])) {
+        if (!isset($_SESSION['user'])) {
             echo "There is an error";
             return false;
         }
@@ -197,7 +197,7 @@ class CompanyService
         return true;
     }
 
-    public function getLastFiveContactsByCompany($company)
+    public function getLastFiveContactsByCompany($id)
     {
         if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
@@ -206,7 +206,7 @@ class CompanyService
             echo json_encode(["status" => "Bad Request"]);
             exit();
         }
-        $company = intval($company);
+        $company = intval($id);
 
         $data["contacts"] = $this->company_repository->getLastFiveContactsByCompany($company);
         if (isset($_SESSION['user'])) {
@@ -264,7 +264,7 @@ class CompanyService
         return true;
     }
 
-    public function getLastFiveInvoicesByCompany($company)
+    public function getLastFiveInvoicesByCompany($id)
     {
         if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
@@ -273,7 +273,7 @@ class CompanyService
             echo json_encode(["status" => "Bad Request"]);
             exit();
         }
-        $company = intval($company);
+        $company = intval($id);
 
         $data["invoices"] = $this->company_repository->getLastFiveInvoicesByCompany($company);
         if (isset($_SESSION['user'])) {
