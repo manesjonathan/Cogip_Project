@@ -44,10 +44,10 @@ $router->get('/logout', function () {
 
 
 // || Start of ADMIN routes
-$router->before('GET|POST|DELETE|UPDATE', '/admin/*', function () {
+$router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
     session_start();
     if (!isset($_SESSION['user'])) {
-        header('location: /');
+        header('location: /', true, 401);
         exit();
     }
 });

@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Database\Repositories\CompanyRepository;
 
+require "ValidatorService.php";
+
 class CompanyService
 {
     private $company_repository;
@@ -79,7 +81,7 @@ class CompanyService
 
     public function getCompanyById($id)
     {
-        if (!is_numeric($id)) {
+        if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -153,7 +155,7 @@ class CompanyService
 
     public function getContactById($id)
     {
-        if (!is_numeric($id)) {
+        if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -176,7 +178,7 @@ class CompanyService
 
     public function getAllContactsByCompany($company)
     {
-        if (!is_numeric($company)) {
+        if (!ValidatorService::isNumber($company)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -199,7 +201,7 @@ class CompanyService
 
     public function getLastFiveContactsByCompany($company)
     {
-        if (!is_numeric($company)) {
+        if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -245,7 +247,7 @@ class CompanyService
 
     public function getInvoiceById($id)
     {
-        if (!is_numeric($id)) {
+        if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -266,7 +268,7 @@ class CompanyService
 
     public function getLastFiveInvoicesByCompany($company)
     {
-        if (!is_numeric($company)) {
+        if (!ValidatorService::isNumber($id)) {
             header('Content-type: application/json');
             http_response_code(400);
 
@@ -313,7 +315,7 @@ class CompanyService
 
     public function getInvoicesByCompany($company)
     {
-        if (!is_numeric($company)) {
+        if (!ValidatorService::isNumber($company)) {
             header('Content-type: application/json');
             http_response_code(400);
 

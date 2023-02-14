@@ -8,44 +8,43 @@ class ValidatorService{
         return empty($input);
     }
 
-    public static function validateEmail($email)
+    public static function sanitizeEmail($email)
     {
         return filter_var($email, FILTER_SANITIZE_EMAIL);
     }
 
+    public static function validateEmail($email)
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
     public static function sanitize_text($input)
     { 
-        // Strip whitespace from the beginning and end of a string
-        $input = trim($input);
-        
         // Remove backslashes
         $input = stripslashes($input);
-
+        
         // Strip HTML and PHP tags 
         $input = strip_tags($input);
+        
+        // Strip whitespace from the beginning and end of a string
+        $input = trim($input);
 
         return $input;
     }
 
-    public static function isValidPhonenumebr($input)
+    public static function isValidPhonenumber($phoneNumber)
     {
-        return; // To do
+        return filter_var($phoneNumber, FILTER_SANITIZE_NUMBER_INT);
     }
 
-    public static function isAplhaNumeric($input)
+    public static function isAlphaNumeric($input)
     {
-        return; // To do
+        return preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $input);
     }
 
-    public static function verifyDate($date, $strict = true)
+    public static function isNumber($number)
     {
-        $dateTime = DateTime::createFromFormat('m/d/Y', $date);
-        if ($strict) {
-            $errors = DateTime::getLastErrors();
-            if (!empty($errors['warning_count'])) {
-                return false;
-            }
-        }
-        return $dateTime !== false;
+        return is_numeric($number);
     }
+
 }
