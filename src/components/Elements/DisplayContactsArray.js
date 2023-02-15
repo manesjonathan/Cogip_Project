@@ -1,5 +1,7 @@
 import DisplayArray from "./DisplayArray.js";
 import Rect19yellow from '../../Images/rectangle-19.avif'
+import SearchBar from "./SearchBar.js";
+
 export default function DisplayAContactsArrays (){
 
     const contactsTitles = ["Name", "Phone", "Mail","Company","Created at"];
@@ -11,7 +13,7 @@ export default function DisplayAContactsArrays (){
                 <section className="tab02">
                     <h2 className="tab-title">All contacts</h2>
                     <img className ="img-yellow19" src={Rect19yellow} alt="img-rectyellow" ></img>
-                    {/* <input className="input" placeholder="Search contacts"></input> */}
+                    <SearchBar/>
                     <DisplayArray url={contactsUrl} companyUrl={companyUrlId} titles={contactsTitles} keysColumn={contactsKeys} type="contacts"/>
                 </section>
 

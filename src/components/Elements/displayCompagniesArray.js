@@ -1,6 +1,7 @@
 import DisplayArray from "./DisplayArray.js";
 import SearchBar from "./SearchBar.js";
-import Rect19yellow from '../../Images/rectangle-19.avif'
+import Rect19yellow from '../../Images/rectangle-19.avif';
+
 export default function DisplayComapgniesArrays (){
 
     const companiesTitles = ["Name", "TVA", "Country","Type","Created at"];
