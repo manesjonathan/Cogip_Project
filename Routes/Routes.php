@@ -91,7 +91,7 @@ $router->get("/admin/edit-company/{id}", function ($id) {
 $router->post("/admin/add-company", function () {
     $company = (new CompanyService())->createCompany($_POST['id'], $_POST['type_id'], $_POST['name'], $_POST['country'], $_POST['tva']);
     if ($company) {
-        (new HomeController())->viewAdmin('dashboard', ['message' => 'Company with name ' . $_POST['name'] . ' created', "name" => $_SESSION['user']]);
+        (new HomeController())->viewAdmin('dashboard', ['message' => 'Company saved', "name" => $_SESSION['user']]);
     }
     return null;
 });
@@ -111,7 +111,7 @@ $router->get("/admin/edit-contact/{id}", function ($id) {
 $router->post("/admin/add-contact", function () {
     $contact = (new CompanyService())->createContact($_POST['contact_id'], $_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
     if ($contact) {
-        (new HomeController())->viewAdmin('dashboard', ['message' => 'Contact with name ' . $_POST['name'] . ' created', "name" => $_SESSION['user']]);
+        (new HomeController())->viewAdmin('dashboard', ['message' => 'Contact saved', "name" => $_SESSION['user']]);
     }
     return null;
 });
@@ -131,7 +131,7 @@ $router->get("/admin/edit-invoice/{id}", function ($id) {
 $router->post("/admin/add-invoice", function () {
     $invoice = (new CompanyService())->createInvoice($_POST['id'], $_POST['company_id'], $_POST['ref']);
     if($invoice) {
-        (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice with ref ' . $_POST['ref'] . ' created', "name" => $_SESSION['user']]);
+        (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice saved', "name" => $_SESSION['user']]);
     }
     return null;
 });
