@@ -14,6 +14,8 @@ usort($invoices, function ($a, $b) {
 
 <main class="px-5 md:ml-56 bg-gray-50 md:grid md:grid-cols-2 flex flex-col">
 
+    <p class="text-center w-full text-red-700"><?php echo $message ?? null ?></p>
+
     <div class="my-2 flex flex-col col-start-1 col-end-1 px-5  mb-14">
         <section class="bg-white rounded-lg my-4 items-center p-4">
             <h3 class="text-lg font-bold mb-2">Statistics</h3>
@@ -58,6 +60,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $contact['name']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $contact['phone']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $contact['email']; ?></td>
+                            <td class="px-4 py-4 text-sm"><a href='/admin/edit-contact/<?php echo $contact['id'] ?> '<i
+                                        class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td class="px-4 py-4 text-sm"><a
+                                        href='/admin/delete-contact/<?php echo $contact['id'] ?> '<i
+                                        class="fa-regular fa-trash-can"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -85,6 +92,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['ref']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['created_at']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $company_service->getCompanyById($invoice['id_company'])['name']; ?></td>
+                            <td class="px-4 py-4 text-sm"><a href='/admin/edit-invoice/<?php echo $invoice['id'] ?> '<i
+                                        class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td class="px-4 py-4 text-sm"><a
+                                        href='/admin/delete-invoice/<?php echo $invoice['id'] ?> '<i
+                                        class="fa-regular fa-trash-can"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -110,6 +122,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $company['name']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $company['tva']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $company['country']; ?></td>
+                            <td class="px-4 py-4 text-sm"><a href='/admin/edit-company/<?php echo $company['id'] ?> '<i
+                                        class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td class="px-4 py-4 text-sm"><a
+                                        href='/admin/delete-company/<?php echo $company['id'] ?> '<i
+                                        class="fa-regular fa-trash-can"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

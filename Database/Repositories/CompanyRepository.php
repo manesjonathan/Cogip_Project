@@ -82,8 +82,8 @@ class CompanyRepository
     {
         $query = 'SELECT * FROM contacts WHERE id=:id';
         $stmt = $this->db->prepare($query);
-
-        return $stmt->execute(["id" => $id]);
+        $stmt->execute(["id" => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getAllContactsByCompany($id)
@@ -170,30 +170,26 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteCompany($company_id)
+    public function deleteCompany($id)
     {
-      $query = "DELETE FROM companies where id=:company_id";
-      $stmt = $this->db->prepare($query);
-
-      return $stmt->execute(["company_id" => $company_id]);
+        $query = 'SET FOREIGN_KEY_CHECKS=0;
+                DELETE FROM companies WHERE id = :id; 
+                SET FOREIGN_KEY_CHECKS=0';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
     }
 
-    public function deleteContact($contact_id)
+    public function deleteInvoice($id)
     {
-      $query = "DELETE FROM contacts where id=:contact_id";
-      $stmt = $this->db->prepare($query);
-
-      return $stmt->execute(["contact_id" => $contact_id]);
+        $query = 'DELETE FROM invoices WHERE id = :id';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
     }
 
-    public function deleteInvoice($invoice_id)
+    public function deleteContact($id)
     {
-      $query = "DELETE FROM invoices where id=:invoice_id";
-      $stmt = $this->db->prepare($query);
-
-      return $stmt->execute(["invoice_id" => $invoice_id]);
+        $query = 'DELETE FROM contacts WHERE id = :id';
+        $stmt = $this->db->prepare($query);
+        return $stmt->execute(['id' => $id]);
     }
-
-
-
 }

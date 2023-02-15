@@ -35,6 +35,7 @@ class Controller
                 require_once(__ROOT__ . '/Resources/views/pages/contacts.php');
                 break;
         }
+
     }
 
     public function viewComponent($view, $data = [])
