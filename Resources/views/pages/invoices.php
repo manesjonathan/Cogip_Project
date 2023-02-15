@@ -8,6 +8,14 @@ usort($companies, function ($a, $b) {
     return $a['name'] <=> $b['name'];
 });
 
+$invoice_id = $id ?? null;
+
+if ($invoice_id) {
+    $invoice_edit = $company_service->getInvoiceById($invoice_id);
+} else {
+    $invoice_edit = null;
+}
+
 ?>
 
 <main class="md:ml-56 bg-gray-50 flex flex-col px-10">
@@ -17,28 +25,34 @@ usort($companies, function ($a, $b) {
         <div class="mt-12">
             <label for="ref" class="block text-sm font-medium gray-900"></label>
             <input type="text" name="ref" id="ref" required
+                   value="<?php echo $invoice_edit['ref'] ?? null ?>"
                    placeholder="Reference"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
         <div class="mt-12">
             <label for="price" class="block text-sm font-medium gray-900"></label>
             <input type="number" name="price" id="price" required min="0" step=".01"
+                   value="<?php echo $invoice_edit['price'] ?? null ?>"
                    placeholder="Price"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
         </div>
 
         <div class="mt-12">
             <label for="company_id" class="block text-sm font-medium text-gray-900"></label>
-            <select name="company_id" id="company_id"
+            <select required name="company_id" id="company_id"
                     class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 ">
+                <option value="">---</option>
                 <?php foreach ($companies as $company): ?>
-                    <option value="<?php echo $company['id'] ?>"><?php echo $company['name'] ?></option>
+                    <option <?php if ($invoice_edit) {
+                        echo ($invoice_edit['id_company'] == $company['id']) ? 'selected' : '';
+                    } ?>
+                            value="<?php echo $company['id'] ?>"><?php echo ucfirst($company['name']) ?></option>
                 <?php endforeach; ?>
-
             </select>
         </div>
 
         <div class="mt-12 w-full">
+            <input type="hidden" name="id" value="<?php echo $invoice_id ?? null ?>">
             <button type="submit" name="submit_button"
                     class="text-white custom-bg hover:bg-blue-800 focus:outline-none focus:ring-blue-300 text-sm w-full px-5 py-2.5 text-left ">
                 Save

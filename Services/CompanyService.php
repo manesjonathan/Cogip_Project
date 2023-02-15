@@ -220,7 +220,7 @@ class CompanyService
         return true;
     }
 
-    public function createInvoice($id_company, $ref)
+    public function createInvoice($id, $id_company, $ref)
     {
         if (!isset($_SESSION['user'])) {
             echo "There is an error";
@@ -236,7 +236,7 @@ class CompanyService
         $id_company = ValidatorService::sanitize_text($id_company);
         $ref = ValidatorService::sanitize_text($ref);
 
-        $result = $this->company_repository->createInvoice($ref, $id_company);
+        $result = $this->company_repository->createInvoice($id, $ref, $id_company);
         header("Location:/admin/dashboard");
         echo ($result) ? "Success" : "Failed to create invoice";
 

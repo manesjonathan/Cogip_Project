@@ -121,7 +121,7 @@ $router->get("/admin/edit-invoice/{id}", function ($id) {
 });
 
 $router->post("/admin/add-invoice", function () {
-    return (new CompanyService())->createInvoice($_POST['company_id'], $_POST['ref']);
+    return (new CompanyService())->createInvoice($_POST['id'], $_POST['company_id'], $_POST['ref']);
 });
 
 $router->get("/admin/delete-invoice/{id}", function ($id) {

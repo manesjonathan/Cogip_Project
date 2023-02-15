@@ -122,14 +122,25 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createInvoice($ref, $id_company)
+    public function createInvoice($id, $ref, $id_company)
     {
-        $query = 'INSERT INTO invoices (ref, id_company)  
-                VALUES (:ref, :id_company)
-               ';
+        // Check if contact already exists
+        $query = 'SELECT * FROM invoices WHERE id = :id';
         $stmt = $this->db->prepare($query);
+        $stmt->execute(['id' => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $stmt->execute(['ref' => $ref, 'id_company' => $id_company]);
+        if ($result) {
+            // Invoice already exists, update it
+            $query = 'UPDATE invoices SET ref = :ref, id_company = :id_company WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['ref' => $ref, 'id_company' => $id_company, 'id' => $result['id']]);
+        } else {
+            // Invoice doesn't exist, insert new record
+            $query = 'INSERT INTO invoices (ref, id_company) VALUES (:ref, :id_company)';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['ref' => $ref, 'id_company' => $id_company]);
+        }
     }
 
     public function getInvoiceById($id)

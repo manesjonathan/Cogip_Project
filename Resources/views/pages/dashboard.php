@@ -91,7 +91,7 @@ usort($invoices, function ($a, $b) {
                         <tr class="">
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['ref']; ?></td>
                             <td class="px-4 py-4 text-sm"><?php echo $invoice['created_at']; ?></td>
-                            <td class="px-4 py-4 text-sm"><?php echo $company_service->getCompanyById($invoice['id_company'])['name']; ?></td>
+                            <td class="px-4 py-4 text-sm"><?php echo $company_service->getCompanyById($invoice['id_company'])['name'] ?? ''; ?></td>
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-invoice/<?php echo $invoice['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
                             <td class="px-4 py-4 text-sm"><a
