@@ -1,4 +1,5 @@
 import DisplayArray from "./DisplayArray.js";
+import SearchBar from "./SearchBar.js";
 
 export default function DisplayComapgniesArrays (){
 
@@ -10,7 +11,7 @@ export default function DisplayComapgniesArrays (){
     return  <div className="tab">
                 <section className="tab03">
                     <h2 className="tab-title">All companies</h2>
-                    <input className="input" placeholder="Search company name"></input>
+                    <SearchBar/>
                     <DisplayArray url={companiesUrl} companyUrl={companyUrlId} titles={companiesTitles} keysColumn={companiesKeys} type="companies"/>
                 </section>
             </div>;

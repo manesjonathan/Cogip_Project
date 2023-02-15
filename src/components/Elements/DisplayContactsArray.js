@@ -10,7 +10,7 @@ export default function DisplayAContactsArrays (){
     return  <div className="tab">
                 <section className="tab02">
                     <h2 className="tab-title">All contacts</h2>
-                    <input className="input" placeholder="Search contacts"></input>
+                    {/* <input className="input" placeholder="Search contacts"></input> */}
                     <DisplayArray url={contactsUrl} companyUrl={companyUrlId} titles={contactsTitles} keysColumn={contactsKeys} type="contacts"/>
                 </section>
 

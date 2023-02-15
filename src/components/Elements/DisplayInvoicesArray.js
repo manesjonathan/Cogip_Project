@@ -11,7 +11,7 @@ export default function DisplayInvoicesArrays (){
     return  <div className="tab">
                 <section className="tab01">
                     <h2 className="tab-title">All invoices</h2>
-                    <input className="input" placeholder="Search company"></input>
+                    {/* <input className="input input-invoices" placeholder="Search company"></input> */}
                     <DisplayArray url={invoicesUrl} companyUrl={companyUrlId} titles={invoicesTitles} keysColumn={invoicesKeys} type="invoices"/>
                 </section>
             </div>;
