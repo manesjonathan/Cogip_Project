@@ -1,4 +1,5 @@
 <?php
+
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 
@@ -8,6 +9,37 @@ error_reporting(E_ALL);
 
 final class RoutesTest extends TestCase
 {
+    /*
+        protected function setUp(): void
+        {
+            parent::setUp();
+            session_start();
+            $_SESSION['user'] = [
+                'id' => 1,
+                'name' => 'John Doe',
+                'email' => 'john.doe@example.com',
+                'role' => 'admin'
+            ];
+        }
+
+        public function testDashboardPage()
+        {
+            $client = new Client(["base_uri" => "http://localhost:8000/"]);
+            $res = $client->request("GET", "/admin/get-latest-companies", ['http_errors' => false, 'headers' => [
+                'Cookie' => 'PHPSESSID=' . session_id()
+            ]]);
+            $this->assertEquals(200, $res->getStatusCode());
+        }
+
+        public function testLoginPage()
+        {
+            $client = new Client(["base_uri" => "http://localhost:8000/"]);
+            $res = $client->request("GET", "/", ['http_errors' => false]);
+
+            $this->assertEquals(200, $res->getStatusCode());
+        }
+    */
+
     public function testGetCompanies()
     {
         $client = new Client(["base_uri" => "http://localhost:8000/"]);

@@ -46,17 +46,20 @@ if ($contact_id) {
 
         <div class="mt-12">
             <label for="type_id" class="block text-sm font-medium text-gray-900"></label>
-            <select name="type_id" id="type_id"
-                    class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 ">
+            <select required name="type_id" id="type_id"
+                    class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5">
+                <option value="">---</option>
                 <?php foreach ($companies as $company): ?>
                     <option <?php if ($contact_edit) {
-                        echo ($contact_edit['company_id'] == $company['id']) ? 'selected' : '';} ?>
+                        echo ($contact_edit['company_id'] == $company['id']) ? 'selected' : '';
+                    } ?>
                             value="<?php echo $company['id'] ?>"><?php echo ucfirst($company['name']) ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
 
         <div class="mt-12 w-full">
+            <input type="hidden" name="contact_id" value="<?php echo $contact_id ?? null ?>">
             <button type="submit" name="submit_button"
                     class="text-white custom-bg hover:bg-blue-800 focus:outline-none focus:ring-blue-300 text-sm w-full px-5 py-2.5 text-left ">
                 Save

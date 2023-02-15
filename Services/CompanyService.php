@@ -102,7 +102,7 @@ class CompanyService
 
     }
 
-    public function createContact($company_id, $name, $email, $phone)
+    public function createContact($contact_id, $company_id, $name, $email, $phone)
     {
         if (!isset($_SESSION['user'])) {
             echo "There is an error";
@@ -128,7 +128,7 @@ class CompanyService
             return false;
         }
 
-        $result = $this->company_repository->createContact($company_id, $name, $email, $phone);
+        $result = $this->company_repository->createContact($contact_id, $company_id, $name, $email, $phone);
         header("Location:/admin/dashboard");
         echo ($result) ? "Success" : "Failed to create invoice";
         return $result;

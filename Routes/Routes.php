@@ -52,8 +52,8 @@ $router->before('GET|POST|DELETE|UPDATE', '/admin/.*', function () {
     }
 });
 
-//route to return create invoice view
 
+// || Start of admin related get requests
 $router->get('/admin/dashboard', function () {
     (new HomeController())->index('dashboard');
 });
@@ -70,7 +70,6 @@ $router->get('/admin/contacts', function () {
     (new HomeController())->index('contacts');
 });
 
-// || Start of admin related get requests
 $router->get("/admin/get-latest-contacts/company/{company_id}", function ($company_id) {
     return (new CompanyService())->getLastFiveContactsByCompany($company_id);
 });
@@ -83,9 +82,7 @@ $router->get("/admin/get-latest-companies", function () {
     return (new CompanyService())->getLastFiveCompanies();
 });
 // || End of admin related get requests
-
 // || Start of admin related post requests
-
 
 $router->get("/admin/edit-company/{id}", function ($id) {
     (new HomeController())->viewAdmin('companies', ["name" => $_SESSION['user'], 'id' => $id]);
@@ -108,7 +105,7 @@ $router->get("/admin/edit-contact/{id}", function ($id) {
 });
 
 $router->post("/admin/add-contact", function () {
-    return (new CompanyService())->createContact($_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
+    return (new CompanyService())->createContact($_POST['contact_id'], $_POST['type_id'], $_POST['name'], $_POST['email'], $_POST['phone']);
 });
 
 $router->get("/admin/delete-contact/{id}", function ($id) {
@@ -134,6 +131,7 @@ $router->get("/admin/delete-invoice/{id}", function ($id) {
     }
     return null;
 });
+
 // || End of admin related post requests
 // || End of admin routes
 

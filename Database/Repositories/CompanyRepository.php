@@ -52,12 +52,25 @@ class CompanyRepository
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createContact($company_id, $name, $email, $phone)
+    public function createContact($contact_id, $company_id, $name, $email, $phone)
     {
-        $query = 'INSERT INTO contacts (name, company_id, email, phone)
-                 VALUES (:name, :company_id, :email, :phone)';
+        // Check if contact already exists
+        $query = 'SELECT * FROM contacts WHERE id = :id';
         $stmt = $this->db->prepare($query);
-        return $stmt->execute(['company_id' => $company_id, 'name' => $name, 'email' => $email, 'phone' => $phone]);
+        $stmt->execute(['id' => $contact_id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            // Contact already exists, update it
+            $query = 'UPDATE contacts SET name = :name, email = :email, phone = :phone, company_id = :company_id WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['name' => $name, 'email' => $email, 'phone' => $phone, 'company_id' => $company_id, 'id' => $result['id']]);
+        } else {
+            // Contact doesn't exist, insert new record
+            $query = 'INSERT INTO contacts (name, company_id, email, phone) VALUES (:name, :company_id, :email, :phone)';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['name' => $name, 'company_id' => $company_id, 'email' => $email, 'phone' => $phone]);
+        }
     }
 
 
