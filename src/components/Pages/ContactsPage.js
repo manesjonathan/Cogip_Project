@@ -8,7 +8,7 @@ return (
     <div>
         <Header />
         <DisplayAContactsArrays/>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
 )}
 
