@@ -1,17 +1,20 @@
 <?php
+namespace Tests\Unit;
+
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use App\Services\ValidatorService;
 
 class ValidatorTest extends TestCase{
 
-    public function testRejectInvalidEmail()
+    #[DataProvider('invalidEmailAdressCases')]
+    public function testRejectInvalidEmail($email)
     {
-        $email = "Abc.example.com";
         $isValid = ValidatorService::validateEmail($email);
 
         $this->assertEquals(false, $isValid);
     }
-
+  
     public function testAcceptValidEmail()
     {
         $email = "email@example.com";
@@ -75,6 +78,19 @@ class ValidatorTest extends TestCase{
         $value = "25";
         $isValid = ValidatorService::isNumber($value);
 
-        $this->assertEquals(true, $value);
+        $this->assertEquals(true, $isValid);
+    }
+
+    public static function invalidEmailAdressCases()
+    {
+        return [
+            ['Abc.example.com'],
+            ['A@b@c@example.com'],
+            ['a"b(c)d,e:f;g<h>i[j\k]l@example.com'],
+            ['just"not"right@example.com'],
+            ['this is"not\allowed@example.com '],
+            ['this\ still\"notallowed@example.com'],
+            ['']
+        ];
     }
 }
