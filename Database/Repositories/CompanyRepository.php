@@ -23,13 +23,25 @@ class CompanyRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createCompany($type_id, $name, $country, $tva)
+    public function createCompany($id, $type_id, $name, $country, $tva)
     {
-        $query = 'INSERT INTO companies (name, type_id, country, tva) 
-                  VALUES (:name, :type_id, :country, :tva)';
+        // Check if contact already exists
+        $query = 'SELECT * FROM companies WHERE id = :id';
         $stmt = $this->db->prepare($query);
-        return $stmt->execute(['name' => $name, 'type_id' => $type_id, 'country' => $country, 'tva' => $tva]);
+        $stmt->execute(['id' => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if ($result) {
+            // Contact already exists, update it
+            $query = 'UPDATE companies SET name = :name, type_id = :type_id, country = :country, tva = :tva WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['name' => $name, 'type_id' => $type_id, 'country' => $country, 'tva' => $tva, 'id' => $result['id']]);
+        } else {
+            // Contact doesn't exist, insert new record
+            $query = 'INSERT INTO companies (name, type_id, country, tva) VALUES (:name, :type_id, :country, :tva)';
+            $stmt = $this->db->prepare($query);
+            return $stmt->execute(['name' => $name, 'type_id' => $type_id, 'country' => $country, 'tva' => $tva]);
+        }
     }
 
     public function getLastFiveCompanies()

@@ -19,7 +19,7 @@ class CompanyService
     }
 
 
-    public function createCompany($type_id, $name, $country, $tva)
+    public function createCompany($id, $type_id, $name, $country, $tva)
     {
         if (!isset($_SESSION['user'])) {
             echo "There is an error";
@@ -40,11 +40,7 @@ class CompanyService
         $country = ValidatorService::sanitize_text($country);
         $tva = ValidatorService::sanitize_text($tva);
 
-        $result = $this->company_repository->createCompany($type_id, $name, $country, $tva);
-        header("Location:/admin/dashboard");
-        echo ($result) ? "Success" : "Failed to create invoice";
-
-        return $result;
+        return $this->company_repository->createCompany($id, $type_id, $name, $country, $tva);
     }
 
     public function getAllCompanies($last_five)
@@ -127,11 +123,7 @@ class CompanyService
         if (!ValidatorService::validateEmail($email)) {
             return false;
         }
-
-        $result = $this->company_repository->createContact($contact_id, $company_id, $name, $email, $phone);
-        header("Location:/admin/dashboard");
-        echo ($result) ? "Success" : "Failed to create invoice";
-        return $result;
+        return $this->company_repository->createContact($contact_id, $company_id, $name, $email, $phone);
     }
 
     public function getAllContacts($last_five)
@@ -236,11 +228,7 @@ class CompanyService
         $id_company = ValidatorService::sanitize_text($id_company);
         $ref = ValidatorService::sanitize_text($ref);
 
-        $result = $this->company_repository->createInvoice($id, $ref, $id_company);
-        header("Location:/admin/dashboard");
-        echo ($result) ? "Success" : "Failed to create invoice";
-
-        return $result;
+        return $this->company_repository->createInvoice($id, $ref, $id_company);
     }
 
     public function getInvoiceById($id)
