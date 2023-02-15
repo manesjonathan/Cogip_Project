@@ -2,12 +2,12 @@
 //EXEMPLE: color: h.$red;
 
 .tab{
-    width:100%;
-    padding: 3%;
+    width:90%;
+    padding: 3em;
 }
 
 table{
-    width: 90%;
+    width: 100%;
     text-align: left;
     border-collapse: collapse;
 
@@ -18,7 +18,7 @@ thead{
 }
 
 th{
-    padding: 0.5em;
+   padding: 0.5em;
 }
 
 tr{
@@ -45,6 +45,14 @@ td{
     margin-top: 1em;
 }
 
+.img-yellow19{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    margin-left: 5em;
+    margin-top: 13em;
+}
+
 .tab01-img{
     position: absolute;
     margin-top: 2em;
@@ -68,8 +76,7 @@ td{
 @media screen and (min-width: 1023px) {
 
 .tab{
-    padding: 8%;
-
+  padding: 8%;
 }
     
 table{
@@ -93,5 +100,10 @@ table{
     margin-top: 102em;
     width:10em;
 
+}
+
+.img-yellow19{
+    margin-left: 5em;
+    margin-top: 25.5em;
 }
 }

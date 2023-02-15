@@ -9,7 +9,8 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
     
     //State
     const [dataBack, setDataBack] = useState([]);
-    
+
+
     //Comportements
     useEffect(() => {
         fetch(url)
