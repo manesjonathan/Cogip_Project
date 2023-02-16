@@ -210,7 +210,7 @@ class CompanyRepository
     {
         $query = 'SET FOREIGN_KEY_CHECKS=0;
                 DELETE FROM companies WHERE id = :id; 
-                SET FOREIGN_KEY_CHECKS=0';
+                SET FOREIGN_KEY_CHECKS=1';
         $stmt = $this->db->prepare($query);
         return $stmt->execute(['id' => $id]);
     }

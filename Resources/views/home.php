@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/public/assets/css/output.css">
     <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Cogip Admin Dashboard</title>
 </head>
 <body class="overflow-y-scroll m-auto">

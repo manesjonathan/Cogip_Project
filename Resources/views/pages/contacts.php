@@ -18,7 +18,7 @@ if ($contact_id) {
 
 ?>
 <main class="md:ml-56 bg-gray-50 flex flex-col px-10">
-    <form action="/admin/add-contact/" method="post"
+    <form onsubmit="return submitForm(this, 'contact')" action="/admin/add-contact/" method="post"
           class="w-full bg-white m-auto p-5 mb-14">
         <h3 class="text-lg font-bold my-6">New Contact</h3>
         <hr>
@@ -67,3 +67,26 @@ if ($contact_id) {
         </div>
     </form>
 </main>
+<script>
+    function submitForm(form, content) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Your ' + content + ' will be saved',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Saved!',
+                    'Your ' + content + ' has been saved.',
+                    'success'
+                );
+                form.submit();
+            }
+        });
+        return false;
+    }
+</script>

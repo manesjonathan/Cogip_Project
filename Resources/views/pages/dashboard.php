@@ -63,8 +63,13 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-contact/<?php echo $contact['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
                             <td class="px-4 py-4 text-sm">
-                                <form method="post" action="/admin/delete-contact/<?php echo $contact['id'] ?>">
-                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                <form onsubmit="return submitForm(this, 'contact');" method="post"
+                                      action="/admin/delete-contact/<?php echo $contact['id'] ?>">
+                                    <label for="contact">
+                                        <button type="submit" name="contact" value="submit"><i
+                                                    class="fa-regular fa-trash-can"></i>
+                                        </button
+                                    </label>
                                 </form>
                             </td>
                         </tr>
@@ -97,8 +102,12 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-invoice/<?php echo $invoice['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
                             <td class="px-4 py-4 text-sm">
-                                <form method="post" action="/admin/delete-invoice/<?php echo $invoice['id'] ?>">
-                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                <form onsubmit="return submitForm(this, 'invoice');"  method="post" action="/admin/delete-invoice/<?php echo $invoice['id'] ?>">
+                                    <label for="invoice">
+                                        <button type="submit" name="invoice"><i class="fa-regular fa-trash-can"></i>
+                                        </button
+
+                                    </label>
                                 </form>
                             </td>
                         </tr>
@@ -129,8 +138,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-company/<?php echo $company['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
                             <td class="px-4 py-4 text-sm">
-                                <form method="post" action="/admin/delete-company/<?php echo $company['id'] ?>">
-                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                <form onsubmit="return submitForm(this, 'company');"  method="post" action="/admin/delete-company/<?php echo $company['id'] ?>">
+                                    <label for="company">
+                                        <button type="submit" name="company"><i class="fa-regular fa-trash-can"></i>
+                                        </button
+                                    </label>
                                 </form>
                             </td>
                         </tr>
@@ -141,3 +153,26 @@ usort($invoices, function ($a, $b) {
         </section>
     </div>
 </main>
+<script>
+    function submitForm(form, content) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your ' + content +' has been deleted.',
+                    'success'
+                );
+                form.submit();
+            }
+        });
+        return false;
+    }
+</script>
