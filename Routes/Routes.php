@@ -96,7 +96,7 @@ $router->post("/admin/add-company", function () {
     return null;
 });
 
-$router->get("/admin/delete-company/{id}", function ($id) {
+$router->post("/admin/delete-company/{id}", function ($id) {
     $deleteCompany = (new CompanyService())->deleteCompany($id);
     if ($deleteCompany) {
         (new HomeController())->viewAdmin('dashboard', ['message' => 'Company with id ' . $id . ' deleted', "name" => $_SESSION['user']]);
@@ -116,7 +116,7 @@ $router->post("/admin/add-contact", function () {
     return null;
 });
 
-$router->get("/admin/delete-contact/{id}", function ($id) {
+$router->post("/admin/delete-contact/{id}", function ($id) {
     $deleteContact = (new CompanyService())->deleteContact($id);
     if ($deleteContact) {
         (new HomeController())->viewAdmin('dashboard', ['message' => 'Contact with id ' . $id . ' deleted', "name" => $_SESSION['user']]);
@@ -130,13 +130,13 @@ $router->get("/admin/edit-invoice/{id}", function ($id) {
 
 $router->post("/admin/add-invoice", function () {
     $invoice = (new CompanyService())->createInvoice($_POST['id'], $_POST['company_id'], $_POST['ref']);
-    if($invoice) {
+    if ($invoice) {
         (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice saved', "name" => $_SESSION['user']]);
     }
     return null;
 });
 
-$router->get("/admin/delete-invoice/{id}", function ($id) {
+$router->post("/admin/delete-invoice/{id}", function ($id) {
     $deleteInvoice = (new CompanyService())->deleteInvoice($id);
     if ($deleteInvoice) {
         (new HomeController())->viewAdmin('dashboard', ['message' => 'Invoice with id ' . $id . ' deleted', "name" => $_SESSION['user']]);

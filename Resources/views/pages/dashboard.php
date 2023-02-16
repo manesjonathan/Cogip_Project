@@ -62,9 +62,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $contact['email']; ?></td>
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-contact/<?php echo $contact['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
-                            <td class="px-4 py-4 text-sm"><a
-                                        href='/admin/delete-contact/<?php echo $contact['id'] ?> '<i
-                                        class="fa-regular fa-trash-can"></i></a></td>
+                            <td class="px-4 py-4 text-sm">
+                                <form method="post" action="/admin/delete-contact/<?php echo $contact['id'] ?>">
+                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -94,9 +96,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $company_service->getCompanyById($invoice['id_company'])['name'] ?? ''; ?></td>
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-invoice/<?php echo $invoice['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
-                            <td class="px-4 py-4 text-sm"><a
-                                        href='/admin/delete-invoice/<?php echo $invoice['id'] ?> '<i
-                                        class="fa-regular fa-trash-can"></i></a></td>
+                            <td class="px-4 py-4 text-sm">
+                                <form method="post" action="/admin/delete-invoice/<?php echo $invoice['id'] ?>">
+                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -124,9 +128,11 @@ usort($invoices, function ($a, $b) {
                             <td class="px-4 py-4 text-sm"><?php echo $company['country']; ?></td>
                             <td class="px-4 py-4 text-sm"><a href='/admin/edit-company/<?php echo $company['id'] ?> '<i
                                         class="fa-regular fa-pen-to-square"></i></a></td>
-                            <td class="px-4 py-4 text-sm"><a
-                                        href='/admin/delete-company/<?php echo $company['id'] ?> '<i
-                                        class="fa-regular fa-trash-can"></i></a></td>
+                            <td class="px-4 py-4 text-sm">
+                                <form method="post" action="/admin/delete-company/<?php echo $company['id'] ?>">
+                                    <button type="submit"><i class="fa-regular fa-trash-can"></i></button
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
