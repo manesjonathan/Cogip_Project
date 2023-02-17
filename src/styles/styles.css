@@ -319,12 +319,15 @@ td {
     font-size: 3em;
     padding-bottom: 1em;
   }
+  .title02, .title03 {
+    margin-top: 1em;
+  }
   .tab01-img {
     width: 10em;
   }
   .tab02-img {
     top: 0;
-    margin-top: 95em;
+    margin-top: 93.5em;
     width: 8em;
   }
   .img-yellow19 {
