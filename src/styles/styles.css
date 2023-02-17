@@ -190,14 +190,14 @@ footer {
 }
 
 .img-panneau {
-  width: 400px;
+  width: 450px;
 }
 
 .img-rectwhite {
   position: absolute;
   top: 0;
   left: 5%;
-  margin-top: 29.7em;
+  margin-top: 32.5em;
   width: 90%;
   height: 4em;
 }
@@ -231,14 +231,17 @@ footer {
   }
 }
 .tab {
-  width: 90%;
   padding: 5%;
 }
 
 table {
-  width: 100%;
+  width: 40em;
   text-align: left;
   border-collapse: collapse;
+}
+
+.tab01, .tab02, .tab03 {
+  overflow-x: auto;
 }
 
 thead {
@@ -270,7 +273,7 @@ td {
 }
 
 .title02, .title03 {
-  margin-top: 1em;
+  margin-top: 2.5em;
 }
 
 .img-yellow19 {

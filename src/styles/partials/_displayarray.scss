@@ -2,15 +2,17 @@
 //EXEMPLE: color: h.$red;
 
 .tab{
-    width:90%;
     padding: 5%;
 }
 
 table{
-    width: 100%;
+    width:40em;
     text-align: left;
     border-collapse: collapse;
+}
 
+.tab01, .tab02, .tab03{
+    overflow-x: auto;
 }
 
 thead{
@@ -42,7 +44,7 @@ td{
 }
 
 .title02, .title03{
-    margin-top: 1em;
+    margin-top: 2.5em;
 }
 
 .img-yellow19{
