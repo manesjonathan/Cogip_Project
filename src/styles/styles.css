@@ -306,7 +306,7 @@ td {
     padding-left: 10%;
   }
   table {
-    width: 82%;
+    width: 90%;
     text-align: left;
     border-collapse: collapse;
   }
@@ -319,12 +319,12 @@ td {
   }
   .tab02-img {
     top: 0;
-    margin-top: 102em;
-    width: 10em;
+    margin-top: 95em;
+    width: 8em;
   }
   .img-yellow19 {
-    margin-left: 5em;
-    margin-top: 22.5em;
+    margin-left: 7em;
+    margin-top: 21em;
   }
 }
 .header-home {
