@@ -416,4 +416,40 @@ td {
   .menu-list-mobile {
     display: none;
   }
+}
+.panneauFooter {
+  background-color: red;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin: 0 0 1.875rem 4.375rem;
+  padding: 0 0 1.875rem 4.375rem;
+}
+.panneauFooter .title-panneauFooter {
+  width: 50%;
+  height: auto;
+  text-transform: uppercase;
+  display: flex;
+  text-align: left;
+  padding-top: 1em;
+  font-size: 68px;
+  font-weight: 900;
+  font-family: "Roboto";
+  margin: 6.25rem;
+  padding: 6.25rem;
+}
+.panneauFooter .wrapper-imgFooter {
+  width: 50%;
+  display: flex;
+}
+.panneauFooter .rect-yellow {
+  position: absolute;
+  height: auto;
+  left: 0;
+  z-index: 2;
+}
+.panneauFooter .footer-img {
+  position: absolute;
+  right: 0;
+  height: auto;
 }/*# sourceMappingURL=styles.css.map */

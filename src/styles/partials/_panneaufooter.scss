@@ -1,0 +1,50 @@
+@use "helper" as h;
+
+.panneauFooter {
+  background-color: red;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin: 0 0 1.875rem 4.375rem;
+  padding: 0 0 1.875rem 4.375rem;
+  .title-panneauFooter {
+    width: 50%;
+    height: auto;
+    text-transform: uppercase;
+    display: flex;
+    text-align: left;
+    padding-top: 1em;
+    font-size: 68px;
+    font-weight: 900;
+    font-family: h.$roboto;
+    margin: 6.25rem;
+    padding: 6.25rem;
+  }
+    .wrapper-imgFooter {
+      width: 50%;
+      display: flex;
+      
+      }
+    .rect-yellow {
+      position: absolute;
+      height: auto;
+      left: 0;
+      z-index: 2;
+    }
+      .footer-img {
+        position: absolute;
+        //top: 0;
+        right: 0;
+        height: auto;
+        //translate: translateX(50px);
+        //translate: translateY(50px);
+      }
+}
+
+
+  
+
+
+
+    
+
