@@ -9,7 +9,8 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
     
     //State
     const [dataBack, setDataBack] = useState([]);
-    
+
+
     //Comportements
     useEffect(() => {
         fetch(url)
@@ -25,7 +26,7 @@ export default function DisplayArray ({url,companyUrl,titles,keysColumn,type}){
     
         
     //Affichage (render)
-    return  <div>                
+    return  <div className="tableau">                
                 <table>
                     <thead>
                         <tr key={`${type}-titles`} >

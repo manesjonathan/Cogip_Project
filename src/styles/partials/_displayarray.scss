@@ -2,15 +2,17 @@
 //EXEMPLE: color: h.$red;
 
 .tab{
-    width:100%;
-    padding: 3%;
+    padding: 5%;
 }
 
 table{
-    width: 90%;
+    width:40em;
     text-align: left;
     border-collapse: collapse;
+}
 
+.tableau{
+    overflow-x: auto;
 }
 
 thead{
@@ -18,7 +20,7 @@ thead{
 }
 
 th{
-    padding: 0.5em;
+   padding: 0.5em;
 }
 
 tr{
@@ -42,38 +44,48 @@ td{
 }
 
 .title02, .title03{
-    margin-top: 1em;
+    margin-top: 3.5em;
+}
+
+.img-yellow19{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    margin-left: 5em;
+    margin-top: 14em;
+    width:12em;
 }
 
 .tab01-img{
     position: absolute;
     margin-top: 2em;
     right:0; 
-    width:5em;
+    width:7em;
 }
 
 .tab02-img{
     position: absolute;
     left:0; 
-    width:5em;
+    width:7em;
+
 }
 
 .input{
     padding: 1em;
-    margin:1em;
-    border: 1px solid black;
+    border: px solid h.$jaune;
     border-radius: 1em;
+    margin: 1em;
+    margin-left:12em;
 }
 
 @media screen and (min-width: 1023px) {
 
 .tab{
-    padding: 8%;
-
+  padding-left: 10%;
 }
     
 table{
-    width: 82%;
+    width: 90%;
     text-align: left;
     border-collapse: collapse;
 }
@@ -84,14 +96,29 @@ table{
     padding-bottom: 1em;
 }
 
+.title02, .title03{
+    margin-top: 1em;
+}
+
 .tab01-img{
     width:10em;
+
 }
 
 .tab02-img{
     top:0;
-    margin-top: 102em;
-    width:10em;
+    margin-top: 93.5em;
+    width:8em;
 
+}
+
+.img-yellow19{
+    margin-left: 7em;
+    margin-top: 21em;
+    width:17em;
+}
+
+.input{
+    margin-left:56em;
 }
 }
