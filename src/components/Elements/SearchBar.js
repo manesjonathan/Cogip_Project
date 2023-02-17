@@ -1,5 +1,4 @@
-import React,{useEffect, useState} from "react";
-import DisplayArray from "./DisplayArray.js";
+import React from "react";
 
 function SearchBar(){
 
