@@ -240,7 +240,7 @@ table {
   border-collapse: collapse;
 }
 
-.tab01, .tab02, .tab03 {
+.tableau {
   overflow-x: auto;
 }
 
@@ -288,13 +288,15 @@ td {
   position: absolute;
   margin-top: 2em;
   right: 0;
-  width: 5em;
+  width: 7em;
 }
 
 .tab02-img {
   position: absolute;
   left: 0;
-  width: 5em;
+  top: 0;
+  margin-top: 77.2em;
+  width: 6em;
 }
 
 .input {

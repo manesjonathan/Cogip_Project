@@ -11,7 +11,7 @@ function HomePage() {
       <HeaderHome />
       <PanneauHeader/>
       <DisplayAllArrays />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
