@@ -2,7 +2,6 @@
 /Database/.env
 /.idea/
 /node_modules/
-.phpunit.result.cache
 
 .secret-*
 **.sample

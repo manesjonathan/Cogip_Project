@@ -19,27 +19,7 @@ usort($invoices, function ($a, $b) {
     <div class="my-2 flex flex-col col-start-1 col-end-1 px-5  mb-14">
         <section class="bg-white rounded-lg my-4 items-center p-4">
             <h3 class="text-lg font-bold mb-2">Statistics</h3>
-
-            <ul class="flex text-sm text-white justify-center">
-                <li class="items-center justify-center p-2 ">
-                    <div class="h-20 w-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllInvoices(false)) ?></p>
-                        <p class="m-0">Invoices</p>
-                    </div>
-                </li>
-                <li class="items-center justify-center p-2 ">
-                    <div class="h-20 w-20 rounded-full bg-blue-200 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllContacts(false)) ?></p>
-                        <p class="m-0">Contacts</p>
-                    </div>
-                </li>
-                <li class="items-center justify-center p-2 ">
-                    <div class="h-20 w-20 rounded-full bg-red-200 flex flex-col items-center justify-center text-center">
-                        <p class="m-0"><?php echo count($company_service->getAllCompanies(false)) ?></p>
-                        <p class="m-0">Companies</p>
-                    </div>
-                </li>
-            </ul>
+            <canvas id="stats"></canvas>
         </section>
 
         <section class="bg-white p-4 rounded-lg my-4">
