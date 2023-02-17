@@ -66,15 +66,16 @@ td{
     position: absolute;
     left:0; 
     top:0;
-    margin-top: 77.2em;
+    margin-top: 79em;
     width:6em;
 }
 
 .input{
     padding: 1em;
-    margin:1em;
     border: 1px solid black;
     border-radius: 1em;
+    margin: 1em;
+    margin-left:12em;
 }
 
 @media screen and (min-width: 1023px) {
@@ -114,5 +115,9 @@ table{
 .img-yellow19{
     margin-left: 7em;
     margin-top: 21em;
+}
+
+.input{
+    margin-left:56em;
 }
 }
