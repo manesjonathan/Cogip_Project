@@ -15,6 +15,7 @@ export default function DisplayAContactsArrays (){
                     <img className ="img-yellow19" src={Rect19yellow} alt="img-rectyellow" ></img>
                     <SearchBar/>
                     <DisplayArray url={contactsUrl} companyUrl={companyUrlId} titles={contactsTitles} keysColumn={contactsKeys} type="contacts"/>
+
                 </section>
 
             </div>;

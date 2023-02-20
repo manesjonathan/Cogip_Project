@@ -1,16 +1,42 @@
-import React,{useEffect, useState} from "react";
-import DisplayArray from "./DisplayArray.js";
+import { useEffect, useState } from "react";
 
-function SearchBar(){
+function SearchBar({url,type}){
+    
+    //State
+    const [dataBack, setDataBack] = useState([]);
+    const [itemOffset, setItemOffset] = useState(0);
+    const [searchTerm, setSearchTerm] = useState('');
+  
+    useEffect(() => {
+        fetch(url)
+        .then((res) => res.json())
+        .then((dataBack) => {
+        setDataBack(dataBack[type]);
+        })
+    },[]);  
+  
+    const currentData = dataBack
+      .filter((elem) =>
+        elem.names.toLowerCase().includes(searchTerm.toLowerCase())//le problème est ici au name
+      )
 
-    return(
+    const handleSearch = (event) => {
+      setSearchTerm(event.target.value);
+      setItemOffset(0);
+    };
+  console.log(dataBack)
+    return (
         <>
-        <div>
-        <input className="input input-invoices" placeholder="Search company" type="text"></input> 
-        </div>
-        <div></div>
+          <input
+            placeholder="search company"
+            size='sm'
+            className='input'
+            value={searchTerm}
+            onChange={handleSearch}></input>
+           
         </>
-    )
-}
-
-export default SearchBar
+    );
+  }
+  export default SearchBar
+  
+  
