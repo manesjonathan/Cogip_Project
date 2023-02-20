@@ -1,45 +1,92 @@
 @use "helper" as h;
 
 .panneauFooter {
-  background-color: red;
-  width: 100%;
+  
+  width: 75%;
   height: auto;
   display: flex;
-  margin: 0 0 1.875rem 4.375rem;
-  padding: 0 0 1.875rem 4.375rem;
+  margin: 0 0 15px 15px;
+  padding: 0 0 15px 15px;
   .title-panneauFooter {
+    
     width: 50%;
     height: auto;
     text-transform: uppercase;
     display: flex;
     text-align: left;
     padding-top: 1em;
-    font-size: 68px;
+    font-size: 30px;
     font-weight: 900;
     font-family: h.$roboto;
-    margin: 6.25rem;
-    padding: 6.25rem;
+    
   }
     .wrapper-imgFooter {
-      width: 50%;
+      
+      width: 100%;
+      height: auto;
       display: flex;
       
       }
     .rect-yellow {
       position: absolute;
+      width: 70%;
       height: auto;
-      left: 0;
-      z-index: 2;
+      float: right;
+      margin-left: 50px;
+      /*left: 668.96px
+      margin-left: 1000px;
+      translate: translateX(1000px);
+      right: 0;
+      z-index: 2;*/
     }
-      .footer-img {
-        position: absolute;
-        //top: 0;
-        right: 0;
-        height: auto;
-        //translate: translateX(50px);
-        //translate: translateY(50px);
+
+    .footer-img {
+      position: absolute;
+      right: 0;
+      width: 30%;
+      height: 30%;
+      /*top: 0;
+      translate: translateX(-50px);
+      translate: translateY(50px);*/
       }
 }
+//------------------------------Media queries----------------------------------//
+
+@media screen and (min-width: 818px) {
+
+.panneauFooter {
+  
+  width: 100%;
+  margin: 0 0 40px 30px;
+  padding: 0 0 40px 30px;
+
+  .title-panneauFooter {
+
+    font-size: 68px;
+    width: 511.38px;
+    height: 246px;
+    margin: 6.25rem 0 6.25rem 6.25rem;
+    padding: 6.25rem 0 6.25rem 6.25rem;
+    line-height: 82.3px;
+  }
+
+  /*.wrapper-imgFooter {
+
+  }*/
+
+  .rect-yellow {
+    width: 65%;
+    height: auto;
+  } 
+
+  .footer-img {
+    font-weight: 900;
+    width: 40%;
+    height: auto;
+  }
+}}
+
+
 
 
   
