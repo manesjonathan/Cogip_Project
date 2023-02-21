@@ -15,7 +15,6 @@ export default function DisplayAllArrays (){
     const companiesTitles = ["Name", "TVA", "Country","Type","Created at"];
     const companiesKeys = ["name","tva","country","type_id","created_at"];
     const companiesUrl = "https://cogip.jonathan-manes.be/get-latest-companies";
-    
     const companyUrlId = "https://cogip.jonathan-manes.be/get-company/";
 
 
@@ -23,7 +22,7 @@ export default function DisplayAllArrays (){
                 <section className="tab01">
                     <h2 className="tab-title title01">Last invoices</h2>
                     <DisplayArray url={invoicesUrl} companyUrl={companyUrlId} titles={invoicesTitles} keysColumn={invoicesKeys} type="invoices"/>
-                    <img className="tab01-img" src={illuproject} alt="image d'illu" />
+                    <img className="tab01-img" src={illuproject} alt="illustration du tab01" />
                 </section>
 
                 <section className="tab02">

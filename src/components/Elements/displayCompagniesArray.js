@@ -14,7 +14,7 @@ export default function DisplayComapgniesArrays (){
     return  <div className="tab">
                 <section className="tab03">
                     <h2 className="tab-title">All companies</h2>
-                    <img className ="img-yellow19" src={Rect19yellow} alt="img-rectyellow" ></img>
+                    <img className ="img-yellow19" src={Rect19yellow} alt="rectangle jaune" ></img>
                     <SearchBar/>
                     <DisplayArray url={companiesUrl} companyUrl={companyUrlId} titles={companiesTitles} keysColumn={companiesKeys} type="companies"/>
                 </section>
