@@ -1,6 +1,6 @@
 import DisplayArray from "./DisplayArray.js";
 import Rect19yellow from '../../Images/rectangle-19.avif'
-
+import SearchBar from '../Elements/SearchBar.js';
 
 export default function DisplayInvoicesArrays (){
     const invoicesTitles = ["Invoice number", "Dates due", "Company","Created at"];
@@ -13,6 +13,7 @@ export default function DisplayInvoicesArrays (){
                 <section className="tab01">
                     <h2 className="tab-title">All invoices</h2>
                     <img className ="img-yellow19" src={Rect19yellow} alt="img-rectyellow" ></img>
+                    <SearchBar/>
                     <DisplayArray url={invoicesUrl} companyUrl={companyUrlId} titles={invoicesTitles} keysColumn={invoicesKeys} type="invoices"/>
                 </section>
             </div>;

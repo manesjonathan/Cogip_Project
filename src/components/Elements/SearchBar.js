@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function SearchBar({url,type}){
     
     //State
-    const [dataBack, setDataBack] = useState([]);
+    let [dataBack, setDataBack] = useState([]);
     const [itemOffset, setItemOffset] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
   
@@ -16,12 +16,10 @@ function SearchBar({url,type}){
         })
     },[]);  
   
-    const currentData = e => {dataBack
-      .filter(name => name ===searchTerm)
-      .map(name => {
-        return name;
-      })
-    };
+    const currentData = e=> {dataBack = dataBack
+    .filter((elem) =>
+      elem.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ).slice(itemOffset, dataBack.length); console.log(dataBack)};
 
     const handleSearch = (event) => {
       setSearchTerm(event.target.value);
