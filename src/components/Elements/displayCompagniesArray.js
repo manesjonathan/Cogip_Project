@@ -1,5 +1,5 @@
 import DisplayArray from "./DisplayArray.js";
-import SearchBar from "./SearchBar.js";
+
 import Rect19yellow from '../../Images/rectangle-19.avif';
 
 export default function DisplayComapgniesArrays (){
@@ -15,7 +15,7 @@ export default function DisplayComapgniesArrays (){
                 <section className="tab03">
                     <h2 className="tab-title">All companies</h2>
                     <img className ="img-yellow19" src={Rect19yellow} alt="img-rectyellow" ></img>
-                    <SearchBar/>
+
                     <DisplayArray url={companiesUrl} companyUrl={companyUrlId} titles={companiesTitles} keysColumn={companiesKeys} type="companies"/>
                 </section>
             </div>;
