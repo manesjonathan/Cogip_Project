@@ -460,6 +460,7 @@ td {
   display: flex;
 }
 .panneauFooter .rect-yellow {
+  right: 0;
   position: absolute;
   width: 70%;
   height: auto;
@@ -468,7 +469,7 @@ td {
   /*left: 668.96px
   margin-left: 1000px;
   translate: translateX(1000px);
-  right: 0;
+
   z-index: 2;*/
 }
 .panneauFooter .footer-img {
