@@ -135,12 +135,14 @@ footer {
     height: 1.5rem;
   }*/
 }
-.social-div .social-contact {
+
+.social-contact {
+  background-color: aquamarine;
   display: flex;
   flex-direction: column;
   list-style: none;
 }
-.social-div .social-contact img {
+.social-contact img {
   width: 1.05rem;
   height: 1.05rem;
 }
@@ -459,7 +461,7 @@ td {
 }
 .panneauFooter .rect-yellow {
   position: absolute;
-  width: 60%;
+  width: 70%;
   height: auto;
   float: right;
   margin-left: 50px;
@@ -490,11 +492,8 @@ td {
   }
   .panneauFooter .title-panneauFooter {
     font-size: 68px;
-    width: 511.38px;
-    height: 246px;
-    margin: 6.25rem 0 6.25rem 6.25rem;
-    padding: 6.25rem 0 6.25rem 6.25rem;
-    line-height: 82.3px;
+    width: 12em;
+    padding: 1%;
   }
   .panneauFooter .rect-yellow {
     width: 65%;
@@ -505,4 +504,6 @@ td {
     width: 40%;
     height: auto;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

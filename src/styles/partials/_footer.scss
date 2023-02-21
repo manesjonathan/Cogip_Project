@@ -42,15 +42,15 @@ footer {
     width: 1.5rem;
     height: 1.5rem;
   }*/
-  .social-contact {
-    //background-color: red;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    img {
-      width: 1.05rem;
-      height: 1.05rem;
-    }
+}
+.social-contact {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  img {
+    width: 1.05rem;
+    height: 1.05rem;
   }
 }
 
