@@ -12,19 +12,22 @@ function SearchBar({url,type}){
         .then((res) => res.json())
         .then((dataBack) => {
         setDataBack(dataBack[type]);
+        console.log(dataBack)
         })
     },[]);  
   
-    const currentData = dataBack
-      .filter((elem) =>
-        elem.names.toLowerCase().includes(searchTerm.toLowerCase())//le problème est ici au name
-      )
+    const currentData = e => {dataBack
+      .filter(name => name ===searchTerm)
+      .map(name => {
+        return name;
+      })
+    };
 
     const handleSearch = (event) => {
       setSearchTerm(event.target.value);
       setItemOffset(0);
     };
-  console.log(dataBack)
+
     return (
         <>
           <input
@@ -32,7 +35,7 @@ function SearchBar({url,type}){
             size='sm'
             className='input'
             value={searchTerm}
-            onChange={handleSearch}></input>
+            onChange={e => {setSearchTerm(e.target.value);currentData()}}></input>
            
         </>
     );
