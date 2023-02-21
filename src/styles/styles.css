@@ -93,7 +93,6 @@ a {
 }
 footer {
   font-family: "Roboto";
-  font-weight: 500;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -102,8 +101,7 @@ footer {
 .social-container {
   width: 100%;
   height: auto;
-  margin: 1.5rem;
-  padding: 1rem;
+  margin: 1rem 1.5rem 1rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-top: solid #F9DE49 0.125rem;
@@ -111,57 +109,77 @@ footer {
 }
 
 .wrapper-title {
-  width: 25%;
+  font-weight: 500;
+  width: 37%;
+  height: auto;
+  padding: 60px 60px 60px 30px;
 }
 .wrapper-title .footer-title {
-  font-family: "Roboto";
-  padding: 0.5em;
+  padding: 0.625rem;
   box-sizing: border-box;
-  border: 3px solid #f9de4e;
+  border: 0.3125rem solid #f9de4e;
   grid-column-start: 1;
   grid-column-end: 1;
 }
 
 .social-div {
+  background-color: blue;
   grid-column-start: 2;
   grid-column-end: 2;
   display: flex;
-  flex-direction: column;
   width: 100%;
   height: auto;
   flex-direction: row;
+  /*img{
+    width: 1.5rem;
+    height: 1.5rem;
+  }*/
+}
+.social-div .social-contact {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.social-div .social-contact img {
+  width: 1.05rem;
+  height: 1.05rem;
 }
 
 .social-media {
+  background-color: red;
   list-style: none;
   display: flex;
   justify-content: space-between;
 }
 .social-media img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.05rem;
+  height: 1.05rem;
 }
 
-.logo-location {
+/*.logo-location {
+
   width: auto;
   height: 1.5rem;
 }
 
 .social-contact {
+
   display: flex;
   flex-direction: row;
   list-style: none;
-}
-.social-contact img {
-  width: 1.5rem;
-  height: 1.5rem;
+
+  img {
+
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 .wrapper {
+
   display: flex;
   width: 100%;
 }
-
 /*
   .title-social {
     display: inline;
@@ -300,7 +318,6 @@ td {
 
 .input {
   padding: 1em;
-  border: px solid #F9DE49;
   border-radius: 1em;
   margin: 1em;
   margin-left: 12em;
@@ -442,7 +459,7 @@ td {
 }
 .panneauFooter .rect-yellow {
   position: absolute;
-  width: 70%;
+  width: 60%;
   height: auto;
   float: right;
   margin-left: 50px;

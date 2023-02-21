@@ -19,9 +19,11 @@ const Footer = () => {
           <h1 className="footer-title">COGIP</h1>
         </div>
         <div classeName="social-div">
-          <img className="logo-location" src={Location} alt="logo location" />
-          Square des Martyrs, 6000 Charleroi
           <ul className="social-contact">
+            <li>
+              <img className="logo-location" src={Location} alt="logo location" />
+              Square des Martyrs, 6000 Charleroi
+            </li>
             <li>
               <img className="logo-phone" src={Phone} alt="logo phone" />
               (123)456-7890
