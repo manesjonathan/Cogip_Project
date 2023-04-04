@@ -7,6 +7,7 @@ class Invoice
     private $id;
     private $ref;
     private $id_company;
+    private $company_name;
     private $created_at;
     private $updated_at;
 
@@ -30,6 +31,16 @@ class Invoice
     public function setRef($ref)
     {
         $this->ref = $ref;
+    }
+
+    public function setCompanyName($name)
+    {
+        $this->company_name = $name;
+    }
+
+    public function getCompanyName()
+    {
+        return $this->company_name;
     }
 
     public function getIdCompany()

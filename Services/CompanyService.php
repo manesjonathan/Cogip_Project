@@ -285,9 +285,15 @@ class CompanyService
     {
         $data['invoices'] = $this->company_repository->getAllInvoices();
 
+        foreach ($data['invoices'] as $elem) {
+            $companyById = $this->company_repository->getCompanyById($elem);
+            $data['invoices'][$elem]->setName($companyById->getName());
+        }
+
         if (isset($_SESSION['user'])) {
             return $data['invoices'];
         }
+
         if ($last_five === true) {
             $data['invoices'] = array_slice($data['invoices'], 0, 5);
 
