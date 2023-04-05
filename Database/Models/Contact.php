@@ -8,6 +8,7 @@ class Contact
     private $id;
     private $name;
     private $company_id;
+    private $company_name;
     private $email;
     private $phone;
     private $created_at;
@@ -46,6 +47,18 @@ class Contact
     {
         $this->company_id = $company_id;
     }
+
+    public function getCompanyName()
+    {
+        return $this->company_name;
+    }
+
+    public function setCompanyName($name)
+    {
+        $this->company_name = $name;
+    }
+
+
 
     public function getEmail()
     {

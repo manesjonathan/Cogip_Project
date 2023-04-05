@@ -130,6 +130,12 @@ class CompanyService
     {
         $data['contacts'] = $this->company_repository->getAllContacts();
 
+        foreach ($data['contacts'] as $key => $elem) {
+
+            $data['contacts'][$key]['company'] = $this->company_repository->getCompanyById($elem['company_id']);
+
+        }
+
         if (isset($_SESSION['user'])) {
             return $data['contacts'];
         }
