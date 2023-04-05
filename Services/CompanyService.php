@@ -285,9 +285,9 @@ class CompanyService
     {
         $data['invoices'] = $this->company_repository->getAllInvoices();
 
-        foreach ($data['invoices'] as $elem) {
-            $companyById = $this->company_repository->getCompanyById($elem);
-            $data['invoices'][$elem]->setName($companyById->getName());
+        foreach ($data['invoices'] as $key => $elem) {
+            $companyById = $this->company_repository->getCompanyById($elem['id_company']);
+            $data['invoices'][$key]['name'] = $companyById['name'];
         }
 
         if (isset($_SESSION['user'])) {
