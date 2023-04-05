@@ -161,6 +161,9 @@ class CompanyService
         $id = intval($id);
 
         $data["contact"] = $this->company_repository->getContactById($id);
+        $data['contact'][0]['company'] = $this->company_repository->getCompanyById($data["contact"]['company_id'])['name'];
+
+
         if (isset($_SESSION['user'])) {
             return $data['contact'];
         }
@@ -248,6 +251,9 @@ class CompanyService
         }
         $id = intval($id);
         $data["invoice"] = $this->company_repository->getInvoiceById($id);
+
+        $data['invoice'][0]['company'] = $this->company_repository->getCompanyById($data["invoice"]['id_company'])['name'];
+
         if (isset($_SESSION['user'])) {
             return $data['invoice'];
         }
@@ -323,6 +329,12 @@ class CompanyService
         $company = intval($company);
 
         $data["invoices"] = $this->company_repository->getInvoicesByCompany($company);
+
+        foreach ($data['invoices'] as $key => $elem) {
+            $companyById = $this->company_repository->getCompanyById($elem['id_company']);
+            $data['invoices'][$key]['name'] = $companyById['name'];
+        }
+
         if (isset($_SESSION['user'])) {
             return $data['invoices'];
         }
